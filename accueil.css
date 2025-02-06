@@ -12,6 +12,9 @@ body::after {
     z-index: -1;
     filter: brightness(0.7);
 }
+body{
+    margin: 0;
+}
 
 
 h2{
