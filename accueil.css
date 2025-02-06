@@ -17,12 +17,14 @@ body::after {
 h2{
     text-align: center;
     color: white;
-    font-weight:bold;
+    font-weight: 900;
 }
 
 h3{
+    font-weight: 900;
     text-align: center;
     color: white;
+    margin-top: 100px;
 }
 .container2 h4{
     text-align: center;
@@ -37,11 +39,11 @@ h3{
 .container2{
     display: grid;
     grid-template-areas: "info1 info2 info3";
-    grid-template-columns: 200px 200px 200px;
-    grid-template-rows: 150px;
+    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: 175px;
     grid-column-gap: 100px;
     justify-content: center;
-    margin-top: 200px;
+    margin-top: 100px
 }
 .info1{
     grid-area: info1;
@@ -53,5 +55,8 @@ h3{
     grid-area: info3;
 }
 .container2 div{
-    background-color: aliceblue;
+    background-color: #4A3B50;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 10px;
 }

@@ -22,13 +22,12 @@ header img{
 .lien_se_connecter {
     grid-area: se_connecter;
     justify-self: end;
-    margin-right: 20px;
-    border-radius: 50%;
+    border: #61689a solid 2px;
     display: flex;
     align-items: center;    
     justify-content: center;
     
-    background-color: #2033c0;
+    background-color: #61689a;
     color: white;
     font-weight: bold;
 }
