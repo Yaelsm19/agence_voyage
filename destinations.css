@@ -1,0 +1,46 @@
+.container2 {
+    display: grid;
+    grid-template-areas: "filtrer rechercher";
+    grid-template-columns: 100px 100px 100px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.container2 > input[type="button"] {
+    grid-area: filtrer;
+}
+
+.container2 form {
+    grid-area: rechercher;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+}
+
+.container2>input{
+    background-color: #61689a;
+    color: white;
+}
+
+.container2>form>input[type="submit"]{
+    background-color: #61689a;
+}
+.Voyages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-auto-rows:250px;
+    gap: 100px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.Voyages > div {
+    background-color: #f5f5f5;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 150px auto;
+}
