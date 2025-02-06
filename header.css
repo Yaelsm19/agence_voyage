@@ -1,0 +1,48 @@
+.container1{
+    display: grid;
+    grid-template-areas: "logo accueil destinations se_connecter";
+    grid-template-columns: 100px auto auto auto;
+    grid-template-rows: 50px;
+    
+}
+header img{
+    grid-area: logo;
+    height: 100%;
+}
+
+.lien_accueil{
+    grid-area: accueil;
+    justify-self: center;
+}
+
+.lien_destinations{
+    grid-area: destinations;
+    justify-self: center;
+}
+.lien_se_connecter {
+    grid-area: se_connecter;
+    justify-self: end;
+    margin-right: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    
+    background-color: #2033c0;
+    color: white;
+    font-weight: bold;
+}
+
+header{
+    background-color: #4A3B50;
+}
+header a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+header a:hover{
+    color: aquamarine;
+}

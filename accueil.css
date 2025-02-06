@@ -1,0 +1,57 @@
+body::after {
+    content: "";
+    background-image: url('time_travel_background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    filter: brightness(0.7);
+}
+
+
+h2{
+    text-align: center;
+    color: white;
+    font-weight:bold;
+}
+
+h3{
+    text-align: center;
+    color: white;
+}
+.container2 h4{
+    text-align: center;
+    margin: 10px 10px;
+    font-weight: bold;
+}
+.container2 p{
+    font-size: 15px;
+    text-align: center;
+}
+
+.container2{
+    display: grid;
+    grid-template-areas: "info1 info2 info3";
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 150px;
+    grid-column-gap: 100px;
+    justify-content: center;
+    margin-top: 200px;
+}
+.info1{
+    grid-area: info1;
+}
+.info2{
+    grid-area: info2;
+}
+.info3{
+    grid-area: info3;
+}
+.container2 div{
+    background-color: aliceblue;
+}
