@@ -43,7 +43,7 @@ body {
 .Voyages {
     display: grid;
     grid-template-columns: repeat(auto-fill, 350px);
-    grid-auto-rows:300px;
+    grid-auto-rows:320px;
     gap: 70px;
     margin-top: 50px;
     margin-left: 20px;
@@ -54,8 +54,8 @@ body {
     border: 1px solid black;
     border-radius: 8px;
     background-color: #4A3B50;
+    box-shadow: 0px 0px 15px rgba(173, 216, 230, 0.8);
 }
-
 .Voyages .image_destinations {
     width: 100%;
     object-fit: cover;
@@ -63,10 +63,17 @@ body {
     border-radius: 8px;
 }
 
-.Voyages .période{
-    margin: 0 10px;
+.Voyages .période {
+    font-size: 17px;
+    margin: 10px 10px 10px 10px;
     text-align: center;
     color: white;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .Voyages .description{
@@ -74,21 +81,36 @@ body {
     color: white;
     text-align:left;
 }
-
-.Voyages .prix{
-    color: white;
-    margin-left: 10px;
+.Voyages .prix_bouton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 10px 10px 10px;
 }
 
-.Voyages .en_savoir_plus{
-    margin: 0 10px;
+.Voyages .prix {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffe680;
+    animation: sparkle 1.5s infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { text-shadow: 0 0 5px #ffffff, 0 0 10px #d9d9d9, 0 0 15px #bfbfbf; }
+    50% { text-shadow: 0 0 10px #ffffff, 0 0 20px #e6e6e6, 0 0 25px #cccccc; }
+    100% { text-shadow: 0 0 5px #ffffff, 0 0 10px #d9d9d9, 0 0 15px #bfbfbf; }
+}
+
+.Voyages .en_savoir_plus {
+    padding: 5px 15px;
     color: white;
-    margin-left: 175px;
     text-decoration: none;
     background-color: #61689a;
-    border:  black solid 2px;
-    padding: 5px 5px;
+    border: 2px solid black;
+    border-radius: 5px;
 }
-.Voyages .en_savoir_plus:hover{
+
+.Voyages .en_savoir_plus:hover {
     color: aquamarine;
+    box-shadow: 0px 0px 8px rgba(173, 216, 230, 0.8);
 }
