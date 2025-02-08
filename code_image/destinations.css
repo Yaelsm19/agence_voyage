@@ -8,7 +8,7 @@ body{
 body {
     margin: 0;
     padding: 0;
-    background: url('destinations_background.jpg') no-repeat center center fixed;
+    background: url('image_background/destinations_background.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
