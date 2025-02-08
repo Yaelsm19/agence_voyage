@@ -11,35 +11,40 @@ body {
     background: url('image_background/destinations_background.jpg') no-repeat center center fixed;
     background-size: cover;
 }
-
 .container2 {
-    display: grid;
-    grid-template-areas: "filtrer rechercher";
-    grid-template-columns: 100px 100px 100px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
-}
+    border-radius: 8px;
+    margin-top: 30px;
 
-.container2 > input[type="button"] {
-    grid-area: filtrer;
-}
-
-.container2 form {
-    grid-area: rechercher;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-}
-
-.container2>input{
+  }
+  
+  input[type="button"] {
     background-color: #61689a;
     color: white;
-}
-
-.container2>form>input[type="submit"]{
-    background-color: #61689a;
-}
+    border: none;
+    padding: 8px 15px;
+    font-size: 15px;
+    border-radius: 5px 0 0 5px;
+  }
+  form {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="search"] {
+    padding: 8px 15px;
+    font-size: 15px;
+  }
+  
+  input[type="submit"] {
+    background-color: #4A3B50;
+    padding: 8px 15px;
+    border: none;
+    font-size: 15px;
+    border-radius: 0 5px 5px 0;
+  }
 .Voyages {
     display: grid;
     grid-template-columns: repeat(auto-fill, 350px);
