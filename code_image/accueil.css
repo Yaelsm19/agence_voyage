@@ -34,34 +34,34 @@ h3{
     text-align: center;
     margin: 10px 10px;
     font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10%;
 }
 .container2 p{
     font-size: 15px;
     text-align: center;
 }
 
-.container2{
+.container2 {
     display: grid;
-    grid-template-areas: "info1 info2 info3";
-    grid-template-columns: 250px 250px 250px;
-    grid-template-rows: 175px;
-    grid-column-gap: 100px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
     justify-content: center;
-    margin-top: 100px
+    margin: 100px auto;
+    max-width: 90%;
 }
-.info1{
-    grid-area: info1;
-}
-.info2{
-    grid-area: info2;
-}
-.info3{
-    grid-area: info3;
-}
-.container2 div{
+.container2 div {
     background-color: #4A3B50;
     border-radius: 10px;
     color: white;
-    padding: 10px 10px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .container2 {
+        grid-template-columns: 1fr;
+        max-width: 80%;
+    }
 }
   
