@@ -16,6 +16,7 @@
     align-items: center;
     padding: 10px;
     flex: 1;
+    border-right: 2px solid rgb(51, 48, 48);
   }
   
   .footer-liens {
