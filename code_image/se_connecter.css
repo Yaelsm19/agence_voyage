@@ -1,3 +1,80 @@
-connexion {
-    font-size: 50px;
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #4A3B50;
+}
+
+
+h1{
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background-color: #333;
+    font-size: 2.5em;
+    margin-bottom: 70px;
+}
+
+
+.form-container{
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+input[type="email"], input[type="password"]{
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #61689a;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+
+button{
+    padding: 12px 20px;
+    background-color: #61689a;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+button:hover{
+    background-color: #505885;
+    color: aquamarine;
+}
+
+
+h2{
+    text-align: center;
+    color:white;
+    font-size: 16px;
+}
+
+h2 a{
+    color:white;
+}
+
+
+h2 a:hover{
+    color: aquamarine;
+}
+
+
+label{
+    color:white;
 }
