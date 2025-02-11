@@ -1,7 +1,9 @@
 couleur de fond : #4A3B50
-nuance couleur de fond : rgba(255, 255, 255, 0.1)
+nuance couleur de fond : #FFFFFF1A
 couleur de texte : white
-couleur de bouton/lien_important : #61689a
-couleur de survolage bouton/lien_important : #505885
-couleur de survolage bouton/lien texte : aquamarine
+couleur de fond de bouton : #61689a
+couleur de survolage  de fond de bouton: #505885
+couleur de survolage box shadow : box-shadow: 0px 0px 8px #add8e6cc
+couleur de survolage bouton/lien texte : #7fffd4
+
 noir clair : #333

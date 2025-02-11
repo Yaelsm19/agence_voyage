@@ -1,11 +1,10 @@
-/* Global Styles */
 body {
     margin: 0;
     padding: 0;
     background-color: #4A3B50;
 }
 
-/* Header */
+
 h1 {
     text-align: center;
     padding: 20px;
@@ -48,7 +47,7 @@ textarea {
     height: 150px;
 }
 
-/* Label Styles */
+
 label {
     font-size: 16px;
     font-weight: 500;
@@ -71,7 +70,7 @@ button:hover {
     color: aquamarine;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     h1 {
         font-size: 1.8em;
