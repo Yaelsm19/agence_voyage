@@ -1,44 +1,47 @@
 .container1 {
-    display: grid;
-    grid-template-areas: "logo accueil destinations se_connecter";
-    grid-template-columns: 100px auto auto minmax(120px, auto);
-    grid-template-rows: 50px;
+    display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 0 20px;
+    justify-content: space-between;
+    padding: 12px;
+    gap: 30px;
 }
 
 header img {
-    grid-area: logo;
     height: 40px;
     width: auto;
 }
 
 .lien_accueil {
-    grid-area: accueil;
-    justify-self: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .lien_destinations {
-    grid-area: destinations;
-    justify-self: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.lien_profil, .lien_panier {
+    display: flex;
+    justify-content: center;
+    align-items: center;/
 }
 
 .lien_se_connecter {
-    grid-area: se_connecter;
-    justify-self: end;
-    border: #61689a solid 2px;
-    padding: 5px 15px;
+    padding: 10px;
     border-radius: 5px;
-    
     background-color: #61689a;
     color: white;
     font-weight: bold;
     font-size: 16px;
+    align-self: center;
 }
 
 .lien_se_connecter:hover {
     background-color: #505885;
+    box-shadow: 0px 0px 8px #add8e6cc;
 }
 
 header {
@@ -52,12 +55,22 @@ header a {
     color: white;
     font-size: 18px;
     transition: color 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 header a:hover {
     color: #7fffd4;
 }
 
+.lien_profil img, .lien_panier img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    padding: 5px 5px;
+}
+header a:hover{
+    transform: scale(1.2);
+}
 @media (max-width: 768px) {
     .container1 {
         display: flex;
