@@ -1,16 +1,12 @@
-body::after {
-    content: "";
-    position: fixed;
+#background-video {
+    position: fixed; /* Fixer la vidéo pour qu'elle reste en place lors du défilement */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background: url('image_background/accueil_background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    z-index: -1;
-    filter: brightness(0.8);
+    height: 100%;
+    object-fit: cover; /* Couvre toute la fenêtre sans déformation */
+    z-index: -1; /* Placer la vidéo derrière le contenu */
 }
-
 body{
     margin: 0;
 }
@@ -28,6 +24,7 @@ h3{
     text-align: center;
     color: white;
     margin-top: 100px;
+    line-height: 1.5;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 .container2 h4{
@@ -41,6 +38,7 @@ h3{
 .container2 p{
     font-size: 15px;
     text-align: center;
+    line-height: 1.5;
 }
 
 .container2 {
