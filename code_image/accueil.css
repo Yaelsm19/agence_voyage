@@ -1,31 +1,41 @@
 #background-video {
-    position: fixed; /* Fixer la vidéo pour qu'elle reste en place lors du défilement */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Couvre toute la fenêtre sans déformation */
-    z-index: -1; /* Placer la vidéo derrière le contenu */
+    object-fit: cover;
+    z-index: -1;
 }
 body{
     margin: 0;
 }
 
 
-h2{
+.bannière, .offre-bannière {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
     text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 0px 8px #add8e6cc;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 900px;
+}
+
+.bannière h2, .offre-bannière h2, .bannière h3 {
+    margin: 0;
     color: white;
-    font-weight: 900;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
-h3{
-    font-weight: 900;
-    text-align: center;
-    color: white;
-    margin-top: 100px;
-    line-height: 1.5;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+.bannière h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.offre-bannière {
+    margin-top: 60px;
 }
 .container2 h4{
     text-align: center;
@@ -57,6 +67,99 @@ h3{
     box-shadow: 0px 0px 15px rgba(173, 216, 230, 0.8);
 }
 
+.Voyages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 50px;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+}
+
+.Voyages > div {
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #4A3B50;
+    box-shadow: 0px 0px 15px rgba(173, 216, 230, 0.8);
+    transition: transform 0.3s ease;
+}
+
+.Voyages > div:hover{
+    transform: scale(1.1);
+}
+
+.Voyages .image_destinations {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.Voyages .période {
+    font-size: 17px;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.Voyages .description {
+    margin: 0 10px;
+    color: white;
+    text-align: left;
+}
+
+.Voyages .prix_bouton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 10px 10px 10px;
+}
+
+.prix-container {
+    display: flex;
+    align-items: center;
+}
+
+.ancien-prix {
+    text-decoration: line-through;
+    color: #ede9e9;
+    margin-right: 10px;
+    opacity: 0.4;
+    font-size: 15px;
+}
+
+.nouveau-prix {
+    font-weight: bold;
+    color: #b8860b;
+    animation: blink 1s infinite alternate;
+    font-size: 18px;
+}
+
+@keyframes blink {
+    0% { color: #b8860b; }
+    100% { color: #daa520; }
+}
+
+.Voyages .en_savoir_plus {
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #61689a;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.Voyages .en_savoir_plus:hover {
+    color: aquamarine;
+    box-shadow: 0px 0px 8px #add8e6cc;
+}
 @media (max-width: 768px) {
     .container2 {
         grid-template-columns: 1fr;
