@@ -114,11 +114,12 @@ input[type="submit"] {
     color: white;
     text-decoration: none;
     background-color: #61689a;
-    border: 2px solid black;
+    border: 1px solid white;
     border-radius: 5px;
 }
 
 .Voyages .en_savoir_plus:hover {
+    border-color: aquamarine;
     color: aquamarine;
     box-shadow: 0px 0px 8px #add8e6cc;
 }
