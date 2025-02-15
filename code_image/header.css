@@ -3,30 +3,50 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px;
-    gap: 30px;
+    gap: 40px;
 }
 
-header img {
+.logo {
     height: 40px;
     width: auto;
 }
 
-.lien_accueil {
+.nav_lien {
+    display: flex;
     flex: 1;
+    justify-content: space-between;
+}
+
+.lien_accueil, .lien_destinations {
+    font-size: 18px;
+    padding: 0;
+    color: white;
+    text-decoration: none;
+    flex-grow: 1;
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.lien_accueil:hover, .lien_destinations:hover {
+    color: aquamarine;
+}
+
+.icon_container {
+    display: flex;
+    gap: 20px;
+}
+
+.lien_profil, .lien_panier, .lien_presentation {
     display: flex;
     justify-content: center;
 }
 
-.lien_destinations {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.lien_profil, .lien_panier {
-    display: flex;
-    justify-content: center;
-    align-items: center;/
+.lien_profil img, .lien_panier img, .lien_presentation img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    padding: 5px;
+    margin: 0;
 }
 
 .lien_se_connecter {
@@ -34,49 +54,43 @@ header img {
     border-radius: 5px;
     background-color: #61689a;
     color: white;
+    border: 1px solid white;
     font-weight: bold;
     font-size: 16px;
     align-self: center;
+    text-decoration: none;
 }
 
 .lien_se_connecter:hover {
+    border-color: aquamarine;
+    color: aquamarine;
     background-color: #505885;
     box-shadow: 0px 0px 8px #add8e6cc;
 }
 
 header {
     background-color: #4A3B50;
-}
-
-header a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header a:hover {
-    color: #7fffd4;
-}
-
-.lien_profil img, .lien_panier img {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-    padding: 5px 5px;
-}
-header a:hover{
     transform: scale(1.2);
 }
+
 @media (max-width: 768px) {
     .container1 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
+
+    .nav_lien {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
     .lien_accueil,
     .lien_destinations,
     .lien_se_connecter {
@@ -85,5 +99,9 @@ header a:hover{
 
     .lien_se_connecter {
         padding: 4px 10px;
+    }
+
+    .icon_container {
+        gap: 10px;
     }
 }
