@@ -1,45 +1,170 @@
 body {
     margin: 0;
-    padding: 0;
-    background: url('image_background/destinations_background.jpg') no-repeat center center fixed;
-    background-size: cover;
+}
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .container2 {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: stretch;
+    background-color: #4A3B50;
     border-radius: 8px;
-    margin-top: 30px;
-    flex-wrap: wrap;
+    max-width: 550px;
+    padding: 15px;
+    gap: 10px;
+    margin: 30px auto;
+    box-shadow: 0px 0px 8px #add8e6cc;
 }
 
-input[type="button"] {
+.filtrer-container {
+    display: flex;
+    align-items: center;
+}
+
+.container2 input[type="button"] {
+    padding: 10px 15px;
     background-color: #61689a;
     color: white;
     border: none;
-    padding: 8px 15px;
-    font-size: 15px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid white;
+    transition: background-color 0.3s ease;
+    height: 100%;
+}
+
+.container2 input[type="button"]:hover {
+    background-color: #505885;
+    color: aquamarine;
+    border-color: aquamarine;
 }
 
 form {
     display: flex;
     align-items: center;
+    flex-grow: 1;
+    position: relative;
 }
 
 input[type="search"] {
-    padding: 8px 15px;
-    font-size: 15px;
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 2px solid #4A3B50;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
-input[type="submit"] {
-    background-color: #4A3B50;
-    padding: 8px 15px;
-    border: none;
-    font-size: 15px;
-    border-radius: 0 5px 5px 0;
+input[type="search"]:focus {
+    transform: scale(1.05);
 }
+
+button {
+    background: transparent;
+    border: none;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+button img {
+    width: 20px;
+    height: auto;
+}
+
+input[type="search"]::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+
+.fenetre-modale {
+    display: none;
+    position: absolute;
+    left: 10px;
+    width: 300px;
+    background-color: #4A3B50;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0px 0px 8px #add8e6cc;
+    overflow-y: auto;
+}
+
+.contenu-fenetre {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contenu-fenetre h2{
+    margin: 0;
+}
+
+#formulaireFiltres {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center; /* Centre tous les éléments */
+}
+
+.champ-filtres {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.champ-filtres label {
+    font-weight: bold;
+}
+
+.champ-filtres input,
+.champ-filtres select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.Appliquer_filtre{
+    width: 200px;
+    margin: 50px;
+}
+
+
+#formulaireFiltres button {
+    margin: auto;
+    padding: 12px 20px;
+    background-color: #61689a;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#formulaireFiltres button:hover {
+    background-color: #505885;
+    color: aquamarine;
+    border-color: aquamarine;
+}
+
+
+
+
+
 
 .Voyages {
     display: grid;
