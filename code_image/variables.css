@@ -1,0 +1,13 @@
+:root {
+    --couleur-primaire-fond: #4A3B50;
+    --couleur-secondaire-fond: #FFFFFF1A;
+    --couleur-fond-bouton: #61689a;
+    --couleur-survol-bouton: #505885;
+    --couleur-survol-texte: aquamarine;
+    --couleur-survol-bordure: aquamarine;
+    --couleur-textes: white;
+    --ombre-box: 0px 0px 8px #add8e6cc;
+    --couleur-prix: #ffe680;
+    --couleur-prix-ancien: #ede9e9;
+    --border-radius: 8px;
+}
