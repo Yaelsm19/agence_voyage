@@ -6,6 +6,9 @@
     --couleur-survol-texte: aquamarine;
     --couleur-survol-bordure: aquamarine;
     --couleur-textes: white;
+    --couleur-fond-GrandTitre-vid: #00000099;
+    --ombre-texte-Titre: 2px 2px 4px #000000;
+    --bordure_bouton : 1px solid white;
     --ombre-box: 0px 0px 8px #add8e6cc;
     --couleur-prix: #ffe680;
     --couleur-prix-ancien: #ede9e9;
