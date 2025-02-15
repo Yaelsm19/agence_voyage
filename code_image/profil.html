@@ -8,15 +8,67 @@
 </head>
 <body>
     <h1>Profil</h1>
+    
     <div class="profil-container">
         <img id="profile-pic" src="blank-profile-picture-973460_960_720-1.jpg" alt="Photo de profil" class="profile-pic">
         <input type="file" id="file-input" accept="image/*">
-        <div class="form-groupe">
-            <p>Nom : <input type = "texte" value="Dupont"></p>
-            <p>Prénom : <input type = "texte" value="Jean"></p>
-            <p>Nom : <input type = "email" value="jean.dupont@example.com"></p>
-            <p>Numéro de téléphone : <input type = "tel" value="06 12 34 56 78"></p>
+        
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <div class="input-container">
+                <input type="text" id="nom" value="Dupont">
+                <button class="crayon">
+                    <img src="crayon.png" alt="modifier">
+                </button>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <div class="input-container">
+                <input type="text" id="prenom" value="Jean">
+                <button class="crayon">
+                    <img src="crayon.png" alt="Modifier">
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <div class="input-container">
+                <input type="email" id="email" value="jean.dupont@example.com">
+                <button class="crayon">
+                    <img src="crayon.png" alt="Modifier">
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="tel">Numéro de téléphone :</label>
+            <div class="input-container">
+                <input type="tel" id="tel" value="06 12 34 56 78">
+                <button class="crayon">
+                    <img src="crayon.png" alt="Modifier">
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Votre mot de passe :</label>
+            <div class="input-container">
+                <input type="password" id="password" value="votre_mot_de_passe">
+                <button class="crayon">
+                    <img src="crayon.png" alt="Modifier">
+                </button>
+            </div>
+        </div>
+
+        <div class="grade">
+            <label for="grad">Votre grade :</label>
+            <span>Membre</span>
         </div>
     </div>
+
 </body>
 </html>
