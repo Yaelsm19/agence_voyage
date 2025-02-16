@@ -6,7 +6,7 @@
 body {
     margin: 0;
     padding: 0;
-    color: white;
+    color: var(--couleur-bandeau-texte);
     background-image: url('../Image/image_voyage_description/journey_to_versailles_1789.jpg');
     background-size: cover;
     background-position: center;
@@ -16,7 +16,8 @@ body {
 
 header {
     padding: 10px;
-    background-color: #333;
+    background-color: var(--couleur-fond-bandeau);
+    text-shadow: var(--ombre-texte-Titre);
     text-align: center;
 }
 
@@ -133,32 +134,7 @@ h3 {
     box-shadow: 0px 0px 8px #add8e6cc
 }
 
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 28px;
-    }
 
-    header p {
-        font-size: 16px;
-    }
-
-    .reservation {
-        padding: 20px;
-        margin: 20px auto;
-    }
-
-    .reservation h2 {
-        font-size: 24px;
-    }
-
-    label {
-        font-size: 18px;
-    }
-
-    button {
-        font-size: 16px;
-    }
-}
 
 .retour img{
     width: 16px;
@@ -194,4 +170,31 @@ input[type="radio"]:checked {
 input[type="radio"]:hover {
     background: rgba(0, 0, 0, 0.05);
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .reservation {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .reservation h2 {
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 16px;
+    }
 }
