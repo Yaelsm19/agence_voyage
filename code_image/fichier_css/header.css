@@ -17,6 +17,7 @@
     display: flex;
     flex: 1;
     justify-content: space-between;
+    font-family: var(--police-lien);
 }
 
 .lien_accueil, .lien_destinations {
@@ -52,8 +53,9 @@
 }
 
 .lien_se_connecter {
+    font-family: var(--police-bouton);
     padding: 10px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
     background-color: var(--couleur-fond-bouton);
     color: var(--couleur-textes);
     border: var(--bordure_bouton);
@@ -76,7 +78,7 @@ header {
 }
 
 header a:hover {
-    transform: scale(1.2);
+    transform: var(--scale-bouton);
 }
 
 @media (max-width: 768px) {

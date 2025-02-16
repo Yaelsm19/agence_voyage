@@ -8,9 +8,10 @@ body {
 
 
 h1 {
+    font-family: var(--police-grand-titre);
     text-align: center;
     padding: 20px;
-    color: var(--couleur-textes);
+    color: var(--couleur-bandeau-texte);
     background-color: var(--couleur-fond-bandeau);
     margin: 0;
     font-size: 2.5em;
@@ -22,7 +23,7 @@ h1 {
     margin: 30px auto;
     padding: 20px;
     background: var(--couleur-secondaire-fond);
-    border-radius: 8px;
+    border-radius: var(--border-radius-box);
     box-shadow: var(--ombre-box);
 }
 
@@ -34,6 +35,7 @@ h1 {
 }
 
 input[type="text"], input[type="tel"], input[type="email"], textarea {
+    font-family: var(--police-paragraphe);
     width: 100%;
     padding: 12px;
     margin-top: 5px;
@@ -52,17 +54,19 @@ textarea {
 
 
 label {
+    font-family: var(--police-paragraphe);
     font-size: 16px;
     font-weight: 500;
     color: var(--couleur-textes);
 }
 
 button {
+    font-family: var(--police-bouton);
     padding: 12px 20px;
     background-color: var(--couleur-fond-bouton);
     color: var(--couleur-textes);
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
     border: var(--bordure_bouton);
     font-size: 16px;
     cursor: pointer;
@@ -74,6 +78,22 @@ button:hover {
     color: var(--couleur-survol-texte);
     border-color: var(--couleur-survol-bordure);
     box-shadow: var(--ombre-box);
+    transform: var(--scale-bouton);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: var(--couleur-fond-bandeau);
+    margin-top: 20px;
+    font-size: 16px;
+    color: var(--couleur-bandeau-texte);
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+    font-family: var(--police-petit-titre);
 }
 
 

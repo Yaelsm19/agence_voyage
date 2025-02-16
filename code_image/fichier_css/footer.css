@@ -27,17 +27,20 @@
 }
 
 .footer-liens a {
+  font-family: var(--police-lien);
   color: var(--couleur-textes);
   text-decoration: none;
 }
 
 .footer-liens a:hover {
+  transform: var(--scale-bouton);
   color: var(--couleur-survol-texte);
 }
 .réseaux-sociaux a{
   margin: 10px;
 }
 .réseaux-sociaux a:hover{
+  transform: var(--scale-bouton);
   box-shadow: var(--ombre-box);
   border-radius: 50%;
 }
@@ -55,12 +58,19 @@
   margin: 5px;
   padding: 0px;
 }
-
+.footer-section p{
+  font-family: var(--police-paragraphe);
+}
+.footer-section h3{
+  font-family: var(--police-moyen-titre);
+  text-shadow: var(--ombre-texte-Titre);
+}
 
 footer>p{
+  font-family: var(--police-petit-titre);
   text-align: center;
   color:var(--couleur-bandeau-texte);
-  padding: 15px;
+  padding: 16px;
   background: var(--couleur-fond-bandeau);
   margin: 0;
   padding: 10px 0;

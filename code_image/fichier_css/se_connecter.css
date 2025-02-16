@@ -10,10 +10,11 @@ h1{
     margin-top: 0;
     text-align: center;
     padding: 20px;
-    color: var(--couleur-textes);
+    color: var(--couleur-bandeau-texte);
+    font-family: var(--police-grand-titre);
+    text-shadow: var(--ombre-texte-Titre);
     background-color: var(--couleur-fond-bandeau);
     font-size: 2.5em;
-    margin-bottom: 70px;
 }
 
 
@@ -21,11 +22,11 @@ h1{
     position: relative;
     width: 100%;
     max-width: 600px;
-    margin: 30px auto;
+    margin: 60px auto;
     padding: 20px;
     background: var(--couleur-secondaire-fond);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius-box);
+    box-shadow: var(--ombre-box);
 }
 
 
@@ -35,7 +36,8 @@ input[type="email"], input[type="password"]{
     margin-top: 15px;
     margin-bottom: 20px;
     border: 1px solid #61689a;
-    border-radius: 4px;
+    border-radius: var(--border-radius-element);
+    font-style: var(--font-style-placeholder);
     font-size: 16px;
     background-color: #333;
     color: var(--couleur-placeholder);
@@ -45,10 +47,11 @@ input[type="email"], input[type="password"]{
 
 .form-group button{
     padding: 12px 20px;
+    font-family: var(--police-bouton);
     background-color: var(--couleur-fond-bouton);
     color: var(--couleur-textes);
     border: var(--bordure_bouton);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
     font-size: 16px;
     cursor: pointer;
     width: 100%;
@@ -61,16 +64,19 @@ input[type="email"], input[type="password"]{
     color: var(--couleur-survol-texte);
     box-shadow: var(--ombre-box);
     border-color: var(--couleur-survol-bordure);
+    transform: var(--scale-bouton);
 }
 
 
 h2{
+    font-family: var(--police-paragraphe);
     text-align: center;
     color:var(--couleur-textes);
     font-size: 16px;
 }
 
 h2 a{
+    font-family: var(--police-lien);
     color:var(--couleur-textes);
 }
 
@@ -82,6 +88,7 @@ h2 a:hover{
 
 label{
     color:var(--couleur-textes);
+    font-family: var(--police-petit-titre);
 }
 
 .retour img{
@@ -96,4 +103,21 @@ label{
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+.retour:hover{
+    transform: var(--scale-bouton);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: var(--couleur-fond-bandeau);
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--couleur-bandeau-texte);
+    font-family: var(--police-petit-titre);
 }

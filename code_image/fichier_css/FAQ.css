@@ -13,9 +13,11 @@ header {
 }
 
 header h1 {
+    font-family: var(--police-grand-titre);
     margin: 0;
-    font-size: 2.5em;
-    color: var(--couleur-textes);
+    font-size: 2em;
+    color: var(--couleur-bandeau-texte);
+    text-shadow: var(--ombre-texte-Titre);
 }
 
 .content {
@@ -23,7 +25,7 @@ header h1 {
     margin: 20px auto;
     padding: 20px;
     background: var(--couleur-secondaire-fond);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
     box-shadow: var(--ombre-box);
 }
 
@@ -32,11 +34,14 @@ header h1 {
 }
 
 h2 {
+    font-family: var(--police-moyen-titre);
     color: var(--couleur-textes);
+    text-align: center;
     font-size: 22px;
     border-bottom: 2px solid #61689a;
     padding-bottom: 5px;
     margin-bottom: 20px;
+    text-shadow: var(--ombre-texte-Titre);
 }
 
 .faq-item {
@@ -44,14 +49,16 @@ h2 {
 }
 
 .faq-item .question {
+    font-family: var(--police-petit-titre);
     color: var(--couleur-textes);
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .faq-item .answer {
+    font-family: var(--police-paragraphe);
     background-color: var(--couleur-secondaire-fond);
     padding: 10px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
     margin-top: 5px;
     color: var(--couleur-textes);
 }
@@ -61,10 +68,11 @@ footer {
     padding: 15px;
     background: var(--couleur-fond-bandeau);
     margin-top: 20px;
-    font-size: 14px;
-    color: var(--couleur-textes);
 }
 
 footer p {
     margin: 0;
+    font-size: 16px;
+    color: var(--couleur-bandeau-texte);
+    font-family: var(--police-petit-titre);
 }

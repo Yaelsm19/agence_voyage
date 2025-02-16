@@ -18,7 +18,9 @@ h2 {
     background: var(--couleur-fond-GrandTitre-vid);
     padding: 20px;
     text-align: center;
-    border-radius: var(--border-radius);
+    font-family: var(--police-grand-titre);
+    text-shadow: var(--ombre-texte-Titre);
+    border-radius: var(--border-radius-box);
     box-shadow: var(--ombre-box);
     margin: 30px auto;
     width: 80%;
@@ -27,23 +29,21 @@ h2 {
     margin-bottom: 50px;
 }
 
-p{
-    text-align: center;
-}
 
 .presentation {
     color: var(--couleur-textes);
     padding: 40px 20px;
     text-align: center;
     margin-top: 40px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
 }
 
 .texte-presentation {
+    font-family: var(--police-paragraphe);
+    text-align: center;
     background-color: var(--couleur-primaire-fond);
     padding: 20px;
-    text-align: left;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
     max-width: 1000px;
     margin: 20px auto;
     line-height: 1.6;
@@ -65,7 +65,7 @@ p{
     flex: 1;
     background-color: var(--couleur-primaire-fond);
     padding: 20px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
     box-shadow: var(--ombre-box);
     display: flex;
     flex-direction: column;
@@ -85,11 +85,14 @@ p{
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 12px;
+    font-family: var(--police-paragraphe);
 }
-.createur p strong{
+.createur p span{
+    font-family: var(--police-petit-titre);
     background-color: var(--couleur-secondaire-fond);
     padding: 5px 5px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
+    text-shadow: var(--ombre-texte-Titre);
 }
 
 @media (max-width: 768px) {

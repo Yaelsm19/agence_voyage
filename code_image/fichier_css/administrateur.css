@@ -1,69 +1,89 @@
+@import url('variables.css');
 body {
-    background-color: #4A3B50;
+    background-color: var(--couleur-primaire-fond);
     margin: 0;
 }
 
-
 h1 {
     font-size: 40px;
+    font-family: var(--police-grand-titre);
     text-align: center;
-    color: white;
-    background-color: #333;
-    margin-top: 0;
-    margin-bottom: 30px;
+    color: var(--couleur-bandeau-texte);
+    background-color: var(--couleur-fond-bandeau);
+    margin: 0 0 30px;
     padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: var(--ombre-texte-Titre);
+}
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: var(--border-radius-box);
 }
 
 table {
-    background-color: #FFFFFF1A;
-    margin: 20px 20px;
+    background-color: var(--couleur-secondaire-fond);
     border-collapse: collapse;
-    margin: auto auto;
-    box-shadow: 0px 0px 8px #add8e6cc;
-    color: white;
+    margin: 20px auto;
+    box-shadow: var(--ombre-box);
+    color: var(--couleur-textes);
+    border-radius: var(--border-radius-box);
+    overflow: hidden;
+    width: 90%;
+    max-width: 1000px;
 }
 
 th, td {
     padding: 15px;
     font-size: 15px;
-    border: 1px solid white;
-    text-align: left;
+    border: var(--bordure_bouton);
+    text-align: center;
+}
+td{
+    font-family: var(--police-paragraphe);
 }
 
 th {
+    font-family: var(--police-moyen-titre);
     font-size: 17px;
+    background-color: #555;
+    color: var(--couleur-textes);
 }
 
-.action {
-    padding: 6px 12px;
+tr:nth-child(even) {
+    background-color: var(--couleur-secondaire-fond);
+}
+
+td .action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
+    transition: transform 0.2s;
 }
 
-.editer {
-    background-color: #ffc107;
+td .action:hover {
+    transform: var(--scale-bouton);
 }
 
-.bloquer {
-    background-color: #2C2C2C;
+.action img {
+    height: 30px;
+    width: auto;
 }
 
-.supprimer {
-    background-color: #D32F2F;
-}
-
-.action:hover {
-    opacity: 0.8;
-    box-shadow: 0px 0px 8px #add8e6cc;
-}
-
-p{
+p {
+    font-family: var(--police-paragraphe);
     text-align: center;
-    color:rgb(218, 207, 207);
     padding: 15px;
-    background: #333;
+    background: var(--couleur-fond-bandeau);
     margin-bottom: 0;
     margin-top: 20px;
-  }
+    font-size: 14px;
+    color: var(--couleur-bandeau-texte);
+}

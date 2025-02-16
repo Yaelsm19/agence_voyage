@@ -18,7 +18,7 @@ body {
     justify-content: center;
     align-items: stretch;
     background-color: var(--couleur-primaire-fond);
-    border-radius: 8px;
+    border-radius: var(--border-radius-box);
     max-width: 550px;
     padding: 15px;
     gap: 10px;
@@ -36,18 +36,21 @@ body {
     background-color: var(--couleur-fond-bouton);
     color: var(--couleur-textes);
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
     font-size: 16px;
     cursor: pointer;
     border: var(--bordure_bouton);
     transition: background-color 0.3s ease;
     height: 100%;
+    font-family: var(--police-bouton);
 }
 
 .container2 input[type="button"]:hover {
     background-color: var(--couleur-survol-bouton);
     color: var(--couleur-survol-texte);
     border-color: var(--couleur-survol-bordure);
+    box-shadow: var(--ombre-box);
+    transform: var(--scale-bouton);
 }
 
 form {
@@ -96,7 +99,7 @@ input[type="search"]::placeholder {
     width: 300px;
     background-color: var(--couleur-primaire-fond);
     padding: 15px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
     color: var(--couleur-textes);
     box-shadow: var(--ombre-box);
     overflow-y: auto;
@@ -110,6 +113,8 @@ input[type="search"]::placeholder {
 
 .contenu-fenetre h2{
     margin: 0;
+    font-family: var(--police-moyen-titre);
+    text-shadow: var(--ombre-texte-Titre);
 }
 
 #formulaireFiltres {
@@ -128,13 +133,15 @@ input[type="search"]::placeholder {
 
 .champ-filtres label {
     font-weight: bold;
+    font-family: var(--police-paragraphe);
 }
 
 .champ-filtres input,
 .champ-filtres select {
     width: 100%;
     padding: 5px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
+    border: none;
     font-size: 12px;
 }
 
@@ -149,7 +156,8 @@ input[type="search"]::placeholder {
     padding: 12px 20px;
     background-color: var(--couleur-fond-bouton);
     border: var(--bordure_bouton);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
+    color: var(--couleur-textes);
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -159,6 +167,8 @@ input[type="search"]::placeholder {
     background-color: var(--couleur-survol-bouton);
     color: var(--couleur-survol-texte);
     border-color: var(--couleur-survol-bordure);
+    box-shadow: var(--ombre-box);
+    transform: var(--scale-bouton);
 }
 
 
@@ -177,25 +187,26 @@ input[type="search"]::placeholder {
 }
 
 .Voyages > div {
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
     background-color: var(--couleur-primaire-fond);
     box-shadow: var(--ombre-box);
     transition: transform 0.3s ease;
 }
 
 .Voyages > div:hover{
-    transform: scale(1.1);
+    transform: var(--scale-voyage);
 }
 
 .Voyages .image_destinations {
     width: 100%;
     object-fit: cover;
     height: 150px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
 }
 
 .Voyages .période {
-    font-size: 17px;
+    font-family: var(--police-petit-titre);
+    font-size: 14px;
     margin: 10px 10px 10px 10px;
     text-align: center;
     color: var(--couleur-textes);
@@ -203,21 +214,23 @@ input[type="search"]::placeholder {
     letter-spacing: 0.5px;
     background: var(--couleur-secondaire-fond);
     padding: 5px 10px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-element);
     text-shadow: var(--ombre-texte-Titre);
 }
 
 .Voyages .description {
+    font-size: 13px;
     margin: 0 10px;
     color: var(--couleur-textes);
-    text-align: left;
+    text-align: center;
+    font-family: var(--police-paragraphe);
 }
 
 .Voyages .prix_bouton {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0px 10px 10px 10px;
+    margin: 10px;
 }
 
 .Voyages .prix {
@@ -234,12 +247,14 @@ input[type="search"]::placeholder {
 }
 
 .Voyages .en_savoir_plus {
+    font-size: 12px;
+    font-family: var(--police-bouton);
     padding: 5px 15px;
     color: var(--couleur-textes);
     text-decoration: none;
     background-color: var(--couleur-fond-bouton);
     border: var(--bordure_bouton);
-    border-radius: 5px;
+    border-radius: var(--border-radius-element);
 }
 
 .Voyages .en_savoir_plus:hover {
@@ -247,6 +262,7 @@ input[type="search"]::placeholder {
     border-color: var(--couleur-survol-bordure);
     color: var(--couleur-survol-texte);
     box-shadow: var(--ombre-box);
+    transform: var(--scale-bouton);
 }
 
 @media (max-width: 768px) {

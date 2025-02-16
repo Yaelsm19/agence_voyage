@@ -16,8 +16,9 @@ body{
 .bannière, .offre-bannière, .titre, .titre-citations {
     background: var(--couleur-fond-GrandTitre-vid);
     padding: 20px;
+    font-family:var(--police-grand-titre);
     text-align: center;
-    border-radius: 15px;
+    border-radius: var(--border-radius-box);
     box-shadow: var(--ombre-box);
     margin: 30px auto;
     width: 80%;
@@ -28,13 +29,14 @@ body{
 
 .bannière h2, .offre-bannière h2, .bannière h3{
     margin: 0;
-    text-shadow: var(--ombre-texte-GrandTitre-vid)
+    text-shadow: var(--ombre-texte-Titre)
 }
 
 .bannière h3 {
     font-size: 18px;
     margin-top: 10px;
     font-style: italic;
+    font-family: var(--police-citation);
 }
 
 .offre-bannière {
@@ -46,12 +48,14 @@ body{
     font-weight: bold;
     background-color: var(--couleur-secondaire-fond);
     padding: 10px;
-    border-radius: var(--border-radius);
+    font-family: var(--police-petit-titre);
+    border-radius: var(--border-radius-box);
 }
 .container2 p{
     font-size: 15px;
     text-align: center;
     line-height: 1.5;
+    font-family: var(--police-paragraphe);
 }
 
 .container2 {
@@ -64,7 +68,7 @@ body{
 }
 .container2 div {
     background-color: var(--couleur-primaire-fond);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
     color: var(--couleur-textes);
     padding: 20px;
     box-shadow: var(--ombre-box);
@@ -81,25 +85,25 @@ body{
 }
 
 .Voyages > div {
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
     background-color: var(--couleur-primaire-fond);
     box-shadow: var(--ombre-box);
     transition: transform 0.3s ease;
 }
 
 .Voyages > div:hover{
-    transform: scale(1.1);
+    transform: var(--scale-voyage);
 }
 
 .Voyages .image_destinations {
     width: 100%;
     object-fit: cover;
     height: 150px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-element);
 }
 
 .Voyages .période {
-    font-size: 17px;
+    font-size: 14px;
     margin: 10px 10px 10px 10px;
     text-align: center;
     color: var(--couleur-textes);
@@ -107,21 +111,24 @@ body{
     letter-spacing: 0.5px;
     background: var(--couleur-secondaire-fond);
     padding: 5px 10px;
-    border-radius: 5px;
+    font-family: var(--police-petit-titre);
+    border-radius: var(--border-radius-element);
     text-shadow: var(--ombre-texte-Titre);
 }
 
 .Voyages .description {
+    font-size: 13px;
     margin: 0 10px;
+    font-family: var(--police-paragraphe);
     color: var(--couleur-textes);
-    text-align: left;
+    text-align: center;
 }
 
 .Voyages .prix_bouton {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0px 10px 10px 10px;
+    margin: 10px;
 }
 
 .prix-container {
@@ -156,13 +163,16 @@ body{
     text-decoration: none;
     background-color: var(--couleur-fond-bouton);
     border: var(--bordure_bouton);
-    border-radius: 5px;
+    border-radius: var(--border-radius-element);
+    font-family: var(--police-bouton);
+    font-size: 12px;
 }
 
 .Voyages .en_savoir_plus:hover {
     border-color: var(--couleur-survol-bordure);
     color: var(--couleur-survol-texte);
     box-shadow: var(--ombre-box);
+    transform: var(--scale-bouton);
 }
 
 .voyage-box {
@@ -172,7 +182,7 @@ body{
     justify-content: flex-end;
     align-items: center;
     text-align: center;
-    border-radius: 10px;
+    border-radius: var(--border-radius-box);
     overflow: hidden;
     box-shadow: var(--ombre-box);
     width: 100%;
@@ -192,18 +202,20 @@ body{
 }
 
 .voyage-box:hover img {
-    transform: scale(1.1);
+    transform: var(--scale-voyage);
 }
 
 .voyage-box h3 {
     position: relative;
     z-index: 2;
+    font-family: var(--police-petit-titre);
+    text-shadow: var(--ombre-texte-Titre);
     font-size: 25px;
     font-weight: bold;
     color: var(--couleur-textes);
     background: var(--couleur-fond-GrandTitre-vid);
     padding: 10px 20px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-element);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -212,12 +224,13 @@ body{
     z-index: 2;
     padding: 12px 18px;
     font-size: 15px;
+    font-family: var(--police-bouton);
     font-weight: bold;
     color: var(--couleur-textes);
     background-color: var(--couleur-fond-bouton);
     text-decoration: none;
     border: var(--bordure_bouton);
-    border-radius: 5px;
+    border-radius: var(--border-radius-element);
     transition: all 0.3s ease-in-out;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -227,7 +240,7 @@ body{
     background-color: var(--couleur-survol-bouton);
     color: var(--couleur-survol-texte);
     border-color: var(--couleur-survol-bordure);
-    transform: scale(1.1);
+    transform: var(--scale-bouton);
     box-shadow: var(--ombre-box);
 }
 
@@ -246,7 +259,7 @@ body{
 
 .citation {
     background-color: var(--couleur-primaire-fond);
-    border-radius: 10px;
+    border-radius: var(--border-radius-box);
     padding: 20px;
     color: var(--couleur-textes);
     box-shadow: var(--ombre-box);
@@ -256,6 +269,7 @@ body{
 }
 
 .texte-citation {
+    font-family: var(--police-citation);
     font-style: italic;
     font-size: 1.1em;
     margin-bottom: 15px;
@@ -265,6 +279,7 @@ body{
     font-weight: bold;
     color: #dc9f3e;
     font-size: 1em;
+    font-family: var(--police-paragraphe);
 }
 
 @media (max-width: 768px) {

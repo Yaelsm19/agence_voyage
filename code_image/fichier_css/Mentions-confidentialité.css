@@ -15,6 +15,9 @@ header {
 }
 
 header h1 {
+    font-family: var(--police-grand-titre);
+    text-shadow: var(--ombre-texte-Titre);
+    color: var(--couleur-bandeau-texte);
     margin: 0;
     font-size: 28px;
 }
@@ -24,23 +27,22 @@ header h1 {
     margin: 20px auto;
     padding: 20px;
     background: var(--couleur-secondaire-fond);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-box);
     box-shadow: var(--ombre-box);
+    font-family: var(--police-paragraphe);
 }
 
 h2 {
+    font-family: var(--police-moyen-titre);
     color: var(--couleur-textes);
+    text-shadow: var(--ombre-texte-Titre);
     font-size: 22px;
     border-bottom: 2px solid #61689a;
     padding-bottom: 5px;
 }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
 a {
+    font-family: var(--police-lien);
     color: var(--couleur-textes);
 }
 
@@ -49,8 +51,10 @@ a:hover {
 }
 
 footer {
+    font-family: var(--police-paragraphe);
+    color: var(--couleur-bandeau-texte);
     text-align: center;
-    padding: 15px;
+    padding: 16px;
     background: var(--couleur-fond-bandeau);
     margin-top: 20px;
 }
