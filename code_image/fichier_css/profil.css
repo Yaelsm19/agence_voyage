@@ -120,3 +120,66 @@ label {
 }
 
 
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #background-video {
+        height: auto;
+        object-fit: cover;
+    }
+
+    #profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profil-container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .form-group {
+        width: 100%;
+        margin: 0;
+    }
+
+    input[type="email"], input[type="password"], input[type="text"], input[type="tel"] {
+        font-size: 14px;
+    }
+
+    .crayon {
+        width: 20px;
+        height: 20px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    .form-group button {
+        padding: 12px 10px;
+        font-size: 16px;
+    }
+
+    .crayon img {
+        width: 14px;
+        height: 14px;
+    }
+}

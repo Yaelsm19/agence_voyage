@@ -120,3 +120,38 @@ h2 {
     }
 }
 
+@media (max-width: 768px) {
+    #background-video {
+        height: auto;
+    }
+
+    h2 {
+        font-size: 22px;
+        padding: 10px;
+    }
+
+    .presentation {
+        padding: 20px;
+    }
+
+    .texte-presentation h2 {
+        font-size: 28px;
+    }
+
+    .createurs {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .createur {
+        margin-bottom: 40px;
+        min-height: 350px;
+        max-width: 100%;
+    }
+
+    .photo-createur {
+        width: 150px;
+        height: 150px;
+    }
+}

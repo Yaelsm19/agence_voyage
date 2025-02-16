@@ -78,3 +78,40 @@ footer>p{
   margin: 0;
   padding: 10px 0;
 }
+
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 0;
+  }
+
+  .footer-section {
+      border-right: none;
+      padding: 15px 0;
+      text-align: center;
+  }
+
+  .footer-liens {
+      text-align: center;
+      margin-bottom: 10px;
+  }
+
+  .footer-liens a {
+      font-size: 14px;
+  }
+
+  .réseaux-sociaux a {
+      margin: 8px;
+  }
+
+  .réseaux-sociaux img {
+      width: 25px;
+      height: 25px;
+  }
+
+  footer>p {
+      font-size: 14px;
+      padding: 8px 0;
+  }
+}

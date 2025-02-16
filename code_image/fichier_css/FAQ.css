@@ -78,3 +78,36 @@ footer p {
     color: var(--couleur-bandeau-texte);
     font-family: var(--police-petit-titre);
 }
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .content {
+        padding: 15px;
+        margin: 15px auto;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .faq-item .question {
+        font-size: 14px;
+    }
+
+    .faq-item .answer {
+        font-size: 14px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+}
+

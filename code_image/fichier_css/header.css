@@ -88,6 +88,7 @@ header a:hover {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        gap: 20px;
     }
 
     .nav_lien {
@@ -101,6 +102,7 @@ header a:hover {
     .lien_destinations,
     .lien_se_connecter {
         font-size: 14px;
+        padding: 8px;
     }
 
     .lien_se_connecter {
@@ -110,4 +112,10 @@ header a:hover {
     .icon_container {
         gap: 10px;
     }
+
+    .lien_profil img, .lien_panier img, .lien_presentation img {
+        width: 25px;
+        height: 25px;
+    }
 }
+

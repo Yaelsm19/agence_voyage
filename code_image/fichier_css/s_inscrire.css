@@ -51,7 +51,6 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
     background-color: var(--couleur-fond-bouton);
     color: var(--couleur-textes);
     border: var(--bordure_bouton);
-    border: none;
     border-radius: var(--border-radius-element);
     font-size: 16px;
     cursor: pointer;
@@ -132,4 +131,48 @@ footer p {
     font-size: 16px;
     color: var(--couleur-bandeau-texte);
     font-family: var(--police-petit-titre);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+        padding: 15px;
+    }
+
+    .form-container {
+        margin: 20px auto;
+        padding: 15px;
+        width: 90%;
+    }
+
+    input[type="email"], input[type="password"], input[type="text"], input[type="tel"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .form-group button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 12px;
+    }
+
+    .retour img {
+        width: 25px;
+        height: 25px;
+    }
+
+    footer {
+        padding: 10px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
 }

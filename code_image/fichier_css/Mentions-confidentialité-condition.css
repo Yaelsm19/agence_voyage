@@ -58,3 +58,26 @@ footer {
     background: var(--couleur-fond-bandeau);
     margin-top: 20px;
 }
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .content {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

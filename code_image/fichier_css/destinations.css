@@ -274,7 +274,7 @@ input[type="search"]::placeholder {
     }
 
     .Voyages {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 20px;
         margin-top: 30px;
     }
@@ -284,16 +284,48 @@ input[type="search"]::placeholder {
     }
 
     .Voyages .période {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .Voyages .prix {
-        font-size: 18px;
+        font-size: 16px;
     }
+
     .container2 input[type="search"],
     .container2 input[type="submit"],
     .container2 input[type="button"] {
         width: 100%;
         margin-bottom: 10px;
     }
+
+    .container2 input[type="button"] {
+        padding: 8px 12px;
+    }
+
+    .fenetre-modale {
+        width: 100%;
+        left: 0;
+        margin-top: 20px;
+    }
+
+    #formulaireFiltres {
+        width: 100%;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .champ-filtres input,
+    .champ-filtres select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .Voyages .prix {
+        font-size: 16px;
+    }
+
+    .Voyages .description {
+        font-size: 12px;
+    }
 }
+
