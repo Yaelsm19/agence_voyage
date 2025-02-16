@@ -1,6 +1,8 @@
+@import url('variables.css');
+
 .footer-container {
-  background-color: #4A3B50;
-  color: white;
+  background-color: var(--couleur-primaire-fond);
+  color: var(--couleur-textes);
   padding: 20px 0;
   margin-top: 50px;
   display: flex;
@@ -25,18 +27,18 @@
 }
 
 .footer-liens a {
-  color: white;
+  color: var(--couleur-textes);
   text-decoration: none;
 }
 
 .footer-liens a:hover {
-  color: aquamarine;
+  color: var(--couleur-survol-texte);
 }
 .réseaux-sociaux a{
   margin: 10px;
 }
 .réseaux-sociaux a:hover{
-  box-shadow: 0px 0px 15px rgba(173, 216, 230, 0.8);
+  box-shadow: var(--ombre-box);
   border-radius: 50%;
 }
 
@@ -57,9 +59,9 @@
 
 footer>p{
   text-align: center;
-  color:rgb(218, 207, 207);
+  color:var(--couleur-bandeau-texte);
   padding: 15px;
-  background: #333;
+  background: var(--couleur-fond-bandeau);
   margin: 0;
   padding: 10px 0;
 }

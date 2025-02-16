@@ -1,3 +1,5 @@
+@import url('variables.css');
+
 .container1 {
     display: flex;
     align-items: center;
@@ -20,7 +22,7 @@
 .lien_accueil, .lien_destinations {
     font-size: 18px;
     padding: 0;
-    color: white;
+    color: var(--couleur-textes);
     text-decoration: none;
     flex-grow: 1;
     text-align: center;
@@ -28,7 +30,7 @@
 }
 
 .lien_accueil:hover, .lien_destinations:hover {
-    color: aquamarine;
+    color: var(--couleur-survol-texte);
 }
 
 .icon_container {
@@ -51,10 +53,10 @@
 
 .lien_se_connecter {
     padding: 10px;
-    border-radius: 5px;
-    background-color: #61689a;
-    color: white;
-    border: 1px solid white;
+    border-radius: var(--border-radius);
+    background-color: var(--couleur-fond-bouton);
+    color: var(--couleur-textes);
+    border: var(--bordure_bouton);
     font-weight: bold;
     font-size: 16px;
     align-self: center;
@@ -62,14 +64,14 @@
 }
 
 .lien_se_connecter:hover {
-    border-color: aquamarine;
-    color: aquamarine;
-    background-color: #505885;
-    box-shadow: 0px 0px 8px #add8e6cc;
+    border-color: var(--couleur-survol-bordure);
+    color: var(--couleur-survol-texte);
+    background-color: var(--couleur-survol-bouton);
+    box-shadow: var(--ombre-box);
 }
 
 header {
-    background-color: #4A3B50;
+    background-color: var(--couleur-primaire-fond);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

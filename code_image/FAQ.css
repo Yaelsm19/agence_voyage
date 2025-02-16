@@ -1,11 +1,13 @@
+@import url('variables.css');
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #4A3B50;
+    background-color: var(--couleur-primaire-fond);
 }
 
 header {
-    background: #333;
+    background: var(--couleur-fond-bandeau);
     text-align: center;
     padding: 20px;
 }
@@ -13,16 +15,16 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5em;
-    color: white;
+    color: var(--couleur-textes);
 }
 
 .content {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: var(--couleur-secondaire-fond);
+    border-radius: var(--border-radius);
+    box-shadow: var(--ombre-box);
 }
 
 .faq {
@@ -30,7 +32,7 @@ header h1 {
 }
 
 h2 {
-    color: white;
+    color: var(--couleur-textes);
     font-size: 22px;
     border-bottom: 2px solid #61689a;
     padding-bottom: 5px;
@@ -42,25 +44,25 @@ h2 {
 }
 
 .faq-item .question {
-    color: white;
+    color: var(--couleur-textes);
     font-size: 18px;
 }
 
 .faq-item .answer {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--couleur-secondaire-fond);
     padding: 10px;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     margin-top: 5px;
-    color: white;
+    color: var(--couleur-textes);
 }
 
 footer {
     text-align: center;
     padding: 15px;
-    background: #333;
+    background: var(--couleur-fond-bandeau);
     margin-top: 20px;
     font-size: 14px;
-    color: white;
+    color: var(--couleur-textes);
 }
 
 footer p {

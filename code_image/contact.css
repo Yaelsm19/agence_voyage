@@ -1,15 +1,17 @@
+@import url('variables.css');
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #4A3B50;
+    background-color: var(--couleur-primaire-fond);
 }
 
 
 h1 {
     text-align: center;
     padding: 20px;
-    color: white;
-    background-color: #333;
+    color: var(--couleur-textes);
+    background-color: var(--couleur-fond-bandeau);
     margin: 0;
     font-size: 2.5em;
 }
@@ -19,9 +21,9 @@ h1 {
     max-width: 600px;
     margin: 30px auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--couleur-secondaire-fond);
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ombre-box);
 }
 
 .form-groupe {
@@ -38,8 +40,9 @@ input[type="text"], input[type="tel"], input[type="email"], textarea {
     border: 1px solid #61689a;
     border-radius: 4px;
     font-size: 16px;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--couleur-fond-bandeau);
+    color: var(--couleur-placeholder);
+    font-style: var(--font-style-placeholder);
     box-sizing: border-box;
 }
 
@@ -51,23 +54,26 @@ textarea {
 label {
     font-size: 16px;
     font-weight: 500;
-    color: white;
+    color: var(--couleur-textes);
 }
 
 button {
     padding: 12px 20px;
-    background-color: #61689a;
-    color: #333;
+    background-color: var(--couleur-fond-bouton);
+    color: var(--couleur-textes);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
+    border: var(--bordure_bouton);
     font-size: 16px;
     cursor: pointer;
     width: 100%;
 }
 
 button:hover {
-    background-color: #505885;
-    color: aquamarine;
+    background-color: var(--couleur-survol-bouton);
+    color: var(--couleur-survol-texte);
+    border-color: var(--couleur-survol-bordure);
+    box-shadow: var(--ombre-box);
 }
 
 
