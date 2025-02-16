@@ -1,7 +1,7 @@
+@import url('variables.css');
 body{
     margin: 0;
     padding: 0;
-    background-color: #4A3B50;
 }
 
 #background-video {
@@ -29,11 +29,11 @@ body{
     max-width: 600px;
     margin: 30px auto;
     padding: 20px;
-    background: #4A3B50;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: var(--couleur-primaire-fond);
+    border-radius: var(--border-radius);
+    box-shadow: var(--ombre-box);
     text-align: center;
-    color: white;
+    color: var(--couleur-textes);
 }
 
 .form-group {
@@ -56,10 +56,10 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
     margin-top: 15px;
     margin-bottom: 20px;
     border: 1px solid #61689a;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     font-size: 16px;
     background-color: #333;
-    color: #fff;
+    color: var(--couleur-placeholder);
     box-sizing: border-box;
 }
 
@@ -84,8 +84,6 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
 }
 
 button{
-    background-color: #ffffff1a;
-    color: #333;
     border: none;
     cursor: pointer;
 }

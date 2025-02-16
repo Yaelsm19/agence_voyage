@@ -1,7 +1,8 @@
+@import url('variables.css');
 body{
     margin: 0;
     padding: 0;
-    background-color: #4A3B50;
+    background-color: var(--couleur-primaire-fond);
 }
 
 
@@ -9,8 +10,8 @@ h1{
     margin-top: 0;
     text-align: center;
     padding: 20px;
-    color: white;
-    background-color: #333;
+    color: var(--couleur-textes);
+    background-color: var(--couleur-fond-bandeau);
     font-size: 2.5em;
     margin-bottom: 70px;
 }
@@ -22,8 +23,8 @@ h1{
     max-width: 600px;
     margin: 30px auto;
     padding: 20px;
-    background: #ffffff1a;
-    border-radius: 8px;
+    background: var(--couleur-secondaire-fond);
+    border-radius: var(--border-radius);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -37,17 +38,17 @@ input[type="email"], input[type="password"]{
     border-radius: 4px;
     font-size: 16px;
     background-color: #333;
-    color: #fff;
+    color: var(--couleur-placeholder);
     box-sizing: border-box;
 }
 
 
 .form-group button{
     padding: 12px 20px;
-    background-color: #61689a;
-    color: #333;
-    border: none;
-    border-radius: 5px;
+    background-color: var(--couleur-fond-bouton);
+    color: var(--couleur-textes);
+    border: var(--bordure_bouton);
+    border-radius: var(--border-radius);
     font-size: 16px;
     cursor: pointer;
     width: 100%;
@@ -56,29 +57,31 @@ input[type="email"], input[type="password"]{
 
 
 .form-group button:hover{
-    background-color: #505885;
-    color: aquamarine;
+    background-color: var(--couleur-survol-bouton);
+    color: var(--couleur-survol-texte);
+    box-shadow: var(--ombre-box);
+    border-color: var(--couleur-survol-bordure);
 }
 
 
 h2{
     text-align: center;
-    color:white;
+    color:var(--couleur-textes);
     font-size: 16px;
 }
 
 h2 a{
-    color:white;
+    color:var(--couleur-textes);
 }
 
 
 h2 a:hover{
-    color: aquamarine;
+    color: var(--couleur-survol-texte);
 }
 
 
 label{
-    color:white;
+    color:var(--couleur-textes);
 }
 
 .retour img{
