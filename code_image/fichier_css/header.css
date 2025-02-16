@@ -27,7 +27,7 @@
     text-decoration: none;
     flex-grow: 1;
     text-align: center;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.3s ease;
 }
 
 .lien_accueil:hover, .lien_destinations:hover {
@@ -50,6 +50,7 @@
     object-fit: cover;
     padding: 5px;
     margin: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .lien_se_connecter {
@@ -63,6 +64,7 @@
     font-size: 16px;
     align-self: center;
     text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .lien_se_connecter:hover {

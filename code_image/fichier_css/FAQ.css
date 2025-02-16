@@ -52,6 +52,7 @@ h2 {
     font-family: var(--police-petit-titre);
     color: var(--couleur-textes);
     font-size: 16px;
+    transition: color 0.3s ease-in-out;
 }
 
 .faq-item .answer {
@@ -61,6 +62,7 @@ h2 {
     border-radius: var(--border-radius-element);
     margin-top: 5px;
     color: var(--couleur-textes);
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
 footer {

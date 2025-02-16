@@ -25,6 +25,7 @@ h1 {
     background: var(--couleur-secondaire-fond);
     border-radius: var(--border-radius-box);
     box-shadow: var(--ombre-box);
+    transition: padding 0.3s ease-in-out, margin 0.3s ease-in-out;
 }
 
 .form-groupe {
@@ -71,6 +72,8 @@ button {
     font-size: 16px;
     cursor: pointer;
     width: 100%;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    
 }
 
 button:hover {
@@ -88,6 +91,7 @@ footer {
     margin-top: 20px;
     font-size: 16px;
     color: var(--couleur-bandeau-texte);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 footer p {

@@ -57,6 +57,7 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
     cursor: pointer;
     width: 100%;
     margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 
@@ -74,6 +75,7 @@ h2{
     color:var(--couleur-textes);
     font-size: 18px;
     font-family: var(--police-paragraphe);
+    transition: color 0.3s ease;
 }
 
 h3{
@@ -86,6 +88,7 @@ h3{
 h2 a, h3 a{
     color:var(--couleur-textes);
     font-family: var(--police-lien);
+    transition: color 0.3s ease;
 }
 
 
@@ -102,6 +105,7 @@ label{
 .retour img{
     width: 30px;
     height: 30px;
+    transition: transform 0.3s ease;
 }
 .retour:hover{
     transform: var(--scale-bouton);

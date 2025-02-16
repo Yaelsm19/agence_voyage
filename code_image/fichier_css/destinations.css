@@ -190,7 +190,8 @@ input[type="search"]::placeholder {
     border-radius: var(--border-radius-box);
     background-color: var(--couleur-primaire-fond);
     box-shadow: var(--ombre-box);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    
 }
 
 .Voyages > div:hover{
@@ -241,9 +242,9 @@ input[type="search"]::placeholder {
 }
 
 @keyframes sparkle {
-    0% { text-shadow: 0 0 5px #ffffff, 0 0 10px #d9d9d9, 0 0 15px #bfbfbf; }
-    50% { text-shadow: 0 0 10px #ffffff, 0 0 20px #e6e6e6, 0 0 25px #cccccc; }
-    100% { text-shadow: 0 0 5px #ffffff, 0 0 10px #d9d9d9, 0 0 15px #bfbfbf; }
+    0% { text-shadow: 0 0 3px #ffffff, 0 0 6px #d9d9d9; }
+    50% { text-shadow: 0 0 5px #ffffff, 0 0 10px #e6e6e6; }
+    100% { text-shadow: 0 0 3px #ffffff, 0 0 6px #d9d9d9; }
 }
 
 .Voyages .en_savoir_plus {

@@ -30,6 +30,7 @@
   font-family: var(--police-lien);
   color: var(--couleur-textes);
   text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-liens a:hover {
@@ -38,6 +39,7 @@
 }
 .réseaux-sociaux a{
   margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .réseaux-sociaux a:hover{
   transform: var(--scale-bouton);
@@ -50,6 +52,7 @@
   height: 30px;
   border-radius: 50%;
   margin-top: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .footer-section h3, 
