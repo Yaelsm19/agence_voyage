@@ -1,14 +1,22 @@
+@import url('variables.css');
+
+
+
+
 body {
     margin: 0;
     padding: 0;
     color: white;
-    background-color: #4A3B50;
+    background-image: url('journey_to_versailles_1789.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
 header {
     padding: 10px;
-    background-color: #4A3B50;
+    background-color: #333;
     text-align: center;
 }
 
@@ -27,8 +35,13 @@ header p {
     margin-right: auto;
 }
 
-.reservation {
-    background-color: #FFFFFF1A;
+.presentation{
+    text-align: center;
+}
+
+.reservation, .presentation {
+    position: relative;
+    background-color: var(--couleur-primaire-fond);
     padding: 40px;
     margin: 40px auto;
     max-width: 900px;
@@ -58,7 +71,7 @@ form {
     height: 100px;
     color: white;
     gap: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2)
 }
 
 .jour label {
@@ -94,6 +107,7 @@ form {
 }
 .jour:hover{
     transform: scale(1.2);
+    background-color: #505885;
 }
 h3 {
     font-size: 25px;
@@ -102,7 +116,7 @@ h3 {
 }
 
 
-button {
+#reservation-form button {
     background-color: #61689a;
     color: white;
     padding: 15px;
@@ -111,9 +125,10 @@ button {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    margin-top: 25px;
 }
 
-button:hover{
+#reservation-form button:hover{
     background-color: #505885;
     box-shadow: 0px 0px 8px #add8e6cc
 }
@@ -136,18 +151,47 @@ button:hover{
         font-size: 24px;
     }
 
-    .jour {
-        flex-direction: column;
-        height: auto;
-        padding: 15px;
-    }
-
     label {
         font-size: 18px;
     }
 
     button {
         font-size: 16px;
-        padding: 12px;
     }
+}
+
+.retour img{
+    width: 16px;
+    height: 16px;
+}
+
+.retour {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #555;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: inline-block;
+    position: relative;
+    transition: border 0.3s ease-in-out;
+}
+
+input[type="radio"]:checked {
+    border: 6px solid #555;
+}
+input[type="radio"]:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
 }
