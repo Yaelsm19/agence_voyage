@@ -3,15 +3,15 @@
 
 :root {
     /* Couleurs principales */
-    --couleur-primaire-fond: #4A3B50;
-    --couleur-secondaire-fond: #FFFFFF1A;
+    --couleur-primaire-fond: #4A3B50; /* Couleurs des principaux fonds d'éléments*/
+    --couleur-secondaire-fond: #FFFFFF1A; /* Couleurs des fonds d'éléments si ils sont au dessus d'un fond de la couleur principale */
     --couleur-textes: white;
     --couleur-placeholder: #aaa;
-    --couleur-bandeau-texte: #dacfcf;
+    --couleur-bandeau-texte: #dacfcf; /* le texte à l'intérieur des bandeaux de certaines pages (footer, header) */
     
     /* Fonds spécifiques */
-    --couleur-fond-bandeau: #333;
-    --couleur-fond-GrandTitre-vid: #00000099;
+    --couleur-fond-bandeau: #333; /* couleur du fond des bandeaux (footer, header) */
+    --couleur-fond-GrandTitre-vid: #00000099; /* Less grands titres dans des bandeaux sur une vidéo */
     --couleur-fond-bouton: #61689a;
 
     /* Police d'écriture */
