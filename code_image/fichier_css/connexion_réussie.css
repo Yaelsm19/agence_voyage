@@ -1,0 +1,43 @@
+@import url('variables.css');
+
+
+.message-connexion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--couleur-primaire-fond);
+    color: var(--couleur-textes);
+    font-family: var(--police-grand-titre);
+    text-align: center;
+    padding: 20px;
+    border-radius: var(--border-radius-element);
+    box-shadow: var(--ombre-box);
+    transition: all 0.3s ease-in-out;
+}
+
+.message-connexion h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: var(--couleur-textes);
+}
+
+.message-connexion p {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.message-connexion {
+    animation: fadeIn 0.5s ease-in-out;
+}

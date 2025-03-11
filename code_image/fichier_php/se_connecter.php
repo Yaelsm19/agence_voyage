@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Se connecter</h1>
-    <div class="form-container">
+    <form class="form-container" method="POST" action="traitement_connexion.php">
         <div class="form-group">
             <label for="email">Adresse email :</label>
             <input type="email" id="email" name="email" placeholder="Adresse email" required>
@@ -30,10 +30,10 @@
                 </button>
             </a>
             <div class="form-group">
-                <h2>Si vous ne possédez pas encore de profil pour en créer un <a href ="s_inscrire.html">cliquez ici</a></h2>
+                <h2>Si vous ne possédez pas encore de profil pour en créer un <a href ="s_inscrire.php">cliquez ici</a></h2>
             </div>
         </div>
-    </div>
+</form>
     <footer>
         <p>© 2025 Pastport - Tous droits réservés</p>
     </footer>

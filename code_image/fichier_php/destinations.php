@@ -10,27 +10,27 @@
     <link rel="icon" href="../Image/image_icône/Passport_logo.jpg">
 </head>
 <body>
-    <header class="container1">
-        <img src="../Image/image_icône/Passport_logo.jpg" alt="logo_site" class="logo">
+<header class="container1">
+        <img src="..\Image\image_icône\Passport_logo.jpg" alt="logo_site" class="logo">
         
         <nav class="nav_lien">
-            <a href="accueil.html" class="lien_accueil">Accueil</a>
-            <a href="destinations.html" class="lien_destinations">Destinations</a>
+            <a href="accueil.php" class="lien_accueil">Accueil</a>
+            <a href="destinations.php" class="lien_destinations">Destinations</a>
         </nav>
     
         <div class="icon_container">
-            <a href="profil.html" class="lien_profil">
-                <img src="../Image/image_icône/people.png" alt="profil">
+            <a href="profil.php" class="lien_profil">
+                <img src="../Image/image_icône/people.png" alt="Profil">
             </a>
-            <a href="panier.html" class="lien_panier">
+            <a href="panier.php" class="lien_panier">
                 <img src="../Image/image_icône/shopping-cart.png" alt="panier">
             </a>
-            <a href="presentation.html" class="lien_presentation">
+            <a href="presentation.php" class="lien_presentation">
                 <img src="../Image/image_icône/info.png" alt="présentation">
             </a>
         </div>
     
-        <a href="se_connecter.html" class="lien_se_connecter">Se connecter</a>
+        <a href="se_connecter.php" class="lien_se_connecter">Se connecter</a>
     </header>
     <video autoplay loop muted id="background-video">
         <source src="..\Image\image_background\background_destination.mp4" type="video/mp4">
@@ -283,10 +283,10 @@
             <div class="footer-section">
                 <h3>Liens utiles</h3>
                 <ul class="footer-liens">
-                    <li><a href="Mentions_légales.html" target="_blank">Mentions légales</a></li>
-                    <li><a href="Politique_confidentialité.html" target="_blank">Politique de confidentialité</a></li>
-                    <li><a href="contact.html" target="_blank">Contact</a></li>
-                    <li><a href="FAQ.html" target="_blank">FAQ</a></li>
+                    <li><a href="Mentions_légales.php" target="_blank">Mentions légales</a></li>
+                    <li><a href="Politique_confidentialité.php" target="_blank">Politique de confidentialité</a></li>
+                    <li><a href="contact.php" target="_blank">Contact</a></li>
+                    <li><a href="FAQ.php" target="_blank">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-section">

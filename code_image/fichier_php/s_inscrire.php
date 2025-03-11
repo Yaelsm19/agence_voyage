@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Inscription</h1>
-    <div class="form-container">
+    <form class="form-container" method="POST" action="traitement_inscription.php">
         <div class="form-groupe">
             <label for="prénom">Prénom :</label>
             <input type="text" name="prénom" id="prénom" placeholder="Votre prénom" required>
@@ -44,20 +44,20 @@
             <button type="submit">S'inscrire</button>
         </div>
         <div class="bouton-retour">
-            <a href="accueil.html">
+            <a href="accueil.php">
                 <button class="retour">
                     <img src="../Image/image_icône/en-arriere.png" alt="modifier">
                 </button>
             </a>
             <div class="form-group">
-                <h2>Si vous possédez déjà un compte <a href ="se_connecter.html">cliquez ici</a></h2>
+                <h2>Si vous possédez déjà un compte <a href ="se_connecter.php">cliquez ici</a></h2>
             </div>
 
             <div class="form-group">
-                <h3>En vous créant un compte vous accéptez nos  <a href ="condition_general.html">conditions générales d'utilisation</a></h3>
+                <h3>En vous créant un compte vous accéptez nos  <a href ="condition_general.php">conditions générales d'utilisation</a></h3>
             </div>
         </div>
-    </div>
+</form>
     <footer>
         <p>© 2025 Pastport - Tous droits réservés</p>
     </footer>
