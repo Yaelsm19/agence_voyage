@@ -115,7 +115,34 @@ label {
     justify-content: center;
 }
 
+.profil-container input[type="submit"], .se_deconnecter{
+    font-family: var(--police-bouton);
+    padding: 10px;
+    border-radius: var(--border-radius-element);
+    background-color: var(--couleur-fond-bouton);
+    color: var(--couleur-textes);
+    border: var(--bordure_bouton);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
 
+.profil-container input[type="submit"]:hover, .se_deconnecter:hover{
+    border-color: var(--couleur-survol-bordure);
+    color: var(--couleur-survol-texte);
+    background-color: var(--couleur-survol-bouton);
+    box-shadow: var(--ombre-box);
+    transform: var(--scale-bouton);
+    cursor: pointer;
+}
+.se_deconnecter_container{
+    display: flex;
+}
+.se_deconnecter{
+    margin-left: auto;
+    margin-top: 0;
+}
 @media (max-width: 768px) {
     body {
         padding: 10px;

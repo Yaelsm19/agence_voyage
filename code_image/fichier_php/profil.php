@@ -17,8 +17,11 @@
             Votre navigateur ne supporte pas la vidéo.
         </video>
     
-    <form class="profil-container">
+    <form class="profil-container"  action="modifier_profil.php" method="POST">
     <div class="form-group">
+        <div class="se_deconnecter_container">
+            <a class="se_deconnecter" href="deconnexion.php">Se déconnecter</a>
+        </div>
         <img id="profile-pic" src="../Image/image_icône/profile.jpg" alt="Photo de profil" class="profile-pic">
         <input type="file" id="file-input" accept="image/*">
     </div>
@@ -26,7 +29,7 @@
 
         <div class="form-group">
             <div class="input-container">
-                <p><strong>Email:</strong> <input type="text" name="email" value="<?= htmlspecialchars($_SESSION["email"]) ?>"></p>
+                <p><strong>Email:</strong> <input type="email" name="email" minlength="8" value="<?= htmlspecialchars($_SESSION["email"]) ?>" required></p>
                 <button class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
@@ -35,7 +38,7 @@
         
         <div class="form-group">
             <div class="input-container">
-            <p><strong>Prenom:</strong> <input type="text" name="prenom" value="<?= htmlspecialchars($_SESSION['prenom']) ?>"></p>
+            <p><strong>Prenom:</strong> <input type="text" name="prenom"  minlength="3"value="<?= htmlspecialchars($_SESSION['prenom']) ?>" required></p>
                 <button class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
@@ -45,7 +48,7 @@
 
         <div class="form-group">
             <div class="input-container">
-            <p><strong>Nom:</strong> <input type="text" name="nom" value="<?= htmlspecialchars($_SESSION['nom']) ?>"></p>
+            <p><strong>Nom:</strong> <input type="text" name="nom" minlength="4" value="<?= htmlspecialchars($_SESSION['nom']) ?>" required></p>
                 <button class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="modifier">
                 </button>
@@ -54,7 +57,7 @@
 
         <div class="form-group">
             <div class="input-container">
-            <p><strong>Tel:</strong> <input type="text" name="numero" value="<?= htmlspecialchars($_SESSION['numero']) ?>"></p>
+            <p><strong>Tel:</strong> <input type="text" name="numero" minlength="10" value="<?= htmlspecialchars($_SESSION['numero']) ?>" required></p>
                 <button class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="modifier">
                 </button>
@@ -65,11 +68,9 @@
 
 
         <div class="grade">
-            <p><strong>Grade:</strong> <?= htmlspecialchars($_SESSION['grade']) ?></p>
+            <p><strong>Grade:</strong> <?= htmlspecialchars($_SESSION['grade']) ?> </p>
         </div>
-</form>
-<form action="deconnexion.php" method="POST">
-    <input type="submit" value="salut">
+        <input type="submit" value="Modifier">
 </form>
 
     <footer>

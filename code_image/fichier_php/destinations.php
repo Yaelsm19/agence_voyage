@@ -12,7 +12,7 @@
 <body>
 <?php include('header.php') ?>
     <video autoplay loop muted id="background-video">
-        <source src="..\Image\image_background\background_destination.mp4" type="video/mp4">
+        <source src="..\Image\image_background\effet_image.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la vidéo.
     </video>
     <div class="container2">

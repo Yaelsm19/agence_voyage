@@ -11,7 +11,7 @@
     
         <div class="icon_container">
         <?php
-        if (isset($_SESSION['nom_utilisateur'])){
+        if (isset($_SESSION['nom'])){
             echo '<a href="profil.php" class="lien_profil">
                 <img src="../Image/image_icône/people.png" alt="Profil">
             </a>
@@ -25,7 +25,7 @@
         </a>
         </div>
     <?php
-    if (!isset($_SESSION['nom_utilisateur'])) {
+    if (!isset($_SESSION['nom'])) {
         echo '<a href="se_connecter.php" class="lien_se_connecter">Se connecter</a>';
     }
     ?>
