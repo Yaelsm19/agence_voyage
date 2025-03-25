@@ -13,14 +13,14 @@ if (isset($_POST['user_id'])) {
 
     if ($user) {
         switch ($user['grade']) {
-            case 'admin':
+            case 'membre':
                 $new_grade = 'VIP';
                 break;
             case 'VIP':
-                $new_grade = 'membre';
+                $new_grade = 'admin';
                 break;
             default:
-                $new_grade = 'admin';
+                $new_grade = 'membre';
                 break;
         }
 

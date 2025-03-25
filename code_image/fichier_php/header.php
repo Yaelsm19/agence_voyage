@@ -7,6 +7,13 @@
         <nav class="nav_lien">
             <a href="accueil.php" class="lien_accueil">Accueil</a>
             <a href="destinations.php" class="lien_destinations">Destinations</a>
+            <?php
+            if(isset($_SESSION['grade'])){
+                if($_SESSION['grade']=="admin"){
+                    echo "<a href='administrateur.php' class='lien_destinations'>Administrateur</a>";
+                }
+            }
+            ?>
         </nav>
     
         <div class="icon_container">

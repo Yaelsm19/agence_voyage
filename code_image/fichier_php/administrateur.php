@@ -42,7 +42,7 @@ if (isset($_SESSION['error'])) {
                 <th>Email</th>
                 <th>Téléphone</th>
                 <th>Grade</th>
-                <th>Editer</th>
+                <th>Status</th>
                 <th>Action</th>
                 <th>Supprimer</th>
             </tr>
@@ -60,12 +60,33 @@ if (isset($_SESSION['error'])) {
                 <td>
                     <form action="modifier_grade.php" method="POST">
                         <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
-                        <button type="submit" class="action">
-                            Alterner le grade
+                        <?php
+                        $image = '';
+                        $altText = '';
+                        switch ($user['grade']) {
+                            case 'admin':
+                                $image = '../Image/image_icône/niveau_admin.png';
+                                $altText = 'Admin';
+                            break;
+                            case 'VIP':
+                                $image = '../Image/image_icône/niveau_VIP.png';
+                                $altText = 'VIP';
+                            break;
+                            case 'membre':
+                                $image = '../Image/image_icône/niveau_membre.png';
+                                $altText = 'Membre';
+                            break;
+                            case 'bloqué':
+                                $image = '../Image/image_icône/niveau_bloqué.png';
+                                $altText = 'Bloqué';
+                            break;
+                        }
+                        ?>
+                        <button type="submit" class="action editer">
+                            <img src="<?php echo $image; ?>" alt="<?php echo $altText; ?>" />
                         </button>
                     </form>
                 </td>
-
                 <td>
                     <a href="bloquer_debloquer_utilisateur.php?id=<?php echo $user['user_id']; ?>&grade=<?php echo $user['grade']; ?>" class="action bloquer">
                         <img src="..\Image\image_icône\<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>.png" alt="<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>">

@@ -143,6 +143,100 @@ label {
     margin-left: auto;
     margin-top: 0;
 }
+
+/* Style pour les différents grades */
+.grade-membre {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.grade-vip {
+    color: rgb(255, 255, 0);
+    font-weight: bold;
+
+    /* Effet scintillant uniquement sur le texte */
+    text-shadow: 
+        0 0 10px rgba(255, 255, 0, 0.8),
+        0 0 20px rgba(255, 255, 0, 0.6),
+        0 0 30px rgba(255, 255, 0, 0.4),
+        0 0 40px rgba(255, 255, 0, 0.2),
+        0 0 50px rgba(255, 255, 0, 0.1);
+
+    animation: scintiller 1.5s infinite alternate; /* Animation du scintillement du texte */
+}
+
+/* Animation pour l'effet scintillant du texte (VIP) */
+@keyframes scintiller {
+    0% {
+        text-shadow: 
+            0 0 10px rgba(255, 255, 0, 0.8),
+            0 0 20px rgba(255, 255, 0, 0.6),
+            0 0 30px rgba(255, 255, 0, 0.4),
+            0 0 40px rgba(255, 255, 0, 0.2),
+            0 0 50px rgba(255, 255, 0, 0.1);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(255, 255, 0, 1),
+            0 0 25px rgba(255, 255, 0, 0.8),
+            0 0 35px rgba(255, 255, 0, 0.6),
+            0 0 45px rgba(255, 255, 0, 0.3),
+            0 0 55px rgba(255, 255, 0, 0.2);
+    }
+    100% {
+        text-shadow: 
+            0 0 10px rgba(255, 255, 0, 0.8),
+            0 0 20px rgba(255, 255, 0, 0.6),
+            0 0 30px rgba(255, 255, 0, 0.4),
+            0 0 40px rgba(255, 255, 0, 0.2),
+            0 0 50px rgba(255, 255, 0, 0.1);
+    }
+}
+
+.grade-admin {
+    color: rgb(0, 153, 255);
+    font-weight: bold;
+
+    /* Effet lumineux pulsant uniquement sur le texte */
+    text-shadow: 
+        0 0 10px rgba(0, 153, 255, 0.8),
+        0 0 20px rgba(0, 153, 255, 0.6),
+        0 0 30px rgba(0, 153, 255, 0.4),
+        0 0 40px rgba(0, 153, 255, 0.2),
+        0 0 50px rgba(0, 153, 255, 0.1);
+
+    /* Animation du pulsating pour l'effet lumineux (Admin) */
+    animation: pulsate 1.5s infinite alternate;
+}
+
+/* Animation pour l'effet lumineux pulsant du texte (Admin) */
+@keyframes pulsate {
+    0% {
+        text-shadow: 
+            0 0 10px rgba(0, 153, 255, 0.8),
+            0 0 20px rgba(0, 153, 255, 0.6),
+            0 0 30px rgba(0, 153, 255, 0.4),
+            0 0 40px rgba(0, 153, 255, 0.2),
+            0 0 50px rgba(0, 153, 255, 0.1);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(0, 153, 255, 1),
+            0 0 25px rgba(0, 153, 255, 0.8),
+            0 0 35px rgba(0, 153, 255, 0.6),
+            0 0 45px rgba(0, 153, 255, 0.3),
+            0 0 55px rgba(0, 153, 255, 0.2);
+    }
+    100% {
+        text-shadow: 
+            0 0 10px rgba(0, 153, 255, 0.8),
+            0 0 20px rgba(0, 153, 255, 0.6),
+            0 0 30px rgba(0, 153, 255, 0.4),
+            0 0 40px rgba(0, 153, 255, 0.2),
+            0 0 50px rgba(0, 153, 255, 0.1);
+    }
+}
+
 @media (max-width: 768px) {
     body {
         padding: 10px;

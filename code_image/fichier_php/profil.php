@@ -67,8 +67,23 @@
 
 
         <div class="grade">
-            <p><strong>Grade:</strong> <?= htmlspecialchars($_SESSION['grade']) ?> </p>
+            <?php
+            $gradeClass = '';
+            switch ($_SESSION['grade']) {
+            case 'admin':
+                $gradeClass = 'grade-admin';
+                break;
+            case 'VIP':
+                $gradeClass = 'grade-vip';
+                break;
+            case 'membre':
+                $gradeClass = 'grade-membre';
+                break;
+            }
+            ?>
+            <p class="<?= $gradeClass ?>"><strong>Grade:</strong> <?= htmlspecialchars($_SESSION['grade']) ?></p>
         </div>
+
         <?php
         if (isset($_SESSION['error'])) {
             echo "<div style='color: red; margin-bottom: 10px;'>" . $_SESSION['error'] . "</div>";
