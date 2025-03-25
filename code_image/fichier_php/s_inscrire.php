@@ -12,37 +12,46 @@
     <form class="form-container" method="POST" action="traitement_inscription.php">
         <div class="form-groupe">
             <label for="prénom">Prénom :</label>
-            <input type="text" name="prénom" id="prénom" placeholder="Votre prénom" required>
+            <input type="text" name="prénom" id="prénom" minlength="3"placeholder="Votre prénom" required>
         </div>
 
         <div class="form-groupe">
             <label for="nom">Nom :</label>
-            <input type="text" name="nom" id="nom" placeholder="Votre nom" required>
+            <input type="text" name="nom" id="nom" minlength="2" placeholder="Votre nom" required>
         </div>
 
         <div class="form-group">
             <label for="email">Adresse email :</label>
-            <input type="email" id="email" name="email" placeholder="Adresse email" required>
+            <input type="email" id="email" name="email" minlength="6" placeholder="Adresse email" required>
         </div>
 
         <div class="form-groupe">
             <label for="telephone">Téléphone :</label>
-            <input type="tel" name="telephone" id="telephone" placeholder="Numéro de téléphone" required>
+            <input type="tel" name="telephone" id="telephone" minlength="10" placeholder="Numéro de téléphone" required>
         </div>
 
         <div class="form-group">
             <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" placeholder="Mot de passe">
+            <input type="password" id="password" name="password" minlength="8" placeholder="Mot de passe">
         </div>
 
         <div class="form-group">
             <label for="confirmation_password">Confirmation du mot de passe :</label>
-            <input type="password" id="confirmation_password" name="confirmation_password" placeholder="Mot de passe*">
+            <input type="password" id="confirmation_password" minlength="8" name="confirmation_password" placeholder="Mot de passe*">
         </div>
+
+        <?php
+        session_start();
+        if (isset($_SESSION["error"])) {
+            echo "<div style='color: red; margin-bottom: 10px;'>" . $_SESSION["error"] . "</div>";
+            unset($_SESSION["error"]);
+        }
+        ?>
 
         <div class="form-group">
             <button type="submit">S'inscrire</button>
         </div>
+
         <div class="bouton-retour">
             <a href="accueil.php">
                 <button class="retour">

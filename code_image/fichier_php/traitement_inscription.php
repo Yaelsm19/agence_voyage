@@ -11,17 +11,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirmation_password = $_POST["confirmation_password"];
 
     if (empty($prenom) || empty($nom) || empty($email) || empty($telephone) || empty($password) || empty($confirmation_password)) {
-        echo "Tous les champs sont obligatoires.";
+        $_SESSION["error"] = "Tous les champs sont obligatoires.";
+        header("Location: s_inscrire.php");
         exit;
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "L'adresse email n'est pas valide.";
+        $_SESSION["error"] = "L'adresse email n'est pas valide.";
+        header("Location: s_inscrire.php");
         exit;
     }
 
     if ($password !== $confirmation_password) {
-        echo "Les mots de passe ne correspondent pas.";
+        $_SESSION["error"] = "Les mots de passe ne correspondent pas.";
+        header("Location: s_inscrire.php");
         exit;
     }
 
@@ -34,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            echo "Cette adresse email est déjà utilisée.";
+            $_SESSION["error"] = "Cette adresse email est déjà utilisée.";
+            header("Location: s_inscrire.php");
             exit;
         }
 
@@ -48,14 +52,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(":password_hache", $password_hache, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
-            echo "Inscription réussie. Vous pouvez maintenant vous connecter.";
+            $_SESSION["success"] = "Inscription réussie. Vous pouvez maintenant vous connecter.";
             header("Location: se_connecter.php");
             exit;
         } else {
-            echo "Erreur lors de l'inscription.";
+            $_SESSION["error"] = "Erreur lors de l'inscription.";
+            header("Location: s_inscrire.php");
+            exit;
         }
     } catch (PDOException $e) {
-        echo "Erreur : " . $e->getMessage();
+        $_SESSION["error"] = "Erreur : " . $e->getMessage();
+        header("Location: s_inscrire.php");
+        exit;
     }
 }
 ?>

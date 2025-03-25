@@ -5,6 +5,7 @@ include('connexion_base.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!isset($_SESSION['user_id'])) {
+        $_SESSION['error'] = "Vous devez être connecté pour mettre à jour votre profil.";
         header("Location: se_connecter.php");
         exit();
     }
@@ -13,6 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $prenom  = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_STRING);
     $nom     = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_STRING);
     $numero  = filter_input(INPUT_POST, 'numero', FILTER_SANITIZE_STRING);
+
+    if (empty($email) || empty($prenom) || empty($nom) || empty($numero)) {
+        $_SESSION['error'] = "Tous les champs doivent être remplis.";
+        header("Location: profil.php");
+        exit();
+    }
 
     $sql = "UPDATE utilisateur SET email = :email, prenom = :prenom, nom = :nom, numero = :numero WHERE user_id = :user_id";
     $stmt = $pdo->prepare($sql);
@@ -29,10 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nom'] = $nom;
         $_SESSION['numero'] = $numero;
 
-        header("Location: profil.php?success=1");
+        header("Location: profil.php");
         exit();
     } else {
-        echo "Erreur lors de la mise à jour du profil.";
+        $_SESSION['error'] = "Erreur lors de la mise à jour du profil.";
+        header("Location: profil.php");
+        exit();
     }
 } else {
     header("Location: profil.php");

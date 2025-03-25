@@ -1,3 +1,27 @@
+<?php
+session_start();
+include('connexion_base.php');
+
+$query = "SELECT user_id, prenom, nom, email, numero, grade FROM utilisateur";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if (isset($_SESSION['success'])) {
+    echo "<div style='color: green; padding: 10px; background-color: #d4edda;'>";
+    echo $_SESSION['success'];
+    echo "</div>";
+    unset($_SESSION['success']);
+}
+
+if (isset($_SESSION['error'])) {
+    echo "<div style='color: red; padding: 10px; background-color: #f8d7da;'>";
+    echo $_SESSION['error'];
+    echo "</div>";
+    unset($_SESSION['error']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,122 +43,44 @@
                 <th>Téléphone</th>
                 <th>Grade</th>
                 <th>Editer</th>
-                <th>Bloquer</th>
+                <th>Action</th>
                 <th>Supprimer</th>
             </tr>
+            <?php foreach ($users as $user): ?>
             <tr>
-                <td>1</td>
-                <td>Jean</td>
-                <td>Dupont</td>
-                <td>jean.dupont@example.com</td>
-                <td>06 12 34 56 78</td>
-                <td>Membre</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
+                <td><?php echo htmlspecialchars($user['user_id']); ?></td>
+                <td><?php echo htmlspecialchars($user['prenom']); ?></td>
+                <td><?php echo htmlspecialchars($user['nom']); ?></td>
+                <td><?php echo htmlspecialchars($user['email']); ?></td>
+                <td><?php echo htmlspecialchars($user['numero']); ?></td>
+                <td class="<?php echo 'grade-' . htmlspecialchars($user['grade']); ?>">
+                    <?php echo htmlspecialchars($user['grade']); ?>
+                </td>
+                
+                <td>
+                    <form action="modifier_grade.php" method="POST">
+                        <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+                        <button type="submit" class="action">
+                            Alterner le grade
+                        </button>
+                    </form>
+                </td>
+
+                <td>
+                    <a href="bloquer_debloquer_utilisateur.php?id=<?php echo $user['user_id']; ?>&grade=<?php echo $user['grade']; ?>" class="action bloquer">
+                        <img src="..\Image\image_icône\<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>.png" alt="<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>">
+                    </a>
+                </td>
+
+                <td>
+                    <a href="supprimer_utilisateur.php?id=<?php echo $user['user_id']; ?>" class="action supprimer">
+                        <img src="..\Image\image_icône\supprimer.png" alt="supprimer">
+                    </a>
+                </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Marie</td>
-                <td>Curie</td>
-                <td>marie.curie@example.com</td>
-                <td>06 98 76 54 32</td>
-                <td>VIP</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Alexandre</td>
-                <td>Legrand</td>
-                <td>alexandre.legrand@example.com</td>
-                <td>06 45 67 89 01</td>
-                <td>Membre</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Sophie</td>
-                <td>Rivière</td>
-                <td>sophie.riviere@example.com</td>
-                <td>06 54 32 10 98</td>
-                <td>Membre</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Luc</td>
-                <td>Martin</td>
-                <td>luc.martin@example.com</td>
-                <td>06 23 45 67 89</td>
-                <td>VIP</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Élise</td>
-                <td>Giraud</td>
-                <td>elise.giraud@example.com</td>
-                <td>06 12 76 89 01</td>
-                <td>Membre</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Pierre</td>
-                <td>Lemoine</td>
-                <td>pierre.lemoine@example.com</td>
-                <td>06 32 45 78 90</td>
-                <td>Membre</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Alice</td>
-                <td>Lacombe</td>
-                <td>alice.lacombe@example.com</td>
-                <td>06 87 65 43 21</td>
-                <td>VIP</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Louis</td>
-                <td>Bernard</td>
-                <td>louis.bernard@example.com</td>
-                <td>06 98 76 54 32</td>
-                <td>Membre</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Charlotte</td>
-                <td>Durand</td>
-                <td>charlotte.durand@example.com</td>
-                <td>06 23 45 67 89</td>
-                <td>Membre</td>
-                <td><button class="action editer"><img src="..\Image\image_icône\modifier.png" alt="modifier"></button></td>
-                <td><button class="action bloquer"><img src="..\Image\image_icône\bloquer.png" alt="bloquer"></button></button></td>
-                <td><button class="action supprimer"><img src="..\Image\image_icône\supprimer.png" alt="supprimer"></button></td>
-            </tr>
+            <?php endforeach; ?>
         </table>
     </div>
     <p>&copy; 2025 Pastport - Tous droits réservés.</p>
 </body>
 </html>
-

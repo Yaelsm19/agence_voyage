@@ -19,7 +19,13 @@
             <label for="password">Mot de passe :</label>
             <input type="password" id="password" name="password" placeholder="Mot de passe">
         </div>
-
+        <?php
+        session_start();
+        if (isset($_SESSION["error"])) {
+            echo "<div style='color: red; margin-bottom: 10px;'>" . $_SESSION["error"] . "</div>";
+            unset($_SESSION["error"]);
+        }
+        ?>
         <div class="form-group">
             <button type="submit">S'identifier</button>
         </div>

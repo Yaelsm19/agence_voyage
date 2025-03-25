@@ -7,7 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     if (empty($email) || empty($password)) {
-        echo "Tous les champs sont obligatoires.";
+        $_SESSION["error"] = "Tous les champs sont obligatoires.";
+        header("Location: se_connecter.php");
         exit;
     }
 
@@ -20,6 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            if ($user['grade'] == 'bloqué') {
+                $_SESSION["error"] = "Votre compte est bloqué. Veuillez contacter l'administration.";
+                header("Location: se_connecter.php");
+                exit;
+            }
+
             if (password_verify($password, $user["mot_de_passe"])) {
                 $_SESSION["email"] = $email;
                 $_SESSION["user_id"] = $user["user_id"];
@@ -28,17 +35,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["numero"] = $user["numero"];
                 $_SESSION["grade"] = $user["grade"];
 
-                echo "Connexion réussie.";
                 header("Location: connexion_réussie.php");
                 exit;
             } else {
-                echo "Mot de passe incorrect.";
+                $_SESSION["error"] = "Mot de passe incorrect.";
+                header("Location: se_connecter.php");
+                exit;
             }
         } else {
-            echo "Aucun compte trouvé avec cet email.";
+            $_SESSION["error"] = "Aucun compte trouvé avec cet email.";
+            header("Location: se_connecter.php");
+            exit;
         }
     } catch (PDOException $e) {
-        echo "Erreur : " . $e->getMessage();
+        $_SESSION["error"] = "Erreur : " . $e->getMessage();
+        header("Location: se_connecter.php");
+        exit;
     }
 }
 ?>

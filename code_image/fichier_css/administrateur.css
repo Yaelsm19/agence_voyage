@@ -70,6 +70,85 @@ td .action {
 
 }
 
+
+/* Style pour les différents grades */
+.grade-membre {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.grade-bloqué {
+    color: rgb(173, 42, 42);
+    font-weight: bold;
+}
+
+.grade-vip {
+    color: rgb(255, 255, 0);
+    font-weight: bold;
+
+    background-image: linear-gradient(45deg, rgba(255, 255, 0, 0.8), rgba(255, 255, 0, 0.3), rgba(255, 255, 0, 0.8));
+    background-size: 200% 200%;
+    animation: scintiller 1.5s infinite linear;
+}
+
+/* Animation pour l'effet scintillant (VIP) */
+@keyframes scintiller {
+    0% {
+        background-position: 200% 0%;
+    }
+    50% {
+        background-position: -200% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}
+
+.grade-admin {
+    color: rgb(0, 153, 255);
+    font-weight: bold;
+
+    /* Effet lumineux pulsant sur le texte Admin */
+    text-shadow: 
+        0 0 10px rgba(0, 153, 255, 0.8),
+        0 0 20px rgba(0, 153, 255, 0.6),
+        0 0 30px rgba(0, 153, 255, 0.4),
+        0 0 40px rgba(0, 153, 255, 0.2),
+        0 0 50px rgba(0, 153, 255, 0.1);
+    
+    /* Animation pulsante pour l'effet lumineux */
+    animation: pulsate 1.5s infinite alternate;
+}
+
+/* Animation pour l'effet lumineux pulsant (Admin) */
+@keyframes pulsate {
+    0% {
+        text-shadow: 
+            0 0 10px rgba(0, 153, 255, 0.8),
+            0 0 20px rgba(0, 153, 255, 0.6),
+            0 0 30px rgba(0, 153, 255, 0.4),
+            0 0 40px rgba(0, 153, 255, 0.2),
+            0 0 50px rgba(0, 153, 255, 0.1);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(0, 153, 255, 1),
+            0 0 25px rgba(0, 153, 255, 0.8),
+            0 0 35px rgba(0, 153, 255, 0.6),
+            0 0 45px rgba(0, 153, 255, 0.3),
+            0 0 55px rgba(0, 153, 255, 0.2);
+    }
+    100% {
+        text-shadow: 
+            0 0 10px rgba(0, 153, 255, 0.8),
+            0 0 20px rgba(0, 153, 255, 0.6),
+            0 0 30px rgba(0, 153, 255, 0.4),
+            0 0 40px rgba(0, 153, 255, 0.2),
+            0 0 50px rgba(0, 153, 255, 0.1);
+    }
+}
+
+
 td .action:hover {
     transform: var(--scale-bouton);
 }

@@ -29,7 +29,7 @@
 
         <div class="form-group">
             <div class="input-container">
-                <p><strong>Email:</strong> <input type="email" name="email" minlength="8" value="<?= htmlspecialchars($_SESSION["email"]) ?>" required></p>
+                <p><strong>Email:</strong> <input type="email" name="email" minlength="6" value="<?= htmlspecialchars($_SESSION["email"]) ?>" required></p>
                 <button class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
@@ -48,7 +48,7 @@
 
         <div class="form-group">
             <div class="input-container">
-            <p><strong>Nom:</strong> <input type="text" name="nom" minlength="4" value="<?= htmlspecialchars($_SESSION['nom']) ?>" required></p>
+            <p><strong>Nom:</strong> <input type="text" name="nom" minlength="2" value="<?= htmlspecialchars($_SESSION['nom']) ?>" required></p>
                 <button class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="modifier">
                 </button>
@@ -66,10 +66,15 @@
         
 
 
-
         <div class="grade">
             <p><strong>Grade:</strong> <?= htmlspecialchars($_SESSION['grade']) ?> </p>
         </div>
+        <?php
+        if (isset($_SESSION['error'])) {
+            echo "<div style='color: red; margin-bottom: 10px;'>" . $_SESSION['error'] . "</div>";
+            unset($_SESSION['error']);
+        }
+        ?>
         <input type="submit" value="Modifier">
 </form>
 
