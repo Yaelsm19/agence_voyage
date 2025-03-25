@@ -16,17 +16,18 @@
             <source src="../Image/image_background\effet_image.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la vidéo.
         </video>
-    
-    <form class="profil-container"  action="modifier_profil.php" method="POST">
-    <div class="form-group">
-        <div class="se_deconnecter_container">
+    <div class="profil-container">
+    <div class="se_deconnecter_container">
             <a class="se_deconnecter" href="deconnexion.php">Se déconnecter</a>
-        </div>
-        <img id="profile-pic" src="../Image/image_icône/profile.jpg" alt="Photo de profil" class="profile-pic">
-        <input type="file" id="file-input" accept="image/*">
     </div>
+    <form action="photo_profil.php" method="POST" enctype="multipart/form-data">
+        <img id="profile-pic" src="../Image/image_icône/<?php echo !empty($user['profile_pic']) ? $user['profile_pic'] : 'profile.jpg'; ?>" alt="Photo de profil" class="profile-pic">
+        <label for="file-input">Changer la photo de profil :</label>
+        <input type="file" id="file-input" name="profile_pic" accept="image/*">
+        <button type="submit">Mettre à jour la photo de profil</button>
+</form>
 
-
+    <form  action="modifier_profil.php" method="POST">
         <div class="form-group">
             <div class="input-container">
                 <p><strong>Email:</strong> <input type="email" name="email" minlength="6" value="<?= htmlspecialchars($_SESSION["email"]) ?>" required></p>
@@ -92,6 +93,7 @@
         ?>
         <input type="submit" value="Modifier">
 </form>
+</div>
 
     <footer>
         <div class="footer-container">
