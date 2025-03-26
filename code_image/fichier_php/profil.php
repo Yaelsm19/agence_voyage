@@ -21,11 +21,36 @@
             <a class="se_deconnecter" href="deconnexion.php">Se déconnecter</a>
     </div>
     <form action="photo_profil.php" method="POST" enctype="multipart/form-data">
-        <img id="profile-pic" src="../Image/image_icône/<?php echo !empty($user['profile_pic']) ? $user['profile_pic'] : 'profile.jpg'; ?>" alt="Photo de profil" class="profile-pic">
+        <img id="profile-pic" src="../Image/photo_profil_utilisateurs/<?php 
+        $profilePicBase = 'profil_' . $_SESSION['user_id']; 
+        $extensions = ['jpg', 'jpeg', 'png']; 
+        $found = false;
+        foreach ($extensions as $ext) {
+            $profilePic = $profilePicBase . '.' . $ext;
+            if (file_exists('../Image/photo_profil_utilisateurs/' . $profilePic)) {
+                echo $profilePic;
+                $found = true;
+                break;
+            }
+        }
+        if (!$found) {
+            echo 'profile.jpg';
+        }
+        ?>" alt="Photo de profil" class="profile-pic">
+
         <label for="file-input">Changer la photo de profil :</label>
         <input type="file" id="file-input" name="profile_pic" accept="image/*">
-        <button type="submit">Mettre à jour la photo de profil</button>
-</form>
+        <?php if (isset($_SESSION['success'])): ?>
+        <p style="color: green;"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></p>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['error'])): ?>
+        <p style="color: red;"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
+        <?php endif; ?>
+    
+        <input type="submit" value="Changer">
+    </form>
+
+
 
     <form  action="modifier_profil.php" method="POST">
         <div class="form-group">
