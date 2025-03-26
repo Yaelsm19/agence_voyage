@@ -72,6 +72,27 @@ input[type="search"] {
 input[type="search"]:focus {
     transform: scale(1.05);
 }
+.recherche_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+
+.recherche_vide {
+    font-family: var(--police-paragraphe);
+    color: var(--couleur-textes);
+    background-color: var(--couleur-primaire-fond);
+    padding: 1.2rem 2rem;
+    border-radius: var(--border-radius-element);
+    text-align: center;
+    max-width: 600px;
+    font-size: 1.1rem;
+    box-shadow: var(--ombre-box);
+}
+
 
 button {
     background: transparent;

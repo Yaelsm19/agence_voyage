@@ -38,19 +38,8 @@ header {
 }
 
 
-.nav_lien a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--couleur-survol-texte);
-    left: 0;
-    bottom: -4px;
-    transition: width 0.3s ease;
-}
-
-.nav_lien a:hover::after {
-    width: 100%;
+.nav_lien a:hover{
+    color: var(--couleur-survol-texte);
 }
 
 

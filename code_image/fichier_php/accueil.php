@@ -36,91 +36,45 @@
     <div class="offre-bannière">
         <h2>Nos offres du moment</h2>
     </div>
-    <div class="Voyages">
+    <?php
+require_once 'connexion_base.php';
+
+try {
+    // On récupère les 5 voyages les moins chers
+    $stmt = $pdo->query("SELECT * FROM voyage ORDER BY prix ASC LIMIT 5");
+    $voyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erreur : " . $e->getMessage());
+}
+?>
+
+<div class="Voyages">
+    <?php foreach ($voyages as $voyage): ?>
         <div>
-            <img  class="image_destinations"   src="../Image/Image_voyage_page_destinations\Ancient_Egypt.jpg" alt="ww2_image">
+            <img class="image_destinations" src="../Image/Image_voyage_page_destinations/<?= htmlspecialchars($voyage['image']) ?>" alt="image_<?= $voyage['id'] ?>">
             <div class="zone_texte">
-                <h3 class="période">L’Égypte des pharaons <br/>(-3000 à -30 av. J.-C.)</h3>
+                <h3 class="période"><?= htmlspecialchars($voyage['titre']) ?></h3>
                 <p class="description">
-                    Explorez l’Égypte des pharaons, ses pyramides et ses temples. Découvrez une civilisation mythique peuplée de dieux et de mystères.
+                    <?= htmlspecialchars($voyage['description']) ?>
                 </p>
                 <div class="prix_bouton">
-                    <p class="prix_container"><span class="ancien-prix">1300€</span> <span class="nouveau-prix">Dès 900€</span></p>
-                    <a href="" class="en_savoir_plus">En savoir plus</a>
+                    <p class="prix_container">
+                        <span class="ancien-prix"><?= number_format($voyage['prix'] * 1.15, 0, ',', ' ') ?>€</span>
+                        <span class="nouveau-prix">Dès <?= number_format($voyage['prix'], 0, ',', ' ') ?>€</span>
+                    </p>
+                    <a href="#" class="en_savoir_plus">En savoir plus</a>
                 </div>
             </div>
         </div>
-        <div>
-            <img  class="image_destinations"   src="../Image/Image_voyage_page_destinations\Ancient_Greece.jpg" alt="ww2_image">
-            <div class="zone_texte">
-                <h3 class="période">La Grèce antique <br/>(-1200 à -146 av. J.-C.)</h3>
-                <p class="description">
-                    Vivez l’âge d’or de la Grèce antique, où les cités rivales brillent par leurs héros, leurs philosophies et leurs Jeux Olympiques.
-                </p>
-                <div class="prix_bouton">
-                    <p class="prix_container"><span class="ancien-prix">1200€</span> <span class="nouveau-prix">Dès 900€</span></p>
-                    <a href="" class="en_savoir_plus">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img  class="image_destinations"   src="../Image/Image_voyage_page_destinations\Knights_and_Crusades.jpg" alt="ww2_image">
-            <div class="zone_texte">
-                <h3 class="période">L’Âge des chevaliers et des croisades <br/>(1000 - 1300)</h3>
-                <p class="description">
-                    Voyagez avec les chevaliers du Moyen Âge, à la conquête des terres saintes lors des croisades, dans un monde de batailles et de foi.
-                </p>
-                <div class="prix_bouton">
-                    <p class="prix_container"><span class="ancien-prix">900€</span> <span class="nouveau-prix">Dès 700€</span></p>
-                    <a href="" class="en_savoir_plus">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img  class="image_destinations"   src="../Image/Image_voyage_page_destinations\Renaissance.jpg" alt="ww2_image">
-            <div class="zone_texte">
-                <h3 class="période">La Renaissance <br/>(1400 - 1600)</h3>
-                <p class="description">
-                    Vivez l’épanouissement de l’art et de la science, où des génies comme Léonard de Vinci transforment la culture européenne.
-                </p>
-                <div class="prix_bouton">
-                    <p class="prix_container"><span class="ancien-prix">1100€</span> <span class="nouveau-prix">Dès 950€</span></p>
-                    <a href="" class="en_savoir_plus">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img  class="image_destinations"   src="../Image/Image_voyage_page_destinations\French_Revolution_Napoleon.jpg" alt="ww2_image">
-            <div class="zone_texte">
-                <h3 class="période">La Révolution française et Napoléon <br/>(1789 - 1815)</h3>
-                <p class="description">
-                    Revivez la Révolution française et l’ascension de Napoléon, une époque de bouleversements politiques et de combats pour la liberté.
-                </p>
-                <div class="prix_bouton">
-                    <p class="prix_container"><span class="ancien-prix">1100€</span> <span class="nouveau-prix">Dès 850€</span></p>
-                    <a href="reservation_révolution.html" class="en_savoir_plus">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img  class="image_destinations"   src="../Image/Image_voyage_page_destinations\ww2_image.jpeg" alt="ww2_image">
-            <div class="zone_texte">
-                <h3 class="période">La Seconde Guerre mondiale <br/>(1939 - 1945)</h3>
-                <p class="description">
-                    Plongez dans la Seconde Guerre mondiale, un conflit majeur marqué par la résistance et les luttes pour la liberté.
-                </p>
-                <div class="prix_bouton">
-                    <p class="prix_container"><span class="ancien-prix">1000€</span> <span class="nouveau-prix">Dès 650€</span></p>
-                    <a href="" class="en_savoir_plus">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="voyage-box">
-            <img src="../Image/Image_voyage_page_destinations/Tout_voyage.jpg" alt="Tous les voyages">
-            <h3>Découvrez de nombreux autres voyages</h3>
-            <a href="destinations.php" class="Découvrir">Découvrir</a>
-        </div>
+    <?php endforeach; ?>
+
+    <div class="voyage-box">
+        <img src="../Image/Image_voyage_page_destinations/Tout_voyage.jpg" alt="Tous les voyages">
+        <h3>Découvrez de nombreux autres voyages</h3>
+        <a href="destinations.php" class="Découvrir">Découvrir</a>
     </div>
+</div>
+
     <div class="section-citations">
         <h2 class="titre-citations">Ce que nos clients disent</h2>
         <div class="citations">
