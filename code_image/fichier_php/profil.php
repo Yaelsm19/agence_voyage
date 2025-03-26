@@ -38,7 +38,7 @@
         }
         ?>" alt="Photo de profil" class="profile-pic">
 
-        <label for="file-input">Changer la photo de profil :</label>
+        <label for="file-input">Déposer une nouvelle photo</label>
         <input type="file" id="file-input" name="profile_pic" accept="image/*">
         <?php if (isset($_SESSION['success'])): ?>
         <p style="color: green;"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></p>
