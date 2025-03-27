@@ -32,11 +32,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     exit;
 }
 ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -152,24 +147,52 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             </div>
         </div>
     </div>
-    <?php
-    if (isset($_SESSION['erreurs'])) {
-        $erreurs = $_SESSION['erreurs'];
-        unset($_SESSION['erreurs']);
-    } else {
-        $erreurs = [];
-    }
-    ?>
-    <?php if (!empty($erreurs)): ?>
-        <div class="erreurs">
-            <?php foreach ($erreurs as $erreur): ?>
-                <div class="erreur"><?php echo htmlspecialchars($erreur); ?></div>
-            <?php endforeach; ?>
-        </div>
-    <?php endif; ?>
     <button type="submit">Réserver</button>
     </form>
+    <?php
+    if (isset($_SESSION["messages"]) && !empty($_SESSION["messages"])) {
+    echo '<div class="messages-container">';
+    foreach ($_SESSION["messages"] as $message) {
+        if (strpos($message, 'Erreur') !== false) {
+            echo '<div class="message error">' . htmlspecialchars($message) . '</div>';
+        } else {
+            echo '<div class="message success">' . htmlspecialchars($message) . '</div>';
+        }
+    }
+    unset($_SESSION["messages"]);
+}
+?>
+<style>
+    /* Conteneur pour les messages */
+    .messages-container {
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
 
+    /* Style pour chaque message */
+    .message {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Style pour les messages d'erreur */
+    .error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    /* Style pour les messages de succès */
+    .success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+</style>
 
     <footer>
         <div class="footer-container">

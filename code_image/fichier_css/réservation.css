@@ -211,26 +211,3 @@ input[type="number"], input[type="date"]{
     color: var(--couleur-textes);
     box-sizing: border-box;
 }
-
-/* Container des erreurs */
-.erreurs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-}
-
-/* Chaque erreur individuelle */
-.erreur {
-    background-color: #f8d7da; /* Fond rouge pâle */
-    color: #721c24; /* Texte rouge foncé */
-    border: 1px solid #f5c6cb; /* Bordure rouge plus claire */
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 12px; /* Taille du texte plus petit */
-    margin-bottom: 10px;
-    text-align: center; /* Centre le texte */
-    width: 80%; /* Largeur modérée */
-    max-width: 500px; /* Ne pas dépasser 500px */
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
-}
