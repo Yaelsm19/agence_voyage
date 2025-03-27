@@ -1,4 +1,4 @@
-let images = ["journey_to_versailles_1789.jpg", "création de l'assemblé national.jpeg", "déclaration des droits de l'homme.jpeg"];
+let images = ["../Image/image_voyage_description/journey_to_versailles_1789.jpg", "../Image/image_voyage_description/création de l'assemblé national.jpeg", "../Image/image_voyage_description/déclaration des droits de l'homme.jpeg"];
 let currentIndex = 0;
 
 function changeImage(index) {
