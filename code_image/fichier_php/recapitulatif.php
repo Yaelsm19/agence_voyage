@@ -5,35 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réservation - Pastport</title>
     <link rel="stylesheet" href="../fichier_css/recapitulatif.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../fichier_css/header.css">
+    <link rel="stylesheet" href="../fichier_css/footer.css">
 
 
 </head>
 <body>
-    <header class="container1">
-        <img src="image_icône/Passport_logo.jpg" alt="Logo de l'agence" class="logo">
-        
-        <nav class="nav_lien">
-            <a href="accueil.html" class="lien_accueil">Accueil</a>
-            <a href="destinations.html" class="lien_destinations">Destinations</a>
-        </nav>
-    
-        <div class="icon_container">
-            <a href="profil.html" class="lien_profil">
-                <img src="image_icône/people.png" alt="Profil">
-            </a>
-            <a href="panier.html" class="lien_panier">
-                <img src="image_icône/shopping-cart.png" alt="Panier">
-            </a>
-            <a href="presentation.html" class="lien_presentation">
-                <img src="image_icône/info.png" alt="Présentation">
-            </a>
-        </div>
-    
-        <a href="se_connecter.html" class="lien_se_connecter">Se connecter</a>
-    </header>
-
+    <?php include('header.php') ?>
     <div class = "form-container">
         <h1>Votre Voyage : </h1>
         <div class="form-groupe">

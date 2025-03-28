@@ -1,13 +1,14 @@
 <?php
+session_start();
 require_once 'connexion_base.php';
 $messages = [];
-session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = $_POST['date'];
     $nb_adultes = $_POST['adulte'];
     $nb_enfants = $_POST['enfant'];
 
+    // Validation des données
     if (empty($date)) {
         $messages[] = "La date de départ est obligatoire.";
     }
@@ -37,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $messages[] = "Aucun voyage sélectionné.";
     }
 
+    // Si des messages d'erreur existent, on redirige vers la page de réservation
     if (!empty($messages)) {
         $_SESSION["messages"] = $messages;
         header("Location: réservation.php?id=" . urlencode($id_voyage));
@@ -44,34 +46,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        $stmt_etapes = $pdo->prepare("SELECT * FROM etape WHERE id_voyage = :id_voyage");
+        // Modifié : jointure entre les tables 'etape' et 'options'
+        $stmt_etapes = $pdo->prepare("
+            SELECT e.id AS etape_id, e.titre, o.id_option, o.intitule, o.prix_par_personne
+            FROM etape e
+            LEFT JOIN options o ON e.id = o.id_etape
+            WHERE e.id_voyage = :id_voyage
+            ORDER BY e.chronologie
+        ");
         $stmt_etapes->execute(['id_voyage' => $id_voyage]);
         $etapes = $stmt_etapes->fetchAll(PDO::FETCH_ASSOC);
 
+        // Vérification des options pour chaque étape
         foreach ($etapes as $etape) {
-            if (isset($etape['options']) && is_array($etape['options'])) {
-                foreach ($etape['options'] as $option) {
-                    $option_key = "nb_participant_" . $option['id_option'];
+            // Vérifier si l'étape a une option et que l'utilisateur a sélectionné un nombre de participants pour cette option
+            if (isset($etape['id_option']) && isset($_POST["nb_participant_" . $etape['id_option']])) {
+                $option_key = "nb_participant_" . $etape['id_option'];
 
-                    if (isset($_POST[$option_key])) {
-                        $nb_participants_option = $_POST[$option_key];
-                        if ($nb_participants_option > ($nb_adultes + $nb_enfants)) {
-                            $messages[] = "Le nombre de participants pour l'option {$option['intitule']} dépasse le nombre total de personnes pour ce voyage.";
-                        }
+                // Vérifier que le nombre de participants pour l'option ne dépasse pas le nombre total de personnes
+                if (isset($_POST[$option_key])) {
+                    $nb_participants_option = $_POST[$option_key];
+                    if ($nb_participants_option > ($nb_adultes + $nb_enfants)) {
+                        $messages[] = "Le nombre de participants pour l'option {$etape['intitule']} dépasse le nombre total de personnes pour ce voyage.";
                     }
                 }
             }
         }
-
-        $prix_total = 0;
-        $prix_total = $prix_total + ($nb_adultes + $nb_enfants) * $voyage["prix"];
-
     } catch (PDOException $e) {
         $messages[] = "Erreur de base de données : " . $e->getMessage();
     }
 
-    $_SESSION["messages"] = $messages;
-    header("Location: réservation.php?id=" . urlencode($id_voyage));
-    exit;
+    // Si aucun message d'erreur, procéder au calcul des coûts
+    if (empty($messages)) {
+        include 'calculer_coût_reservation.php'; // Calcul du coût de la réservation
+        exit;
+    } else {
+        $_SESSION["messages"] = $messages;
+        header("Location: réservation.php?id=" . urlencode($id_voyage));
+        exit;
+    }
 }
 ?>
