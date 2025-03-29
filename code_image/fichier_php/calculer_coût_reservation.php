@@ -27,48 +27,40 @@ foreach ($etapes as $etape) {
 
     }
 }
-echo $nb_options;
 $prix_total+= $prix_option;
 $prix_transport = 0;
-if (isset($_POST['choix'])) {
+$transport = $_POST['choix'];
+if (isset($transport)) {
     switch ($_POST['choix']) {
-        case 'option1':
+        case 'Montre temporelle':
             $prix_transport = 1000;
-            $transport = "Montre temporelle";
             break;
-        case 'option2':
+        case 'Le portail temporel':
             $prix_transport = 100;
-            $transport = "Le portail temporel";
             break;
-        case 'option3':
+        case 'La cabine temporel':
             $prix_transport = 0;
-            $transport = "La cabine temporel";
             break;
     }
     $prix_total += $prix_transport * ($nb_adultes + $nb_enfants);
 }
 $prix_guide = 0;
-if (isset($_POST['choix2'])) {
+$guide = $_POST['choix2']; 
+if (isset($guide)) {
     switch ($_POST['choix2']) {
-        case 'option1':
+        case 'Guide de luxe':
             $prix_guide = 600;
-            $guide = "Guide de luxe";
             break;
-        case 'option2':
+        case 'Guide un peu mid':
             $prix_guide = 30;
-            $guide = "Guide un peu mid";
             break;
-        case 'option3':
+        case 'Pas de guide':
             $prix_guide = 0;
-            $guide ="Aucun"; 
             break;
-        case 'option4':
+        case 'Guide déboussolant':
             $prix_guide = -150;
-            $guide = " guide déboussolant";
             break;
     }
     $prix_total += $prix_guide * ($nb_adultes + $nb_enfants);
 }
-include 'recapitulatif.php';
-exit;
 ?>

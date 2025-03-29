@@ -51,12 +51,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <input type="hidden" name="id_voyage" value="<?= $id_voyage ?>">
     <div class="main-content">
         <div class="gallery">
-            <img id="mainImage" class="main-image" src="../Image/image_voyage_description/journey_to_versailles_1789.jpg" alt="Image principale">
+        <img id="mainImage" class="main-image" src="../Image/image_voyage_réservation/<?= htmlspecialchars($voyage['image_reservation1']) ?>" alt="Image principale">
             <div class="thumbnail-container">
                 <span class="arrow" onclick="prevImage()">&#9664;</span>
-                <img class="thumbnail active" src="../Image/image_voyage_description/journey_to_versailles_1789.jpg" onclick="changeImage(0)">
-                <img class="thumbnail" src="../Image/image_voyage_description/jeu de paume.jpeg" onclick="changeImage(1)">
-                <img class="thumbnail" src="../Image/image_voyage_description/ouverture des états généraux.jpeg" onclick="changeImage(2)">
+                <img class="thumbnail active" src="../Image/image_voyage_réservation/<?= htmlspecialchars($voyage['image_reservation1']) ?>" onclick="changeImage(0)">
+                <img class="thumbnail" src="../Image/image_voyage_réservation/<?= htmlspecialchars($voyage['image_reservation2']) ?>" onclick="changeImage(1)">
+                <img class="thumbnail" src="../Image/image_voyage_réservation/<?= htmlspecialchars($voyage['image_reservation3']) ?>" onclick="changeImage(2)">
                 <span class="arrow" onclick="nextImage()">&#9654;</span>
             </div>
         </div>
@@ -77,8 +77,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         </div>
     </div>
 
-    <script src="../fichier_java/defilement_image.js"></script>
-    <br>
+    <?php include('defilement_image.php') ?>
     <br>
     <div class = "second-content">
     <div class="Etape_container">
@@ -114,34 +113,34 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <h2>Quel moyen de voyage dans le temps désirez-vous :</h2>
             <div class="transport">
                 <label>
-                    <input type="radio" name="choix" value="option1">
+                    <input type="radio" name="choix" value="Montre temporelle">
                     <b>Montre temporelle : </b>+1000$
                 </label><br>
                 <label>
-                    <input type="radio" name="choix" value="option2">
+                    <input type="radio" name="choix" value="Le portail temporel">
                     <b>Le portail temporel : </b>+100$
                 </label><br>
                 <label>
-                    <input type="radio" name="choix" value="option3">
+                    <input type="radio" name="choix" value="La cabine temporel">
                     <b>La cabine temporel : </b>+0$
                 </label><br>
             </div>
             <h2>Désirez-vous un guide temporel ?</h2>
             <div class="guide">
                 <label>
-                    <input type="radio" name="choix2" value="option1">
+                    <input type="radio" name="choix2" value="Guide de luxe">
                     <b>Guide de luxe : </b>+600$
                 </label><br>
                 <label>
-                    <input type="radio" name="choix2" value="option2">
+                    <input type="radio" name="choix2" value="Guide un peu mid">
                     <b>Guide un peu mid : </b>+30$
                 </label><br>
                 <label>
-                    <input type="radio" name="choix2" value="option3">
+                    <input type="radio" name="choix2" value="Pas de guide">
                     <b>Pas de guide : </b>+0$
                 </label><br>
                 <label>
-                    <input type="radio" name="choix2" value="option4">
+                    <input type="radio" name="choix2" value="Guide déboussolant">
                     <b>Guide déboussolant : </b>-150$
                 </label><br>
             </div>

@@ -1,4 +1,16 @@
-let images = ["../Image/image_voyage_description/journey_to_versailles_1789.jpg", "../Image/image_voyage_description/création de l'assemblé national.jpeg", "../Image/image_voyage_description/déclaration des droits de l'homme.jpeg"];
+<?php
+$image1 = !empty($voyage['image_reservation1']) ? $voyage['image_reservation1'] : 'default_image1.jpg';
+$image2 = !empty($voyage['image_reservation2']) ? $voyage['image_reservation2'] : 'default_image2.jpg';
+$image3 = !empty($voyage['image_reservation3']) ? $voyage['image_reservation3'] : 'default_image3.jpg';
+?>
+
+<script>
+let images = [
+    "../Image/image_voyage_réservation/<?= htmlspecialchars($image1) ?>",
+    "../Image/image_voyage_réservation/<?= htmlspecialchars($image2) ?>",
+    "../Image/image_voyage_réservation/<?= htmlspecialchars($image3) ?>"
+];
+
 let currentIndex = 0;
 
 function changeImage(index) {
@@ -24,3 +36,4 @@ function updateActiveThumbnail() {
         thumb.classList.toggle("active", index === currentIndex);
     });
 }
+</script>

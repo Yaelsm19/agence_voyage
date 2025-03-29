@@ -66,7 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $messages[] = "Erreur de base de données : " . $e->getMessage();
     }
     if (empty($messages)) {
+        include 'ajouter_reservation.php';
         include 'calculer_coût_reservation.php';
+        include 'recapitulatif.php';
+
         exit;
     } else {
         $_SESSION["messages"] = $messages;
