@@ -179,26 +179,6 @@ input[type="radio"]:hover {
     transform: scale(1.05);
 }
 
-button {
-    background-color: var(--couleur-fond-bouton);
-    color: var(--couleur-textes);
-    padding: 15px;
-    font-size: 20px;
-    border: none;
-    border-radius: var(--border-radius-element);
-    cursor: pointer;
-    width: 60%;
-    text-decoration: none;
-    margin-top: 25px;
-    display: block;
-    margin: 0 auto;
-    margin-top: 50px;
-}
-
-button:hover{
-    color:var(--couleur-survol-texte);
-    background-color: var(--couleur-survol-bouton);
-}
 
 input[type="number"], input[type="date"]{
     padding: 12px;
@@ -210,4 +190,53 @@ input[type="number"], input[type="date"]{
     background-color: var(--couleur-fond-bandeau);
     color: var(--couleur-textes);
     box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: var(--couleur-fond-bouton);
+    color: var(--couleur-textes);
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: var(--border-radius-element);
+    cursor: pointer;
+    width: 40%;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: var(--couleur-survol-bouton);
+    color: var(--couleur-survol-texte);
+    box-shadow: var(--ombre-box);
+    border-color: var(--couleur-survol-bordure);
+    transform: var(--scale-bouton);
+}
+.prix {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffe680; /* Couleur jaune clair */
+    text-align: center;
+    animation: scintiller 2s infinite ease-in-out; /* Animation moins rapide et moins violente */
+}
+
+@keyframes scintiller {
+    0% {
+        color: #ffe680; /* Couleur jaune clair */
+        text-shadow: 0 0 5px #ffe680, 0 0 10px #ffe680, 0 0 15px rgba(255, 230, 128, 0.5); /* Ombres légères autour du texte */
+    }
+    50% {
+        color: #fff4b3; /* Couleur jaune plus claire */
+        text-shadow: 0 0 10px #fff4b3, 0 0 20px #fff4b3, 0 0 25px rgba(255, 244, 179, 0.5); /* Ombres plus douces */
+    }
+    100% {
+        color: #ffe680; /* Retour à la couleur jaune clair */
+        text-shadow: 0 0 5px #ffe680, 0 0 10px #ffe680, 0 0 15px rgba(255, 230, 128, 0.5); /* Ombres légères autour du texte */
+    }
 }

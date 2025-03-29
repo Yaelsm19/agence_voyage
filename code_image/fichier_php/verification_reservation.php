@@ -67,7 +67,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($messages)) {
         include 'ajouter_reservation.php';
-        header("Location: recapitulatif.php?id_reservation=" . $id_reservation);
+        if ($_POST['action'] === 'favoris') {
+            header("Location: favori.php");
+        }
+        else if ($_POST['action'] === 'reserver'){
+            header("Location: recapitulatif.php?id_reservation=" . $id_reservation);
+        }
 
         exit;
     } else {

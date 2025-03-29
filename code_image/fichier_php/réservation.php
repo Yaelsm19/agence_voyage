@@ -62,7 +62,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             </div>
         </div>
         <div class="info-box">
-            <h2>A partir de <?= number_format($voyage['prix'], 0, ',', ' ') ?>€/P</h2>
+            <h2>A partir de <span class="prix"><?= number_format($voyage['prix'], 0, ',', ' ') ?></span>€/P</h2>
             <p><?= htmlspecialchars($voyage['description']) ?></p>
             <h2>Date de départ</h2>
             <input type="date" id="date" name="date" required>
@@ -100,7 +100,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         min="0"
                         max="10" 
                         value="0">
-                    <p><?= htmlspecialchars($option['intitule']) ?> : +<?= number_format($option['prix_par_personne'], 0, ',', ' ') ?>$</p>
+                    <p><?= htmlspecialchars($option['intitule']) ?> : +<span class="prix"><?= number_format($option['prix_par_personne'], 0, ',', ' ') ?></span>€</p>
                     </label>
                 </div>
             <?php endforeach; ?>
@@ -115,39 +115,43 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <div class="transport">
                 <label>
                     <input type="radio" name="choix" value="Montre temporelle">
-                    <b>Montre temporelle : </b>+1000$
+                    <b>Montre temporelle : </b>+<span class="prix">1000<span>€
                 </label><br>
                 <label>
                     <input type="radio" name="choix" value="Le portail temporel">
-                    <b>Le portail temporel : </b>+100$
+                    <b>Le portail temporel : </b>+<span class="prix">100<span>€
                 </label><br>
                 <label>
                     <input type="radio" name="choix" value="La cabine temporel">
-                    <b>La cabine temporel : </b>+0$
+                    <b>La cabine temporel : </b>+<span class="prix">0<span>€
                 </label><br>
             </div>
             <h2>Désirez-vous un guide temporel ?</h2>
             <div class="guide">
                 <label>
                     <input type="radio" name="choix2" value="Guide de luxe">
-                    <b>Guide de luxe : </b>+600$
+                    <b>Guide de luxe : </b>+<span class="prix">600<span>€
                 </label><br>
                 <label>
                     <input type="radio" name="choix2" value="Guide un peu mid">
-                    <b>Guide un peu mid : </b>+30$
+                    <b>Guide un peu mid : </b>+<span class="prix">30<span>€
                 </label><br>
                 <label>
                     <input type="radio" name="choix2" value="Pas de guide">
-                    <b>Pas de guide : </b>+0$
+                    <b>Pas de guide : </b>+<span class="prix">0<span>€
                 </label><br>
                 <label>
                     <input type="radio" name="choix2" value="Guide déboussolant">
-                    <b>Guide déboussolant : </b>-150$
+                    <b>Guide déboussolant : </b><span class="prix">-150<span>€
                 </label><br>
             </div>
         </div>
     </div>
-    <button type="submit">Ajouter aux favoris et voir le récapitulatif</button>
+    <div class="button-container">
+        <button type="submit" name="action" value="favoris">Ajouter aux favoris</button>
+        <button type="submit" name="action" value="reserver">Réserver</button>
+    </div>
+
     </form>
     <?php
     if (isset($_SESSION["messages"]) && !empty($_SESSION["messages"])) {
