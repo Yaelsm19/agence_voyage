@@ -97,7 +97,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         id="option_<?= $index ?>_<?= $option['id_option'] ?>" 
                         name="nb_participant_<?= $option['id_option'] ?>" 
                         min="0"
-                        max="5" 
+                        max="10" 
                         value="0">
                     <p><?= htmlspecialchars($option['intitule']) ?> : +<?= number_format($option['prix_par_personne'], 0, ',', ' ') ?>$</p>
                     </label>

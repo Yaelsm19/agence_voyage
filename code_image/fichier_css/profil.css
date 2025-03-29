@@ -233,6 +233,101 @@ label {
             0 0 50px rgba(0, 153, 255, 0.1);
     }
 }
+
+.offre-bannière {
+    background: var(--couleur-fond-GrandTitre-vid);
+    padding: 20px;
+    font-family:var(--police-grand-titre);
+    text-align: center;
+    border-radius: var(--border-radius-box);
+    box-shadow: var(--ombre-box);
+    margin: 30px auto;
+    width: 80%;
+    max-width: 900px;
+    color: var(--couleur-textes);
+    margin-bottom: 50px;
+}
+
+.offre-bannière h2{
+    margin: 0;
+    text-shadow: var(--ombre-texte-Titre)
+}
+
+.Voyages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 50px;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+}
+
+.Voyages > div {
+    border-radius: var(--border-radius-box);
+    background-color: var(--couleur-primaire-fond);
+    box-shadow: var(--ombre-box);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    height: 340px;
+    
+}
+
+.Voyages > div:hover{
+    transform: var(--scale-voyage);
+}
+
+.Voyages .image_destinations {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+    border-radius: var(--border-radius-box);
+}
+
+.Voyages .période {
+    font-family: var(--police-petit-titre);
+    font-size: 14px;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    color: var(--couleur-textes);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: var(--couleur-secondaire-fond);
+    padding: 5px 10px;
+    border-radius: var(--border-radius-element);
+    text-shadow: var(--ombre-texte-Titre);
+}
+
+.Voyages .description {
+    font-size: 13px;
+    margin: 10px 10px;
+    color: var(--couleur-textes);
+    text-align: center;
+    font-family: var(--police-paragraphe);
+}
+
+
+.Voyages .en_savoir_plus {
+    font-size: 12px;
+    font-family: var(--police-bouton);
+    padding: 5px 15px;
+    color: var(--couleur-textes);
+    text-decoration: none;
+    background-color: var(--couleur-fond-bouton);
+    border: var(--bordure_bouton);
+    border-radius: var(--border-radius-element);
+    margin-left: 10px;
+    float: right;
+    margin-right: 20px;
+}
+
+
+.Voyages .en_savoir_plus:hover {
+    background-color: var(--couleur-survol-bouton);
+    border-color: var(--couleur-survol-bordure);
+    color: var(--couleur-survol-texte);
+    box-shadow: var(--ombre-box);
+    transform: var(--scale-bouton);
+}
 @media (max-width: 768px) {
     body {
         padding: 10px;

@@ -119,6 +119,10 @@
         <input type="submit" value="Modifier">
 </form>
 </div>
+<div class="offre-bannière">
+        <h2>Vos précédents achats</h2>
+</div>
+<?php include('voyage_acheté.php') ?>
 
     <footer>
         <div class="footer-container">

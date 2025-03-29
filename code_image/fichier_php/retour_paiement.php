@@ -1,43 +1,46 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=accueil.php">
-    <title>retour paiement</title>
-    <link rel="stylesheet" href="retour_paiement.css">
-</head>
-<body>
-    <?php
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pastport";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("La connexion a échoué : " . $conn->connect_error);
+<?php
+session_start();
+date_default_timezone_set('Europe/Paris');
+require_once 'connexion_base.php';
+if (isset($_GET['status'], $_GET['montant'], $_GET['transaction'], $_GET['vendeur'], $_GET['control'])) {
+    $status = $_GET['status'];
+    $montant = $_GET['montant'];
+    $transaction = $_GET['transaction'];
+    $vendeur = $_GET['vendeur'];
+    $control = $_GET['control'];
+    if ($status !== 'accepted') {
+        header("Location: recapitulatif.php");
+        exit;
     }
 
-    if (isset($_GET['transaction'], $_GET['montant'], $_GET['vendeur'], $_GET['status'], $_GET['control'])) {
-        
-        $transaction_id = $_GET['transaction'];
-        $montant = $_GET['montant'];
-        $vendeur = $_GET['vendeur'];
-        $statut = $_GET['status'];
-        $control = $_GET['control'];
-
-        if ($statut == "accepted") {
-            $sql = "INSERT INTO paiements (transaction_id, montant, vendeur, statut, control) 
-                    VALUES (?, ?, ?, ?, ?)";
-
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sdsss", $transaction_id, $montant, $vendeur, $statut, $control);
+    if (isset($_SESSION['id_reservation'])) {
+        $id_reservation = $_SESSION['id_reservation'];
+        try {
+            $stmt = $pdo->prepare("
+                INSERT INTO achat (id_transaction, id_reservation, montant, vendeur, date_achat, heure_achat)
+                VALUES (:id_transaction, :id_reservation, :montant, :vendeur, :date_achat, :heure_achat)
+            ");
+            $stmt->execute([
+                'id_transaction' => $transaction,
+                'id_reservation' => $id_reservation,
+                'montant' => $montant,
+                'vendeur' => $vendeur,
+                'date_achat' => date('Y-m-d'),
+                'heure_achat' => date('H:i:s')
+            ]);
+        } catch (PDOException $e) {
+            echo "Erreur lors de l'enregistrement de l'achat : " . $e->getMessage();
+            exit;
         }
+        header("Location: profil.php");
+        exit;
+
+    } else {
+        header("Location: recapitulatif.php");
+        exit;
     }
-    ?>
-    <p>Si la redirection ne se produit pas, <a href="https://www.example.com">cliquez ici</a>.</p>
-</body>
-</html>
+} else {
+    header("Location: recapitulatif.php");
+    exit;
+}
+?>

@@ -1,11 +1,33 @@
 <?php
+session_start();
 require('getapikey.php');
-$retour = "http://localhost/agence_voyage/code_image/fichier_php/accueil.php"; 
+$retour = "http://localhost/agence_voyage/code_image/fichier_php/retour_paiement.php"; 
 
-// Vérification de la présence des paramètres
-if (isset($_POST['transaction']) && isset($_POST['montant']) && isset($_POST['vendeur'])) {
-    
-    $transaction = $_POST['transaction'];
+function generateTransactionId() {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $length = rand(10, 24);
+    $transactionId = '';
+    for ($i = 0; $i < $length; $i++) {
+        $transactionId .= $characters[rand(0, strlen($characters) - 1)];
+    }
+
+    return $transactionId;
+}
+
+
+
+
+
+
+
+
+
+if (isset($_POST['montant']) && isset($_POST['vendeur']) && isset($_POST['id_reservation'])) {
+    if (isset($_SESSION['id_reservation'])) {
+        unset($_SESSION['id_reservation']);
+    }
+    $_SESSION['id_reservation'] = $_POST['id_reservation'];
+    $transaction = generateTransactionId();
     $montant = $_POST['montant'];
     $vendeur = $_POST['vendeur'];
     $api_key = getAPIKey($vendeur);
@@ -39,11 +61,9 @@ if (isset($_POST['transaction']) && isset($_POST['montant']) && isset($_POST['ve
         </html>
         ';
     } else {
-        // Message d'erreur si la clé API est invalide
         echo "Clé API invalide.";
     }
 } else {
-    // Message d'erreur si des paramètres sont manquants
     echo "Erreur : un ou plusieurs paramètres sont manquants.";
 }
 ?>

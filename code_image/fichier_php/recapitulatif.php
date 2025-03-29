@@ -148,8 +148,8 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
 
         <form action="paiement.php" method="POST">
             <input type="hidden" name="montant" value="<?= htmlspecialchars($prix_total) ?>">
-            <input type="hidden" name="vendeur" value="TEST">
-            <input type="hidden" name="transaction" value="154632ABCZWTC">
+            <input type="hidden" name="vendeur" value="MEF-1_J">
+            <input type="hidden" name="id_reservation" value="<?= htmlspecialchars($id_reservation) ?>">
             <div class="form-group">
                 <button type="submit">Procéder au paiement</button>
             </div>
