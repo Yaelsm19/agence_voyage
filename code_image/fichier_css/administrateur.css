@@ -89,6 +89,38 @@ td .action {
     background-size: 200% 200%;
     animation: scintiller 1.5s infinite linear;
 }
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: var(--couleur-textes);
+    background-color: var(--couleur-secondaire-fond);
+    text-decoration: none;
+    border: 1px solid var(--bordure_bouton);
+    border-radius: var(--border-radius-element);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: var(--couleur-survol-bouton);
+    color: var(--couleur-survol-texte);
+}
+
+.pagination .active {
+    background-color: var(--couleur-primaire-fond);
+    color: var(--couleur-bandeau-texte);
+    pointer-events: none;
+}
+
+.pagination a:focus {
+    outline: none;
+}
 
 @keyframes scintiller {
     0% {

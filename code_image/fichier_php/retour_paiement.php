@@ -8,39 +8,38 @@ if (isset($_GET['status'], $_GET['montant'], $_GET['transaction'], $_GET['vendeu
     $transaction = $_GET['transaction'];
     $vendeur = $_GET['vendeur'];
     $control = $_GET['control'];
-    if ($status !== 'accepted') {
-        header("Location: recapitulatif.php");
-        exit;
-    }
 
     if (isset($_SESSION['id_reservation'])) {
         $id_reservation = $_SESSION['id_reservation'];
-        try {
-            $stmt = $pdo->prepare("
-                INSERT INTO achat (id_transaction, id_reservation, montant, vendeur, date_achat, heure_achat)
-                VALUES (:id_transaction, :id_reservation, :montant, :vendeur, :date_achat, :heure_achat)
-            ");
-            $stmt->execute([
-                'id_transaction' => $transaction,
-                'id_reservation' => $id_reservation,
-                'montant' => $montant,
-                'vendeur' => $vendeur,
-                'date_achat' => date('Y-m-d'),
-                'heure_achat' => date('H:i:s')
-            ]);
-        } catch (PDOException $e) {
-            echo "Erreur lors de l'enregistrement de l'achat : " . $e->getMessage();
-            exit;
-        }
-        header("Location: profil.php");
-        exit;
-
     } else {
-        header("Location: recapitulatif.php");
+        header("Location: accueil.php");
+    exit;}
+    if ($status !== 'accepted') {
+        header("Location: recapitulatif.php?id_reservation=" . urlencode($id_reservation));
         exit;
     }
+    try {
+        $stmt = $pdo->prepare("
+            INSERT INTO achat (id_transaction, id_reservation, montant, vendeur, date_achat, heure_achat)
+            VALUES (:id_transaction, :id_reservation, :montant, :vendeur, :date_achat, :heure_achat)
+        ");
+        $stmt->execute([
+            'id_transaction' => $transaction,
+            'id_reservation' => $id_reservation,
+            'montant' => $montant,
+            'vendeur' => $vendeur,
+            'date_achat' => date('Y-m-d'),
+            'heure_achat' => date('H:i:s')
+        ]);
+    } catch (PDOException $e) {
+        echo "Erreur lors de l'enregistrement de l'achat : " . $e->getMessage();
+        exit;
+    }
+    header("Location: profil.php");
+    exit;
+
 } else {
-    header("Location: recapitulatif.php");
+    header("Location: recapitulatif.php?id_reservation=" . urlencode($id_reservation));
     exit;
 }
 ?>

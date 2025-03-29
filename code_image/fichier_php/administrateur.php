@@ -1,9 +1,22 @@
-<?php include('verifier_connexion.php') ?>
 <?php
-include('connexion_base.php');
-
-$query = "SELECT user_id, prenom, nom, email, numero, grade FROM utilisateur";
+require_once 'verifier_connexion.php';
+require_once 'connexion_base.php';
+if ($_SESSION['grade'] !== 'admin') {
+    header("Location: accueil.php");
+    exit();
+}
+$users_per_page = 5;
+$query = "SELECT COUNT(*) FROM utilisateur";
 $stmt = $pdo->prepare($query);
+$stmt->execute();
+$total_users = $stmt->fetchColumn();
+$total_pages = ceil($total_users / $users_per_page);
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$start = ($page - 1) * $users_per_page;
+$query = "SELECT user_id, prenom, nom, email, numero, grade FROM utilisateur LIMIT :start, :limit";
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(':start', $start, PDO::PARAM_INT);
+$stmt->bindParam(':limit', $users_per_page, PDO::PARAM_INT);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -28,7 +41,7 @@ if (isset($_SESSION['error'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Pastport</title>
-    <link rel="stylesheet" href="..\fichier_css\administrateur.css">
+    <link rel="stylesheet" href="../fichier_css/administrateur.css">
     <link rel="icon" href="../Image/image_icône/Passport_logo.jpg">
 </head>
 <body>
@@ -89,18 +102,24 @@ if (isset($_SESSION['error'])) {
                 </td>
                 <td>
                     <a href="bloquer_debloquer_utilisateur.php?id=<?php echo $user['user_id']; ?>&grade=<?php echo $user['grade']; ?>" class="action bloquer">
-                        <img src="..\Image\image_icône\<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>.png" alt="<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>">
+                        <img src="../Image/image_icône/<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>.png" alt="<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>">
                     </a>
                 </td>
 
                 <td>
                     <a href="supprimer_utilisateur.php?id=<?php echo $user['user_id']; ?>" class="action supprimer">
-                        <img src="..\Image\image_icône\supprimer.png" alt="supprimer">
+                        <img src="../Image/image_icône/supprimer.png" alt="supprimer">
                     </a>
                 </td>
             </tr>
             <?php endforeach; ?>
         </table>
+
+        <div class="pagination">
+            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                <a href="?page=<?= $i ?>" class="<?= $i == $page ? 'active' : '' ?>"><?= $i ?></a>
+            <?php endfor; ?>
+        </div>
     </div>
     <p>&copy; 2025 Pastport - Tous droits réservés.</p>
 </body>

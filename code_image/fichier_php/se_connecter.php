@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+    header("Location: accueil.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,7 +27,6 @@
             <input type="password" id="password" name="password" placeholder="Mot de passe">
         </div>
         <?php
-        session_start();
         if (isset($_SESSION["error"])) {
             echo "<div style='color: red; margin-bottom: 10px;'>" . $_SESSION["error"] . "</div>";
             unset($_SESSION["error"]);

@@ -170,7 +170,7 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
                 echo "</div>";
             } else {
                 echo "<form action='paiement.php' method='POST'>";
-                echo "<input type='hidden' name='montant' value='" . htmlspecialchars($reservation['prix']) . "'>";
+                echo "<input type='hidden' name='montant' value='" . htmlspecialchars($prix_total) . "'>";
                 echo "<input type='hidden' name='vendeur' value='MEF-1_J'>";
                 echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
                 echo "<div class='form-group'>";
