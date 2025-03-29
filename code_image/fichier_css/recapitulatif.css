@@ -39,18 +39,46 @@ h2{
 
 .form-group button{
     padding: 12px 20px;
+    font-family: var(--police-bouton);
     background-color: var(--couleur-fond-bouton);
-    color: var(--couleur-fond-bandeau);
-    border: none;
+    color: var(--couleur-textes);
+    border: var(--bordure_bouton);
     border-radius: var(--border-radius-element);
     font-size: 16px;
     cursor: pointer;
     width: 100%;
     margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 
 .form-group button:hover{
     background-color: var(--couleur-survol-bouton);
     color: var(--couleur-survol-texte);
+    box-shadow: var(--ombre-box);
+    border-color: var(--couleur-survol-bordure);
+    transform: var(--scale-bouton);
 }
+
+.type {
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+.form-groupe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.prix {
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+    color: var(--couleur-prix);
+    padding: 5px;
+    border-radius: 4px;
+}
+

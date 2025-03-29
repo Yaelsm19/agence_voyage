@@ -7,8 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = $_POST['date'];
     $nb_adultes = $_POST['adulte'];
     $nb_enfants = $_POST['enfant'];
-
-    // Validation des données
     if (empty($date)) {
         $messages[] = "La date de départ est obligatoire.";
     }
@@ -37,8 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $messages[] = "Aucun voyage sélectionné.";
     }
-
-    // Si des messages d'erreur existent, on redirige vers la page de réservation
     if (!empty($messages)) {
         $_SESSION["messages"] = $messages;
         header("Location: réservation.php?id=" . urlencode($id_voyage));
@@ -46,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        // Modifié : jointure entre les tables 'etape' et 'options'
         $stmt_etapes = $pdo->prepare("
             SELECT e.id AS etape_id, e.titre, o.id_option, o.intitule, o.prix_par_personne
             FROM etape e
@@ -56,14 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ");
         $stmt_etapes->execute(['id_voyage' => $id_voyage]);
         $etapes = $stmt_etapes->fetchAll(PDO::FETCH_ASSOC);
-
-        // Vérification des options pour chaque étape
         foreach ($etapes as $etape) {
-            // Vérifier si l'étape a une option et que l'utilisateur a sélectionné un nombre de participants pour cette option
             if (isset($etape['id_option']) && isset($_POST["nb_participant_" . $etape['id_option']])) {
                 $option_key = "nb_participant_" . $etape['id_option'];
-
-                // Vérifier que le nombre de participants pour l'option ne dépasse pas le nombre total de personnes
                 if (isset($_POST[$option_key])) {
                     $nb_participants_option = $_POST[$option_key];
                     if ($nb_participants_option > ($nb_adultes + $nb_enfants)) {
@@ -75,10 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (PDOException $e) {
         $messages[] = "Erreur de base de données : " . $e->getMessage();
     }
-
-    // Si aucun message d'erreur, procéder au calcul des coûts
     if (empty($messages)) {
-        include 'calculer_coût_reservation.php'; // Calcul du coût de la réservation
+        include 'calculer_coût_reservation.php';
         exit;
     } else {
         $_SESSION["messages"] = $messages;

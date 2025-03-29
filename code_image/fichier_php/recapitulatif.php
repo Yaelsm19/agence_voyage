@@ -13,31 +13,68 @@
 <body>
     <?php include('header.php') ?>
     <div class = "form-container">
-        <h1>Votre Voyage : </h1>
-        <div class="form-groupe">
-            <h2>Destination : </h2>
-        </div>
-        <div class="form-groupe">
-            <h2>Date de départ : </h2>
-        </div>
-        <div class="form-groupe">
-            <h2>Nombre de voyageur : </h2>
-        </div>
-        <div class="form-groupe">
-            <h2>Moyen de téléportation : </h2>
-        </div>
-        <div class="form-groupe">
-            <h2>Réserver au nom de : </h2>
-        </div>
-        <div class="form-groupe">
-            <h2>Prix total : </h2>
-        </div>
+        <h1>Votre Voyage : <?= htmlspecialchars($voyage['titre']) ?></h1>
+    <?php
+        date_default_timezone_set('Europe/Paris');
+    ?>
+    <div class="form-groupe">
+        <i><h2>Date de réservation : <span class="type"><?= date('d/m/Y') ?></span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Heure de réservation : <span class="type"><?= date('H:i') ?></span></h2></i>
+    </div>
 
-        <br>
-        <div class="form-group">
-            <button type="submit">Procéder au paiement</button>
+
+        <div class="form-groupe">
+            <i><h2>Date de départ : <span class="type"><?= htmlspecialchars($date) ?></span></h2></i>
         </div>
-    </div> 
+        <div class="form-groupe">
+            <i><h2>Date de fin : 
+            <span class="type"><?php 
+            $date_fin = new DateTime($date); 
+            $date_fin->modify('+' . $voyage['duree'] . ' days');
+            echo htmlspecialchars($date_fin->format('Y-m-d'));
+            ?></span>
+            </h2></i>
+        </div>
+    <div class="form-groupe">
+        <i><h2>Durée du voyage : <span class="type"><?= htmlspecialchars($voyage['duree']) ?> jours</span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Réserver au nom de : <span class="type"><?= htmlspecialchars($_SESSION["prenom"] . " " . $_SESSION["nom"]) ?></span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Nombre d'adultes responsables et matures : <span class="type"><?= htmlspecialchars($nb_adultes) ?></span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Nombre d'enfants avec monosourcils : <span class="type"><?= htmlspecialchars($nb_enfants) ?></span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Nombre de personnes totales : <span class="type"><?= htmlspecialchars($nb_enfants + $nb_adultes) ?></span>
+        <span class="prix"><?= htmlspecialchars(($nb_adultes + $nb_enfants) * $voyage['prix']) ?>€</span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Moyen de téléportation : <span class="type"><?= htmlspecialchars($transport) ?></span>
+        <span class="prix"><?= htmlspecialchars($prix_transport) * ($nb_adultes + $nb_enfants) ?>€</span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Guide temporelle: <span class="type"><?= htmlspecialchars($guide) ?></span>
+        <span class="prix"><?= htmlspecialchars($prix_guide * ($nb_adultes + $nb_enfants)) ?>€</span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Options : <span class="type"><?= htmlspecialchars($nb_options) ?> (<?= htmlspecialchars($nb_total_participant) ?> participants au total)</span>
+        <span class="prix"><?= htmlspecialchars($prix_option) ?>€</span></h2></i>
+    </div>
+    <div class="form-groupe">
+        <i><h2>Prix total : <span class="prix"><?= htmlspecialchars($prix_total) ?>€</span></h2></i>
+    </div>
+
+    <br>
+    <div class="form-group">
+        <button type="submit">Procéder au paiement</button>
+    </div>
+</div>
+
     
     <footer>
         <div class="footer-container">
@@ -60,9 +97,9 @@
             <div class="footer-section">
                 <h3>Suivez-nous</h3>
                 <div class="réseaux-sociaux">
-                    <a href="#" ><img src="image_icône/facebook_logo.jpg" alt="Facebook"></a>
-                    <a href="#" ><img src="image_icône/twitter_logo.jpg" alt="Twitter"></a>
-                    <a href="#" ><img src="image_icône/logo_instagram.jpg" alt="Instagram"></a>
+                    <a href="#" ><img src="../Image/image_icône/facebook_logo.jpg" alt="Facebook"></a>
+                    <a href="#" ><img src="../Image/image_icône/twitter_logo.jpg" alt="Twitter"></a>
+                    <a href="#" ><img src="../Image/image_icône/logo_instagram.jpg" alt="Instagram"></a>
                 </div>
             </div>
         </div>

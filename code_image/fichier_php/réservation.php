@@ -67,7 +67,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <input type="date" id="date" name="date" required>
 
             <h2>Nombre d'adultes responsables et matures :</h2>
-            <input type="number" id="adulte" name="adulte" min="0" max="8" value="1">
+            <input type="number" id="adulte" name="adulte" min="0" max="5" value="1">
 
             <h2>Nombre d'enfants avec monosourcils :</h2>
             <input type="number" id="enfant" name="enfant" min="0" max="5" value="0">
@@ -141,7 +141,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     <b>Pas de guide : </b>+0$
                 </label><br>
                 <label>
-                    <input type="radio" name="choix2" value="option3">
+                    <input type="radio" name="choix2" value="option4">
                     <b>Guide déboussolant : </b>-150$
                 </label><br>
             </div>
@@ -163,30 +163,24 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 }
 ?>
 <style>
-    /* Conteneur pour les messages */
     .messages-container {
         margin: 20px 0;
         padding: 15px;
         border-radius: 5px;
         border: 1px solid #ddd;
     }
-
-    /* Style pour chaque message */
     .message {
         padding: 10px;
         margin-bottom: 10px;
         border-radius: 5px;
         font-size: 16px;
     }
-
-    /* Style pour les messages d'erreur */
     .error {
         background-color: #f8d7da;
         color: #721c24;
         border: 1px solid #f5c6cb;
     }
 
-    /* Style pour les messages de succès */
     .success {
         background-color: #d4edda;
         color: #155724;

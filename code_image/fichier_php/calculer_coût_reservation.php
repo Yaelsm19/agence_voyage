@@ -1,12 +1,8 @@
 <?php
 $prix_total = 0;
-
-// Ajouter le prix de base du voyage (prix par personne * nombre total de personnes)
 if ($voyage) {
     $prix_total += $voyage['prix'] * ($nb_adultes + $nb_enfants);
 }
-
-// Récupérer les étapes et options associées
 $stmt_etapes = $pdo->prepare("
     SELECT e.id AS etape_id, e.titre, o.id_option, o.intitule, o.prix_par_personne
     FROM etape e
@@ -16,57 +12,63 @@ $stmt_etapes = $pdo->prepare("
 ");
 $stmt_etapes->execute(['id_voyage' => $id_voyage]);
 $etapes = $stmt_etapes->fetchAll(PDO::FETCH_ASSOC);
-
-// Ajouter le prix des options pour chaque étape
+$prix_option = 0;
+$nb_options = 0;
+$nb_total_participant= 0;
 foreach ($etapes as $etape) {
-    // Vérifier si cette étape a des options (id_option est défini)
     if (isset($etape['id_option']) && isset($_POST["nb_participant_" . $etape['id_option']])) {
-        $nb_participants_option = $_POST["nb_participant_" . $etape['id_option']];
-        // Calculer le coût de cette option en fonction du nombre de participants
-        $prix_total += $nb_participants_option * $etape['prix_par_personne'];
+        $nb_participants_option = intval($_POST["nb_participant_" . $etape['id_option']]);
+        $prix_par_personne = floatval($etape['prix_par_personne']);
+        if($nb_participants_option>0){
+            $nb_total_participant+= $nb_participants_option;
+            $nb_options +=1;
+            $prix_option += $nb_participants_option * $prix_par_personne;
+        }
+
     }
 }
-
-// Ajouter le prix du transport choisi
+echo $nb_options;
+$prix_total+= $prix_option;
 $prix_transport = 0;
 if (isset($_POST['choix'])) {
     switch ($_POST['choix']) {
-        case 'option1': // Montre temporelle
+        case 'option1':
             $prix_transport = 1000;
+            $transport = "Montre temporelle";
             break;
-        case 'option2': // Portail temporel
+        case 'option2':
             $prix_transport = 100;
+            $transport = "Le portail temporel";
             break;
-        case 'option3': // Cabine temporelle
+        case 'option3':
             $prix_transport = 0;
+            $transport = "La cabine temporel";
             break;
     }
     $prix_total += $prix_transport * ($nb_adultes + $nb_enfants);
 }
-
-// Ajouter le prix du guide choisi
 $prix_guide = 0;
 if (isset($_POST['choix2'])) {
     switch ($_POST['choix2']) {
-        case 'option1': // Guide de luxe
+        case 'option1':
             $prix_guide = 600;
+            $guide = "Guide de luxe";
             break;
-        case 'option2': // Guide un peu mid
+        case 'option2':
             $prix_guide = 30;
+            $guide = "Guide un peu mid";
             break;
-        case 'option3': // Pas de guide
+        case 'option3':
             $prix_guide = 0;
+            $guide ="Aucun"; 
             break;
-        case 'option4': // Guide déboussolant
+        case 'option4':
             $prix_guide = -150;
+            $guide = " guide déboussolant";
             break;
     }
     $prix_total += $prix_guide * ($nb_adultes + $nb_enfants);
 }
-
-echo "Le prix total de votre réservation est : " . number_format($prix_total, 0, ',', ' ') . "€";
-
-// Inclure la page récapitulative
 include 'recapitulatif.php';
 exit;
 ?>
