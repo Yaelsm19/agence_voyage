@@ -15,6 +15,23 @@ try {
         'moyen_transport' => $_POST['choix'],
         'guide' => $_POST['choix2']
     ]);
+
+    $id_reservation = $pdo->lastInsertId();
+    foreach ($_POST as $key => $value) {
+        if (strpos($key, 'nb_participant_') === 0 && $value > 0) {
+            $id_option = substr($key, strlen('nb_participant_'));
+            $stmt_souscrire = $pdo->prepare("
+                INSERT INTO souscrire (id_reservation, id_option, nb_personnes)
+                VALUES (:id_reservation, :id_option, :nb_personnes)
+            ");
+            $stmt_souscrire->execute([
+                'id_reservation' => $id_reservation,
+                'id_option' => $id_option,
+                'nb_personnes' => $value
+            ]);
+        }
+    }
+
 } catch (PDOException $e) {
     echo "Erreur de base de données : " . $e->getMessage();
     exit;
