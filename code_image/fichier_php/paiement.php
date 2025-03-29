@@ -1,5 +1,5 @@
+<?php include('verifier_connexion.php') ?>
 <?php
-session_start();
 require('getapikey.php');
 $retour = "http://localhost/agence_voyage/code_image/fichier_php/retour_paiement.php"; 
 

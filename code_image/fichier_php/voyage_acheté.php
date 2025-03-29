@@ -16,7 +16,7 @@ try {
     $voyages_achetes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (empty($voyages_achetes)) {
-        echo "<div class='recherche_container'><p class='recherche_vide'>Aucun voyage acheté trouvé.</p></div>";
+        echo "<div class='recherche_container'><p class='recherche_vide'>Aucun voyage acheté</p></div>";
         exit;
     }
     

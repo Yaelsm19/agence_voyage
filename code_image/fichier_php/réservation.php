@@ -1,3 +1,4 @@
+<?php include('verifier_connexion.php') ?>
 <?php
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id_voyage = $_GET['id'];
@@ -146,7 +147,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             </div>
         </div>
     </div>
-    <button type="submit">Réserver</button>
+    <button type="submit">Ajouter aux favoris et voir le récapitulatif</button>
     </form>
     <?php
     if (isset($_SESSION["messages"]) && !empty($_SESSION["messages"])) {

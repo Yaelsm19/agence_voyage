@@ -10,7 +10,7 @@ h1 {
     text-align: center;
     color: var(--couleur-bandeau-texte);
     background-color: var(--couleur-fond-bandeau);
-    margin: 0 0 30px;
+    margin-top: 0;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-shadow: var(--ombre-texte-Titre);

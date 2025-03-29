@@ -25,7 +25,6 @@ body {
     margin: 30px auto;
     box-shadow: var(--ombre-box);
 }
-
 .filtrer-container {
     display: flex;
     align-items: center;
@@ -260,6 +259,23 @@ input[type="search"]::placeholder {
     font-weight: bold;
     color: var(--couleur-prix);
     animation: sparkle 1.5s infinite alternate;
+}
+.offre-bannière{
+    background: var(--couleur-fond-GrandTitre-vid);
+    padding: 20px;
+    font-family:var(--police-grand-titre);
+    text-align: center;
+    border-radius: var(--border-radius-box);
+    box-shadow: var(--ombre-box);
+    margin: 30px auto;
+    width: 80%;
+    max-width: 900px;
+    color: var(--couleur-textes);
+    margin-bottom: 50px;
+}
+.offre-bannière h2{
+    margin: 0;
+    text-shadow: var(--ombre-texte-Titre)
 }
 
 @keyframes sparkle {

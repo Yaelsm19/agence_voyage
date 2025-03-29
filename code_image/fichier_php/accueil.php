@@ -61,7 +61,7 @@ try {
                         <span class="ancien-prix"><?= number_format($voyage['prix'] * 1.15, 0, ',', ' ') ?>€</span>
                         <span class="nouveau-prix">Dès <?= number_format($voyage['prix'], 0, ',', ' ') ?>€</span>
                     </p>
-                    <a href="#" class="en_savoir_plus">En savoir plus</a>
+                    <a href="réservation.php?id=<?= $voyage['id'] ?>" class="en_savoir_plus">En savoir plus</a>
                 </div>
             </div>
         </div>

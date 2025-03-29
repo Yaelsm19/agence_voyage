@@ -1,5 +1,5 @@
+<?php include('verifier_connexion.php') ?>
 <?php
-session_start();
 date_default_timezone_set('Europe/Paris');
 require_once 'connexion_base.php';
 if (isset($_GET['status'], $_GET['montant'], $_GET['transaction'], $_GET['vendeur'], $_GET['control'])) {

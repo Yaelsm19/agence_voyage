@@ -30,10 +30,10 @@
             <button type="submit">S'identifier</button>
         </div>
         <div class="bouton-retour">
-            <a href="accueil.html">
-                <button class="retour">
+            <a href="accueil.php">
+                <div class="retour">
                     <img src="../Image/image_icône/en-arriere.png" alt="modifier">
-                </button>
+                </div>
             </a>
             <div class="form-group">
                 <h2>Si vous ne possédez pas encore de profil pour en créer un <a href ="s_inscrire.php">cliquez ici</a></h2>

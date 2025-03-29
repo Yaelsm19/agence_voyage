@@ -1,5 +1,5 @@
+<?php include('verifier_connexion.php') ?>
 <?php
-session_start();
 include('connexion_base.php');
 
 $query = "SELECT user_id, prenom, nom, email, numero, grade FROM utilisateur";

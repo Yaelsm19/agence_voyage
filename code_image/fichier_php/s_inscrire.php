@@ -54,9 +54,9 @@
 
         <div class="bouton-retour">
             <a href="accueil.php">
-                <button class="retour">
+                <div class="retour">
                     <img src="../Image/image_icône/en-arriere.png" alt="modifier">
-                </button>
+                </div>
             </a>
             <div class="form-group">
                 <h2>Si vous possédez déjà un compte <a href ="se_connecter.php">cliquez ici</a></h2>
