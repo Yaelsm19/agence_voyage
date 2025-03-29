@@ -40,7 +40,6 @@
 require_once 'connexion_base.php';
 
 try {
-    // On récupère les 5 voyages les moins chers
     $stmt = $pdo->query("SELECT * FROM voyage ORDER BY prix ASC LIMIT 5");
     $voyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {

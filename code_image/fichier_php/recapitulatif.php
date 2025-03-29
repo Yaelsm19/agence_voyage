@@ -146,14 +146,48 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
             <i><h2>Prix total : <span class="prix"><?= number_format($prix_total, 2) ?>€</span></h2></i>
         </div>
 
-        <form action="paiement.php" method="POST">
-            <input type="hidden" name="montant" value="<?= htmlspecialchars($prix_total) ?>">
-            <input type="hidden" name="vendeur" value="MEF-1_J">
-            <input type="hidden" name="id_reservation" value="<?= htmlspecialchars($id_reservation) ?>">
-            <div class="form-group">
-                <button type="submit">Procéder au paiement</button>
-            </div>
-        </form>
+        <?php
+        if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
+            $id_reservation = $_GET['id_reservation'];
+
+        try {
+            $stmt_reservation = $pdo->prepare("SELECT r.*, v.titre, v.prix, v.duree FROM reservation r
+                                            INNER JOIN voyage v ON r.id_voyage = v.id
+                                            WHERE r.id = :id_reservation");
+            $stmt_reservation->execute(['id_reservation' => $id_reservation]);
+            $reservation = $stmt_reservation->fetch(PDO::FETCH_ASSOC);
+            if (!$reservation) {
+                echo "Réservation non trouvée.";
+                exit;
+            }
+            $stmt_achat = $pdo->prepare("SELECT * FROM achat WHERE id_reservation = :id_reservation");
+            $stmt_achat->execute(['id_reservation' => $id_reservation]);
+            $achat = $stmt_achat->fetch(PDO::FETCH_ASSOC);
+
+            if ($achat) {
+                echo "<div class='form-group'>";
+                echo "<a href='profil.php' class='en_savoir_plus'>Retour vers votre profil</a>";
+                echo "</div>";
+            } else {
+                echo "<form action='paiement.php' method='POST'>";
+                echo "<input type='hidden' name='montant' value='" . htmlspecialchars($reservation['prix']) . "'>";
+                echo "<input type='hidden' name='vendeur' value='MEF-1_J'>";
+                echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
+                echo "<div class='form-group'>";
+                echo "<button type='submit'>Procéder au paiement</button>";
+                echo "</div>";
+                echo "</form>";
+            }
+        } catch (PDOException $e) {
+            echo "Erreur de base de données : " . $e->getMessage();
+            exit;
+        }
+    } else {
+        echo "ID de réservation manquant.";
+        exit;
+    }
+    ?>
+
     </div>
     <footer>
         <div class="footer-container">

@@ -37,7 +37,7 @@ h2{
     font-size: 18px;
 }
 
-.form-group button{
+.form-group button, .form-group a{
     padding: 12px 20px;
     font-family: var(--police-bouton);
     background-color: var(--couleur-fond-bouton);
@@ -47,12 +47,13 @@ h2{
     font-size: 16px;
     cursor: pointer;
     width: 100%;
-    margin-top: 10px;
+    text-decoration: none;
+    margin-top: 30px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 
-.form-group button:hover{
+.form-group button:hover, .form-group a:hover{
     background-color: var(--couleur-survol-bouton);
     color: var(--couleur-survol-texte);
     box-shadow: var(--ombre-box);
