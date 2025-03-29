@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=acceuil.php">
+    <meta http-equiv="refresh" content="0;url=accueil.php">
     <title>retour paiement</title>
     <link rel="stylesheet" href="retour_paiement.css">
 </head>

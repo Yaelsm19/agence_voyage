@@ -70,9 +70,14 @@
     </div>
 
     <br>
-    <div class="form-group">
-        <button type="submit">Procéder au paiement</button>
-    </div>
+    <form action="paiement.php" method="POST">
+    <input type="hidden" name="montant" value="<?= htmlspecialchars($prix_total) ?>">
+    <input type="hidden" name="vendeur" value="TEST">
+    <input type="hidden" name="transaction" value="154632ABCZWTC">
+        <div class="form-group">
+            <button type="submit">Procéder au paiement</button>
+        </div>
+    </form>
 </div>
 
     
