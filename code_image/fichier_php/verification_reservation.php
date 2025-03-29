@@ -67,8 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($messages)) {
         include 'ajouter_reservation.php';
-        include 'calculer_coût_reservation.php';
-        include 'recapitulatif.php';
+        header("Location: recapitulatif.php?id_reservation=" . $id_reservation);
 
         exit;
     } else {
