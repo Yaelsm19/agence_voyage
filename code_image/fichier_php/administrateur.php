@@ -42,10 +42,11 @@ if (isset($_SESSION['error'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Pastport</title>
     <link rel="stylesheet" href="../fichier_css/administrateur.css">
+    <link rel="stylesheet" href="../fichier_css/header.css">
     <link rel="icon" href="../Image/image_icône/Passport_logo.jpg">
 </head>
 <body>
-    <h1>Gestion des Utilisateurs</h1>
+    <?php include('header.php') ?>
     <div class="container">
         <table>
             <tr>

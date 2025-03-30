@@ -10,7 +10,7 @@
     <link rel="icon"  href="../Image/image_icône/Passport_logo.jpg">
     <link rel="stylesheet" href="..\fichier_css\footer.css">
     <script src="../fichier_java/suppression_reservation.js" defer></script>
-    <title>Panier</title>
+    <title>Favori</title>
 </head>
 <body>
     <video autoplay loop muted id="background-video">
