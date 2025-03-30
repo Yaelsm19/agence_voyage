@@ -83,3 +83,20 @@ h2{
     border-radius: 4px;
 }
 
+.retour img{
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.retour {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.retour:hover{
+    transform: var(--scale-bouton);
+}

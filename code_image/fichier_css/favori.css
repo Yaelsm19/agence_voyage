@@ -1,0 +1,18 @@
+.delete-button {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.delete-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.delete-button:hover .delete-icon {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}

@@ -177,7 +177,25 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
                 echo "<button type='submit'>Procéder au paiement</button>";
                 echo "</div>";
                 echo "</form>";
-            }
+                if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'favori.php') === false && strpos($_SERVER['HTTP_REFERER'], 'profil.php') === false) {
+                    echo "<div class='retour'>";
+                    echo "<img src='../Image/image_icône/en-arriere.png' alt='retour' onclick='deleteReservation(" . $id_reservation . ")'>";
+                    echo "</div>";
+            
+                    echo "<script>
+                    function deleteReservation(id_reservation) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', 'supprimer_reservation.php?id_reservation=' + id_reservation, true);
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                window.history.back();
+                            }
+                        };
+                        xhr.send();
+                    }
+                    </script>";
+                }
+            }          
         } catch (PDOException $e) {
             echo "Erreur de base de données : " . $e->getMessage();
             exit;
@@ -187,7 +205,6 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
         exit;
     }
     ?>
-
     </div>
     <footer>
         <div class="footer-container">

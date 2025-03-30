@@ -148,7 +148,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         </div>
     </div>
     <div class="button-container">
-        <button type="submit" name="action" value="favoris">Ajouter aux favoris</button>
+        <button type="submit" name="action" value="favoris">⭐Ajouter aux favoris⭐</button>
         <button type="submit" name="action" value="reserver">Réserver</button>
     </div>
 

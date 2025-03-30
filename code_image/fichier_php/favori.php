@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\fichier_css\header.css">
     <link rel="stylesheet" href="..\fichier_css\destinations.css">
+    <link rel="stylesheet" href="..\fichier_css\favori.css">
     <link rel="icon"  href="../Image/image_icône/Passport_logo.jpg">
     <link rel="stylesheet" href="..\fichier_css\footer.css">
+    <script src="../fichier_java/suppression_reservation.js" defer></script>
     <title>Panier</title>
 </head>
 <body>
@@ -32,18 +34,20 @@
         ");
         $stmt->execute(['user_id' => $user_id]);
         $voyages_non_payes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if (empty($voyages_non_payes)) {
-            echo "<div class='recherche_container'><p class='recherche_vide'>Aucune réservation favorites.</p></div>";
+
+        if (empty($voyages_non_payes)) {
+            echo "<div class='recherche_container'><p class='recherche_vide'>Aucune réservation favorite.</p></div>";
             exit;
         }
-    
+
         echo "<div class='Voyages'>";
-        foreach ($voyages_non_payes as $voyage) { 
+        foreach ($voyages_non_payes as $voyage): 
             $imagePath = "../Image/Image_voyage_page_destinations/" . $voyage['image'];
             $nb_personnes = $voyage['nb_adultes'] + $voyage['nb_enfants'];
-            $date_voyage = isset($voyage['date_voyage']) ? $voyage['date_voyage'] : 'Date non disponible'; // Vérification de la date
-            $durée_voyage = isset($voyage['duree']) ? $voyage['duree'] : 'Durée inconnue'; // Vérification de la durée
-            echo "<div>";
+            $date_voyage = isset($voyage['date_voyage']) ? $voyage['date_voyage'] : 'Date non disponible';
+            $durée_voyage = isset($voyage['duree']) ? $voyage['duree'] : 'Durée inconnue';
+
+            echo "<div id='voyage_{$voyage['id_reservation']}'>";
             echo "<img class='image_destinations' src='$imagePath' alt='Image du voyage'>";
             echo "<div class='zone_texte'>";
             echo "<h3 class='période'>" . htmlspecialchars($voyage['titre']) . "</h3>";
@@ -54,10 +58,13 @@
             echo "</p>";
             echo "<div class='prix_bouton'>";
             echo "<a href='recapitulatif.php?id_reservation=" . $voyage['id_reservation'] . "' class='en_savoir_plus'>Voir le récapitulatif</a>";
+            echo "<a href='#' class='delete-button' onclick='deleteReservation({$voyage['id_reservation']})'>
+                    <img src='../Image/image_icône/supprimer2.png' alt='Supprimer' class='delete-icon' />
+                  </a>";
             echo "</div>";
             echo "</div>";
             echo "</div>";
-        }    
+        endforeach;
         echo "</div>";
 
     } catch (PDOException $e) {
@@ -73,7 +80,7 @@
                     Voyagez dans le temps avec notre agence et explorez les périodes les plus fascinantes de l’histoire humaine !
                 </p>
             </div>
-    
+
             <div class="footer-section">
                 <h3>Liens utiles</h3>
                 <ul class="footer-liens">
@@ -94,9 +101,6 @@
         </div>
         <p>&copy; 2025 Pastport - Tous droits réservés.</p>
     </footer>
-    
-</body>
-</html>
-    
+
 </body>
 </html>
