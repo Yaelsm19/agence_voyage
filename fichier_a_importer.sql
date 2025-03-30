@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 30 mars 2025 à 15:00
+-- Généré le : dim. 30 mars 2025 à 15:07
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -38,13 +38,6 @@ CREATE TABLE IF NOT EXISTS `achat` (
   PRIMARY KEY (`id_transaction`),
   KEY `id_reservation` (`id_reservation`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `achat`
---
-
-INSERT INTO `achat` (`id_transaction`, `id_reservation`, `montant`, `vendeur`, `date_achat`, `heure_achat`) VALUES
-('OcGi1PaSNAgd2TdZdpHk', 2, 5790.00, 'MEF-1_J', '2025-03-30', '16:44:58');
 
 -- --------------------------------------------------------
 
@@ -305,13 +298,6 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   KEY `id_voyage` (`id_voyage`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `reservation`
---
-
-INSERT INTO `reservation` (`id`, `id_utilisateur`, `id_voyage`, `date_reservation`, `heure_reservation`, `date_voyage`, `nb_adultes`, `nb_enfants`, `moyen_transport`, `guide`) VALUES
-(2, 3, 2, '2025-03-30', '14:44:15', '1010-01-01', 2, 1, 'Montre temporelle', 'Guide un peu mid');
-
 -- --------------------------------------------------------
 
 --
@@ -328,58 +314,6 @@ CREATE TABLE IF NOT EXISTS `souscrire` (
   KEY `id_reservation` (`id_reservation`),
   KEY `id_option` (`id_option`)
 ) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `souscrire`
---
-
-INSERT INTO `souscrire` (`id`, `id_reservation`, `id_option`, `nb_personnes`) VALUES
-(1, 22, 12, 1),
-(2, 22, 17, 2),
-(3, 23, 12, 1),
-(4, 23, 17, 2),
-(5, 24, 12, 1),
-(6, 24, 17, 2),
-(7, 25, 12, 1),
-(8, 25, 17, 2),
-(9, 26, 12, 1),
-(10, 26, 17, 2),
-(11, 27, 12, 1),
-(12, 27, 17, 2),
-(13, 28, 12, 1),
-(14, 28, 17, 2),
-(15, 29, 12, 1),
-(16, 29, 17, 2),
-(17, 30, 12, 1),
-(18, 30, 17, 2),
-(19, 31, 12, 1),
-(20, 31, 17, 2),
-(21, 32, 12, 1),
-(22, 32, 17, 2),
-(23, 33, 12, 1),
-(24, 33, 17, 2),
-(25, 34, 12, 1),
-(26, 34, 17, 2),
-(27, 35, 12, 2),
-(28, 35, 14, 2),
-(29, 35, 18, 1),
-(30, 36, 12, 2),
-(31, 36, 14, 2),
-(32, 36, 17, 2),
-(33, 36, 18, 1),
-(34, 37, 12, 2),
-(35, 37, 14, 2),
-(36, 37, 17, 2),
-(37, 37, 18, 1),
-(38, 38, 45, 1),
-(39, 38, 47, 1),
-(40, 40, 29, 1),
-(41, 42, 80, 6),
-(42, 43, 79, 5),
-(43, 43, 81, 8),
-(44, 43, 85, 6),
-(45, 43, 88, 6),
-(46, 43, 90, 2);
 
 -- --------------------------------------------------------
 
