@@ -55,38 +55,54 @@
     <form  action="modifier_profil.php" method="POST">
         <div class="form-group">
             <div class="input-container">
-                <p><strong>Email:</strong> <input type="email" name="email" minlength="6" value="<?= htmlspecialchars($_SESSION["email"]) ?>" required></p>
-                <button class="crayon">
+                <div><strong>Email:</strong> <input type="email" name="email" id="email" minlength="6" value="<?= htmlspecialchars($_SESSION["email"]) ?>" disabled></div>
+                <button type="button" onclick="enableEdit('email')" class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
+                <span class="edit-controls" id="controls-email">
+                    <button type="button" onclick="saveEdit('email')">Valider</button>
+                    <button type="button" onclick="cancelEdit('email')">Annuler</button>
+                </span>
             </div>
         </div>
         
         <div class="form-group">
             <div class="input-container">
-            <p><strong>Prenom:</strong> <input type="text" name="prenom"  minlength="3"value="<?= htmlspecialchars($_SESSION['prenom']) ?>" required></p>
-                <button class="crayon">
+            <div><strong>Prenom:</strong> <input type="text" name="prenom" id="Prenom" minlength="3"value="<?= htmlspecialchars($_SESSION['prenom']) ?>" disabled></div>
+                <button type="button" onclick="enableEdit('Prenom')" class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
+                <span class="edit-controls" id="controls-Prenom">
+                    <button type="button" onclick="saveEdit('Prenom')">Valider</button>
+                    <button type="button" onclick="cancelEdit('Prenom')">Annuler</button>
+                </span>
             </div>
         </div>
 
 
         <div class="form-group">
             <div class="input-container">
-            <p><strong>Nom:</strong> <input type="text" name="nom" minlength="2" value="<?= htmlspecialchars($_SESSION['nom']) ?>" required></p>
-                <button class="crayon">
-                    <img src="../Image/image_icône/crayon.png" alt="modifier">
+            <div><strong>Nom:</strong> <input type="text" name="nom" id="Nom" minlength="2" value="<?= htmlspecialchars($_SESSION['nom']) ?>" disabled></div>
+                <button type="button" onclick="enableEdit('Nom')" class="crayon">
+                    <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
+                <span class="edit-controls" id="controls-Nom">
+                    <button type="button" onclick="saveEdit('Nom')">Valider</button>
+                    <button type="button" onclick="cancelEdit('Nom')">Annuler</button>
+                </span>
             </div>
         </div>
 
         <div class="form-group">
             <div class="input-container">
-            <p><strong>Tel:</strong> <input type="text" name="numero" minlength="10" value="<?= htmlspecialchars($_SESSION['numero']) ?>" required></p>
-                <button class="crayon">
-                    <img src="../Image/image_icône/crayon.png" alt="modifier">
+            <div><strong>Tel:</strong> <input type="text" name="numero" id="tel" minlength="10" value="<?= htmlspecialchars($_SESSION['numero']) ?>" disabled></div>
+                <button type="button" onclick="enableEdit('tel')" class="crayon">
+                    <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
+                <span class="edit-controls" id="controls-tel">
+                    <button type="button" onclick="saveEdit('tel')">Valider</button>
+                    <button type="button" onclick="cancelEdit('tel')">Annuler</button>
+                </span>
             </div>
         </div>
         
@@ -153,5 +169,6 @@
         </div>
         <p>&copy; 2025 Pastport - Tous droits réservés.</p>
     </footer>
+    <script src="../fichier_java/modifier_profil.js"></script>
 </body>
 </html>
