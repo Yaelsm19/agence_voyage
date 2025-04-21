@@ -11,6 +11,7 @@
 
 </head>
 <body>
+    <script src="../fichier_java/modifier_profil.js"></script>
 <?php include('header.php') ?>
     <video autoplay loop muted id="background-video">
             <source src="../Image/image_background\effet_image.mp4" type="video/mp4">
@@ -60,21 +61,21 @@
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
                 <span class="edit-controls" id="controls-email">
-                    <button type="button" onclick="saveEdit('email')">Valider</button>
-                    <button type="button" onclick="cancelEdit('email')">Annuler</button>
+                    <button type="button" onclick="saveEdit('email')" class="validation">Valider</button>
+                    <button type="button" onclick="cancelEdit('email')" class="annulation">Annuler</button>
                 </span>
             </div>
         </div>
         
         <div class="form-group">
             <div class="input-container">
-            <div><strong>Prenom:</strong> <input type="text" name="prenom" id="Prenom" minlength="3"value="<?= htmlspecialchars($_SESSION['prenom']) ?>" disabled></div>
-                <button type="button" onclick="enableEdit('Prenom')" class="crayon">
+            <div><strong>Prenom:</strong> <input type="text" name="prenom" id="prenom" minlength="3"value="<?= htmlspecialchars($_SESSION['prenom']) ?>" disabled></div>
+                <button type="button" onclick="enableEdit('prenom')" class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
-                <span class="edit-controls" id="controls-Prenom">
-                    <button type="button" onclick="saveEdit('Prenom')">Valider</button>
-                    <button type="button" onclick="cancelEdit('Prenom')">Annuler</button>
+                <span class="edit-controls" id="controls-prenom">
+                    <button type="button" onclick="saveEdit('prenom')" class="validation">Valider</button>
+                    <button type="button" onclick="cancelEdit('prenom')" class="annulation">Annuler</button>
                 </span>
             </div>
         </div>
@@ -82,13 +83,13 @@
 
         <div class="form-group">
             <div class="input-container">
-            <div><strong>Nom:</strong> <input type="text" name="nom" id="Nom" minlength="2" value="<?= htmlspecialchars($_SESSION['nom']) ?>" disabled></div>
-                <button type="button" onclick="enableEdit('Nom')" class="crayon">
+            <div><strong>Nom:</strong> <input type="text" name="nom" id="nom" minlength="2" value="<?= htmlspecialchars($_SESSION['nom']) ?>" disabled></div>
+                <button type="button" onclick="enableEdit('nom')" class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
-                <span class="edit-controls" id="controls-Nom">
-                    <button type="button" onclick="saveEdit('Nom')">Valider</button>
-                    <button type="button" onclick="cancelEdit('Nom')">Annuler</button>
+                <span class="edit-controls" id="controls-nom">
+                    <button type="button" onclick="saveEdit('nom')" class="validation">Valider</button>
+                    <button type="button" onclick="cancelEdit('nom')" class="annulation">Annuler</button>
                 </span>
             </div>
         </div>
@@ -100,8 +101,8 @@
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
                 <span class="edit-controls" id="controls-tel">
-                    <button type="button" onclick="saveEdit('tel')">Valider</button>
-                    <button type="button" onclick="cancelEdit('tel')">Annuler</button>
+                    <button type="button" onclick="saveEdit('tel')" class="validation">Valider</button>
+                    <button type="button" onclick="cancelEdit('tel')" class="annulation">Annuler</button>
                 </span>
             </div>
         </div>
@@ -132,8 +133,8 @@
             unset($_SESSION['error']);
         }
         ?>
-        <input type="submit" value="Modifier">
-</form>
+        <button type="submit" id="submit-button" style="display: none;" class="soumettre">Soumettre</button>
+    </form>
 </div>
 <div class="offre-bannière">
         <h2>Vos précédents achats</h2>
@@ -169,6 +170,5 @@
         </div>
         <p>&copy; 2025 Pastport - Tous droits réservés.</p>
     </footer>
-    <script src="../fichier_java/modifier_profil.js"></script>
 </body>
 </html>
