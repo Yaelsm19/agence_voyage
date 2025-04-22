@@ -118,7 +118,7 @@ label {
     justify-content: center;
 }
 
-.profil-container input[type="submit"], .se_deconnecter, label[for="file-input"]{
+.profil-container input[type="submit"], .se_deconnecter, label[for="file-input"], .validation, .annulation, .soumettre{
     font-family: var(--police-bouton);
     padding: 10px;
     border-radius: var(--border-radius-element);
@@ -131,7 +131,7 @@ label {
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.profil-container input[type="submit"]:hover, .se_deconnecter:hover, label[for="file-input"]:hover{
+.profil-container input[type="submit"]:hover, .se_deconnecter:hover, label[for="file-input"]:hover, .validation:hover, .annulation:hover, .soumettre:hover{
     border-color: var(--couleur-survol-bordure);
     color: var(--couleur-survol-texte);
     background-color: var(--couleur-survol-bouton);
@@ -417,16 +417,3 @@ label {
     display: none;
 }
 
-.validation .annulation .soumettre {
-    font-family: var(--police-bouton);
-    padding: 12px 20px;
-    background-color: var(--couleur-fond-bouton);
-    color: var(--couleur-textes);
-    border: var(--bordure_bouton);
-    border-radius: var(--border-radius-element);
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}

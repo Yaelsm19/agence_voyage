@@ -2,9 +2,9 @@ const originalValues = {};
 let hasValidatedChanges = false;
 
 function enableAllInputs() {
-    const inputs = document.querySelectorAll('input[disabled]');
+    const inputs = document.querySelectorAll('input[readonly]');
     inputs.forEach(input => {
-        input.disabled = false;
+        input.readOnly = false;
     });
 }
 
@@ -13,7 +13,7 @@ function enableEdit(id) {
     const controls = document.getElementById('controls-' + id);
 
     originalValues[id] = input.value;
-    input.disabled = false;
+    input.readOnly = false;
     input.focus();
     controls.style.display = 'inline';
     console.log("Edition activée pour : " + id);
@@ -23,7 +23,7 @@ function saveEdit(id) {
     const input = document.getElementById(id);
     const controls = document.getElementById('controls-' + id);
 
-    input.disabled = true;
+    input.readOnly = true;
     controls.style.display = 'none';
     console.log("Valeur validée : " + input.value);
 
@@ -38,7 +38,7 @@ function cancelEdit(id) {
     const controls = document.getElementById('controls-' + id);
 
     input.value = originalValues[id];
-    input.disabled = true;
+    input.readOnly = true;
     controls.style.display = 'none';
     console.log("Modification annulée pour : " + id);
 }
@@ -50,12 +50,13 @@ function showSubmitButton() {
     }
 }
 
-
 document.getElementById('submit-button').addEventListener('click', function(event) {
     event.preventDefault();
 
     enableAllInputs();
 
-    const form = document.querySelector('form[action="modifier_profil.php"]');
-    form.submit();
+    setTimeout(() => {
+        const form = document.querySelector('form[action="modifier_profil.php"]');
+        form.submit();
+    }, 10);
 });

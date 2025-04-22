@@ -56,7 +56,7 @@
     <form  action="modifier_profil.php" method="POST">
         <div class="form-group">
             <div class="input-container">
-                <div><strong>Email:</strong> <input type="email" name="email" id="email" minlength="6" value="<?= htmlspecialchars($_SESSION["email"]) ?>" disabled></div>
+                <div><strong>Email:</strong> <input type="email" name="email" id="email" minlength="6" value="<?= htmlspecialchars($_SESSION["email"]) ?>" readonly></div>
                 <button type="button" onclick="enableEdit('email')" class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
@@ -69,7 +69,7 @@
         
         <div class="form-group">
             <div class="input-container">
-            <div><strong>Prenom:</strong> <input type="text" name="prenom" id="prenom" minlength="3"value="<?= htmlspecialchars($_SESSION['prenom']) ?>" disabled></div>
+            <div><strong>Prenom:</strong> <input type="text" name="prenom" id="prenom" minlength="3"value="<?= htmlspecialchars($_SESSION['prenom']) ?>" readonly></div>
                 <button type="button" onclick="enableEdit('prenom')" class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
@@ -83,7 +83,7 @@
 
         <div class="form-group">
             <div class="input-container">
-            <div><strong>Nom:</strong> <input type="text" name="nom" id="nom" minlength="2" value="<?= htmlspecialchars($_SESSION['nom']) ?>" disabled></div>
+            <div><strong>Nom:</strong> <input type="text" name="nom" id="nom" minlength="2" value="<?= htmlspecialchars($_SESSION['nom']) ?>" readonly></div>
                 <button type="button" onclick="enableEdit('nom')" class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
@@ -96,7 +96,7 @@
 
         <div class="form-group">
             <div class="input-container">
-            <div><strong>Tel:</strong> <input type="text" name="numero" id="tel" minlength="10" value="<?= htmlspecialchars($_SESSION['numero']) ?>" disabled></div>
+            <div><strong>Tel:</strong> <input type="text" name="numero" id="tel" minlength="10" value="<?= htmlspecialchars($_SESSION['numero']) ?>" readonly></div>
                 <button type="button" onclick="enableEdit('tel')" class="crayon">
                     <img src="../Image/image_icône/crayon.png" alt="Modifier">
                 </button>
