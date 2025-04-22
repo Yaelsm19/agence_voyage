@@ -417,3 +417,6 @@ label {
     display: none;
 }
 
+input:not([readonly]) {
+    color: white;
+}
