@@ -34,7 +34,7 @@
             <label for="password">Mot de passe :</label>
             <div class="input-wrapper">
                 <input type="password" id="password" name="password" minlength="8" placeholder="Mot de passe">
-                    <button type="button" onclick="afficherMDP()" class="oeil">
+                    <button type="button" onclick="afficherMDP('password')" class="oeil">
                         <img src="../Image/image_icône/oeil.png" alt="afficher">
                     </button>
                 </div>
@@ -44,8 +44,8 @@
         <div class="form-group">
             <label for="confirmation_password">Confirmation du mot de passe :</label>
             <div class="input-wrapper">
-                <input type="password" id="password" name="password" minlength="8" placeholder="Mot de passe">
-                    <button type="button" onclick="afficherMDP()" class="oeil">
+                <input type="password" id="confirmation-password" name="confirmation-password" minlength="8" placeholder="Mot de passe">
+                    <button type="button" onclick="afficherMDP('confirmation-password')" class="oeil">
                         <img src="../Image/image_icône/oeil.png" alt="afficher">
                     </button>
                 </div>
