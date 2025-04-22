@@ -16,7 +16,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 </head>
 <body>
     <h1>Se connecter</h1>
-    <form class="form-container" method="POST" action="traitement_connexion.php">
+    <form class="form-container" method="POST" action="traitement_connexion.php" novalidate>
         <div class="form-group">
             <label for="email">Adresse email :</label>
             <input type="email" id="email" name="email" placeholder="Adresse email" required>
@@ -57,5 +57,6 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
         <p>© 2025 Pastport - Tous droits réservés</p>
     </footer>
     <script src="../fichier_java/afficherMDP.js"></script>
+    <script src="../fichier_java/verif_champs.js"></script>
 </body>
 </html>

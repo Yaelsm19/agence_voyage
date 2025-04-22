@@ -9,13 +9,13 @@
 </head>
 <body>
     <h1>Inscription</h1>
-    <form class="form-container" method="POST" action="traitement_inscription.php">
-        <div class="form-groupe">
+    <form class="form-container" method="POST" action="traitement_inscription.php" novalidate>
+        <div class="form-group">
             <label for="prénom">Prénom :</label>
-            <input type="text" name="prénom" id="prénom" minlength="3"placeholder="Votre prénom" required>
+            <input type="text" name="prenom" id="prenom" minlength="3"placeholder="Votre prénom" required>
         </div>
 
-        <div class="form-groupe">
+        <div class="form-group">
             <label for="nom">Nom :</label>
             <input type="text" name="nom" id="nom" minlength="2" placeholder="Votre nom" required>
         </div>
@@ -25,7 +25,7 @@
             <input type="email" id="email" name="email" minlength="6" placeholder="Adresse email" required>
         </div>
 
-        <div class="form-groupe">
+        <div class="form-group">
             <label for="telephone">Téléphone :</label>
             <input type="tel" name="telephone" id="telephone" minlength="10" placeholder="Numéro de téléphone" required>
         </div>
@@ -83,5 +83,7 @@
         <p>© 2025 Pastport - Tous droits réservés</p>
     </footer>
     <script src="../fichier_java/afficherMDP.js"></script>
+    <script src="../fichier_java/verif_champs.js"></script>
+
 </body>
 </html>
