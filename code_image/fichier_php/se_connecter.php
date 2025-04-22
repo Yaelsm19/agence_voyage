@@ -24,7 +24,14 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 
         <div class="form-group">
             <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" placeholder="Mot de passe">
+            <div class="input-wrapper">
+                <input type="password" id="password" name="password" placeholder="Mot de passe">
+                <button type="button" onclick="afficherMDP()" class="oeil">
+                    <img src="../Image/image_icône/oeil.png" alt="afficher">
+                </button>
+            </div>
+        </div>
+
         </div>
         <?php
         if (isset($_SESSION["error"])) {
@@ -45,10 +52,10 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                 <h2>Si vous ne possédez pas encore de profil pour en créer un <a href ="s_inscrire.php">cliquez ici</a></h2>
             </div>
         </div>
-</form>
+    </form>
     <footer>
         <p>© 2025 Pastport - Tous droits réservés</p>
     </footer>
-
+    <script src="../fichier_java/afficherMDP.js"></script>
 </body>
 </html>

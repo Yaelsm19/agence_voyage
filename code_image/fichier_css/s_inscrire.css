@@ -45,7 +45,7 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
 }
 
 
-.form-group button{
+button[type="submit"]{
     font-family: var(--police-bouton);
     padding: 12px 20px;
     background-color: var(--couleur-fond-bouton);
@@ -60,7 +60,7 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
 }
 
 
-.form-group button:hover{
+button[type="submit"]:hover{
     background-color: var(--couleur-fond-bouton);
     color: var(--couleur-survol-texte);
     border-color: var(--couleur-survol-bordure);
@@ -175,4 +175,36 @@ footer p {
     footer p {
         font-size: 14px;
     }
+}
+
+button[type="button"]:hover{
+    background-color: var(--couleur-survol-bouton);
+    color: var(--couleur-survol-texte);
+    box-shadow: var(--ombre-box);
+    border-color: var(--couleur-survol-bordure);
+    transform: var(--scale-bouton);
+}
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input[type="password"] {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.input-wrapper .oeil {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.input-wrapper .oeil img {
+    width: 20px;
+    height: 20px;
 }

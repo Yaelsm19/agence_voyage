@@ -32,12 +32,24 @@
 
         <div class="form-group">
             <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" minlength="8" placeholder="Mot de passe">
+            <div class="input-wrapper">
+                <input type="password" id="password" name="password" minlength="8" placeholder="Mot de passe">
+                    <button type="button" onclick="afficherMDP()" class="oeil">
+                        <img src="../Image/image_icône/oeil.png" alt="afficher">
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
             <label for="confirmation_password">Confirmation du mot de passe :</label>
-            <input type="password" id="confirmation_password" minlength="8" name="confirmation_password" placeholder="Mot de passe*">
+            <div class="input-wrapper">
+                <input type="password" id="password" name="password" minlength="8" placeholder="Mot de passe">
+                    <button type="button" onclick="afficherMDP()" class="oeil">
+                        <img src="../Image/image_icône/oeil.png" alt="afficher">
+                    </button>
+                </div>
+            </div>
         </div>
 
         <?php
@@ -66,10 +78,10 @@
                 <h3>En vous créant un compte vous accéptez nos  <a href ="condition_general.php">conditions générales d'utilisation</a></h3>
             </div>
         </div>
-</form>
+    </form>
     <footer>
         <p>© 2025 Pastport - Tous droits réservés</p>
     </footer>
+    <script src="../fichier_java/afficherMDP.js"></script>
 </body>
-</html>
 </html>

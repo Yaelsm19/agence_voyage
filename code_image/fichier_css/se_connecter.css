@@ -30,7 +30,7 @@ h1{
 }
 
 
-input[type="email"], input[type="password"]{
+input[type="email"], #password{
     width: 100%;
     padding: 12px;
     margin-top: 15px;
@@ -45,7 +45,8 @@ input[type="email"], input[type="password"]{
 }
 
 
-.form-group button{
+
+button[type="submit"]{
     padding: 12px 20px;
     font-family: var(--police-bouton);
     background-color: var(--couleur-fond-bouton);
@@ -60,7 +61,7 @@ input[type="email"], input[type="password"]{
 }
 
 
-.form-group button:hover{
+button[type="submit"]:hover{
     background-color: var(--couleur-survol-bouton);
     color: var(--couleur-survol-texte);
     box-shadow: var(--ombre-box);
@@ -162,4 +163,46 @@ footer p {
     footer p {
         font-size: 14px;
     }
+}
+
+.oeil img {
+    width: 14px;
+    height: 14px;
+}
+.oeil {
+    width: 20px;
+    height: 20px;
+}
+
+
+button[type="button"]:hover{
+    background-color: var(--couleur-survol-bouton);
+    color: var(--couleur-survol-texte);
+    box-shadow: var(--ombre-box);
+    border-color: var(--couleur-survol-bordure);
+    transform: var(--scale-bouton);
+}
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input[type="password"] {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.input-wrapper .oeil {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.input-wrapper .oeil img {
+    width: 20px;
+    height: 20px;
 }
