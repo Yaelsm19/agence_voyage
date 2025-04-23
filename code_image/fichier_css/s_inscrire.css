@@ -34,7 +34,6 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
     width: 100%;
     padding: 12px;
     margin-top: 15px;
-    margin-bottom: 20px;
     border: 1px solid #61689a;
     border-radius: 4px;
     font-size: 16px;
@@ -201,6 +200,7 @@ button[type="button"]:hover{
     background: none;
     border: none;
     padding: 0;
+    margin-top: 15px;
     cursor: pointer;
 }
 
@@ -209,3 +209,8 @@ button[type="button"]:hover{
     height: 20px;
 }
 
+.compteur-caractere {
+    color: var(--couleur-textes);
+    margin-top: 5px;
+    margin-bottom: 20px;
+}

@@ -19,17 +19,19 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     <form class="form-container" method="POST" action="traitement_connexion.php" novalidate>
         <div class="form-group">
             <label for="email">Adresse email :</label>
-            <input type="email" id="email" name="email" placeholder="Adresse email" required>
+            <input type="email" id="email" name="email" minlength="6" maxlength="30" placeholder="Adresse email" required>
+            <p id="email-compteur" class="compteur-caractere"></p>
         </div>
 
         <div class="form-group">
             <label for="password">Mot de passe :</label>
             <div class="input-wrapper">
-                <input type="password" id="password" name="password" placeholder="Mot de passe">
-                <button type="button" onclick="afficherMDP()" class="oeil">
+                <input type="password" id="password" name="password" minlength="8" maxlength="50" placeholder="Mot de passe">
+                <button type="button" onclick="afficherMDP('password')" class="oeil">
                     <img src="../Image/image_icône/oeil.png" alt="afficher">
                 </button>
             </div>
+            <p id="password-compteur" class="compteur-caractere"></p>
         </div>
 
         </div>
@@ -58,5 +60,6 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     </footer>
     <script src="../fichier_java/afficherMDP.js"></script>
     <script src="../fichier_java/verif_champs.js"></script>
+    <script src="../fichier_java/compteur_caractere.js"></script>
 </body>
 </html>

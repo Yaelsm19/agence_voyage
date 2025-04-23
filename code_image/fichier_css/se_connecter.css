@@ -206,3 +206,9 @@ button[type="button"]:hover{
     width: 20px;
     height: 20px;
 }
+
+.compteur-caractere {
+    color: var(--couleur-textes);
+    margin-top: 5px;
+    margin-bottom: 20px;
+}

@@ -12,44 +12,50 @@
     <form class="form-container" method="POST" action="traitement_inscription.php" novalidate>
         <div class="form-group">
             <label for="prénom">Prénom :</label>
-            <input type="text" name="prenom" id="prenom" minlength="3"placeholder="Votre prénom" required>
+            <input type="text" name="prenom" id="prenom" minlength="3" maxlength="20" placeholder="Votre prénom" required>
+            <p id="prenom-compteur" class="compteur-caractere"></p>
         </div>
 
         <div class="form-group">
             <label for="nom">Nom :</label>
-            <input type="text" name="nom" id="nom" minlength="2" placeholder="Votre nom" required>
+            <input type="text" name="nom" id="nom" minlength="2" maxlength="30"placeholder="Votre nom" required>
+            <p id="nom-compteur" class="compteur-caractere"></p>
         </div>
 
         <div class="form-group">
             <label for="email">Adresse email :</label>
-            <input type="email" id="email" name="email" minlength="6" placeholder="Adresse email" required>
+            <input type="email" id="email" name="email" minlength="6" maxlength="30"placeholder="Adresse email" required>
+            <p id="email-compteur" class="compteur-caractere"></p>
         </div>
 
         <div class="form-group">
             <label for="telephone">Téléphone :</label>
-            <input type="tel" name="telephone" id="telephone" minlength="10" placeholder="Numéro de téléphone" required>
+            <input type="tel" name="telephone" id="telephone" minlength="10" maxlength="10" placeholder="Numéro de téléphone" required>
+            <p id="telephone-compteur" class="compteur-caractere"></p>
         </div>
 
         <div class="form-group">
             <label for="password">Mot de passe :</label>
             <div class="input-wrapper">
-                <input type="password" id="password" name="password" minlength="8" placeholder="Mot de passe">
+                <input type="password" id="password" name="password" minlength="8" maxlength="50" placeholder="Mot de passe">
                     <button type="button" onclick="afficherMDP('password')" class="oeil">
                         <img src="../Image/image_icône/oeil.png" alt="afficher">
                     </button>
                 </div>
             </div>
+            <p id="password-compteur" class="compteur-caractere"></p>
         </div>
 
         <div class="form-group">
             <label for="confirmation_password">Confirmation du mot de passe :</label>
             <div class="input-wrapper">
-                <input type="password" id="confirmation-password" name="confirmation-password" minlength="8" placeholder="Mot de passe">
+                <input type="password" id="confirmation-password" name="confirmation-password" minlength="8" maxlength="50"placeholder="Mot de passe">
                     <button type="button" onclick="afficherMDP('confirmation-password')" class="oeil">
                         <img src="../Image/image_icône/oeil.png" alt="afficher">
                     </button>
                 </div>
             </div>
+            <p id="confirmation-password-compteur" class="compteur-caractere"></p>
         </div>
 
         <?php
@@ -84,6 +90,7 @@
     </footer>
     <script src="../fichier_java/afficherMDP.js"></script>
     <script src="../fichier_java/verif_champs.js"></script>
+    <script src="../fichier_java/compteur_caractere.js"></script>
 
 </body>
 </html>
