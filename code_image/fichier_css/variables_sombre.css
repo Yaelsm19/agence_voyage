@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Roboto:wght@300;400;700&family=Lora:ital@1&family=Montserrat:wght@500;700&display=swap');
+
+:root {
+    --couleur-primaire-fond: #000E27;
+    --couleur-secondaire-fond: #2C3143;
+    --couleur-textes: #D1D7E6;
+    --couleur-placeholder: #B3B9D1;
+    --couleur-bandeau-texte: #C9A7E0;
+    
+    --couleur-fond-bandeau: #121727;
+    --couleur-fond-GrandTitre-vid: #000000AA;
+    --couleur-fond-bouton: #3A4A6B;
+
+    --police-bouton: 'Montserrat', sans-serif;
+    --police-grand-titre: 'Playfair Display', serif;
+    --police-moyen-titre: 'Poppins', sans-serif;
+    --police-petit-titre: 'Poppins', sans-serif;
+    --police-paragraphe: 'Roboto', sans-serif;
+    --police-citation: 'Lora', serif;
+    --police-lien: 'Montserrat', sans-serif;
+
+    --couleur-survol-bouton: #475F7B;
+    --couleur-survol-texte: #B0C6D5;
+    --couleur-survol-bordure: #B0C6D5;
+    --scale-bouton: scale(1.15);
+    --scale-voyage: scale(1.15);
+
+    --bordure_bouton: 1px solid #D1D7E6;
+    --ombre-box: 0px 4px 16px rgba(72, 92, 114, 0.3);
+    --ombre-texte-Titre: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    --font-style-placeholder: italic;
+    --border-radius-element: 10px;
+    --border-radius-box: 18px;
+
+    --couleur-prix: #76C9FF;
+    --couleur-prix-ancien: #A3A8C5;
+}

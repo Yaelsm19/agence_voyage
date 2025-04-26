@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Pastport</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="..\fichier_css\FAQ.css">
     <link rel="icon" href="../Image/image_icône/Passport_logo.jpg">
 </head>

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Présentation - Pastport</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="..\fichier_css\presentation.css">
     <link rel="stylesheet" href="..\fichier_css\header.css">
     <link rel="stylesheet" href="..\fichier_css\footer.css">
-    <link rel="icon" href="../Image/image_icône/Passport_logo.jpg">
+    <link rel="icon" href="../Image/image_icône/Passport_logo.png">
 </head>
 <body>
     <video autoplay loop muted id="background-video">

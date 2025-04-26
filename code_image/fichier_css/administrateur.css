@@ -1,4 +1,3 @@
-@import url('variables.css');
 body {
     background-color: var(--couleur-primaire-fond);
     margin: 0;

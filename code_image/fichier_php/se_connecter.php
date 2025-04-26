@@ -11,8 +11,9 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Pastport</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="..\fichier_css\se_connecter.css">
-    <link rel="icon" href="../image/image_icône/Passport_logo.jpg">
+    <link rel="icon" href="../image/image_icône/Passport_logo.png">
 </head>
 <body>
     <h1>Se connecter</h1>
