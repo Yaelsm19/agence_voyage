@@ -22,16 +22,19 @@ function change_image(mode) {
     let favori = document.getElementById('favori');
     let people = document.getElementById('people');
     let info = document.getElementById('info');
+    let logo = document.getElementById('logo');
     
     if (favori && people && info) {
         if (mode === 'sombre') {
             favori.src = '../Image/image_icône/favori.png';
             people.src = '../Image/image_icône/people.png';
             info.src = '../Image/image_icône/info.png';
+            logo.src = '../Image/image_icône/Passport_logo.png';
         } else {
             favori.src = '../Image/image_icône/favori_mode_clair.png';
             people.src = '../Image/image_icône/people_mode_clair.png';
             info.src = '../Image/image_icône/info_mode_clair.png';
+            logo.src = '../Image/image_icône/Passport_logo_mode_clair.png';
         }
     }
 }

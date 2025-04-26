@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
 <header class="container1">
-        <img src="..\Image\image_icône\Passport_logo.png" alt="logo_site" class="logo">
+        <img src="..\Image\image_icône\Passport_logo.png" alt="logo_site" class="logo" id="logo">
         <img src="..\Image\image_icône\mode_sombre.png" alt="logo_mode_sombre" class="logo" id="mode-toggle">
         <nav class="nav_lien">
             <a href="accueil.php" class="lien_accueil">Accueil</a>

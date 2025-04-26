@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Roboto:wght@300;400;700&family=Lora:ital@1&family=Montserrat:wght@500;700&display=swap');
 
 :root {
-    --couleur-primaire-fond: #E5E9F2; /* Fond clair mais pas trop, un bleu pâle */
-    --couleur-secondaire-fond: #D1D8E0; /* Fond secondaire légèrement plus foncé */
-    --couleur-textes: #2A3A56; /* Texte foncé mais agréable, sans être trop intense */
-    --couleur-placeholder: #A7B2C3; /* Gris clair pour les placeholders */
-    --couleur-bandeau-texte: #8A4F94; /* Texte bandeau en violet modéré */
+    --couleur-primaire-fond: #678892;
+    --couleur-secondaire-fond: #5F6B75;
+    --couleur-textes: #121C26;
+    --couleur-placeholder: #4C5965;
+    --couleur-bandeau-texte: #472F5A;
 
-    --couleur-fond-bandeau: #D7DFE9; /* Fond bandeau doux, pas trop clair */
-    --couleur-fond-GrandTitre-vid: #FFFFFF; /* Fond transparent pour les vidéos */
-    --couleur-fond-bouton: #3C6E8F; /* Bleu plus foncé pour un bouton contrasté mais pas trop */
+    --couleur-fond-bandeau: #3B4A58;
+    --couleur-fond-GrandTitre-vid: #D1D1D1;
+    --couleur-fond-bouton: #35424e;
 
     --police-bouton: 'Montserrat', sans-serif;
     --police-grand-titre: 'Playfair Display', serif;
@@ -19,19 +19,19 @@
     --police-citation: 'Lora', serif;
     --police-lien: 'Montserrat', sans-serif;
 
-    --couleur-survol-bouton: #4A7F99; /* Survol bouton avec une teinte un peu plus foncée */
-    --couleur-survol-texte: #2B4A6A; /* Texte survolé plus sombre, mais pas trop */
-    --couleur-survol-bordure: #4A7F99; /* Bordure survolée de la même teinte que le bouton */
-    --scale-bouton: scale(1.15);
-    --scale-voyage: scale(1.15);
+    --couleur-survol-bouton: #2A3D47;
+    --couleur-survol-texte: #0F1924;
+    --couleur-survol-bordure: #2A3D47;
+    --scale-bouton: scale(1.10);
+    --scale-voyage: scale(1.10);
 
-    --bordure_bouton: 1px solid #A7B2C3; /* Bordure bouton avec un gris doux */
-    --ombre-box: 0px 4px 16px rgba(0, 0, 0, 0.15); /* Ombre légère pour un effet subtile */
-    --ombre-texte-Titre: 3px 3px 6px rgba(0, 0, 0, 0.2); /* Ombre modérée sur les titres */
+    --bordure_bouton: 1px solid #4C5965;
+    --ombre-box: 0px 4px 16px rgba(0, 0, 0, 0.4);
+    --ombre-texte-Titre: 3px 3px 6px rgba(0, 0, 0, 0.5);
     --font-style-placeholder: italic;
-    --border-radius-element: 10px;
-    --border-radius-box: 18px;
+    --border-radius-element: 8px;
+    --border-radius-box: 15px;
 
-    --couleur-prix: #4A90E2; /* Bleu doux pour les prix */
-    --couleur-prix-ancien: #A7B2C3; /* Gris doux pour le prix ancien */
+    --couleur-prix: #1C2833;
+    --couleur-prix-ancien: #4C5965;
 }
