@@ -26,7 +26,7 @@ try {
         <?php foreach ($voyages as $voyage): 
             $imagePath = "../Image/Image_voyage_page_destinations/" . $voyage['image'];
         ?>
-            <div>
+            <div class="voyage" data-prix="<?= $voyage['prix'] ?>"      data-danger="<?= $voyage['niveau_danger'] ?>" data-confort="<?= $voyage['niveau_confort'] ?>" data-type="<?= $voyage['type_voyage'] ?>" data-epoque="<?= $voyage['epoque'] ?>">
                 <img class="image_destinations" src="<?= $imagePath ?>" alt="image_voyage">
                 <div class="zone_texte">
                     <h3 class="période"><?= htmlspecialchars($voyage['titre']) ?></h3>

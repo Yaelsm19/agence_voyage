@@ -30,14 +30,9 @@
                             <option value="antiquite">Antiquité (3000 av.JC. – 476 apr.JC.)</option>
                             <option value="moyen-age">Moyen Âge (476 – 1492)</option>
                             <option value="renaissance">Renaissance (14e – 17e siècle)</option>
-                            <option value="période_moderne">Période Moderne(17e – 19e siècle)</option>
-                            <option value="époque_contemporaine">Époque contemporaine (20e – 21e siècle)</option>
+                            <option value="epoque-moderne">Période Moderne(17e – 19e siècle)</option>
+                            <option value="epoque-contemporaine">Époque contemporaine (20e – 21e siècle)</option>
                         </select>
-                    </div>
-    
-                    <div class="champ-filtres">
-                        <label for="destination">Destination :</label>
-                        <input type="text" id="destination" name="destination" placeholder="Ex. Paris, Egypte, Rome">
                     </div>
     
                     <div class="champ-filtres">
@@ -45,7 +40,7 @@
                         <select id="typeVoyage" name="typeVoyage">
                             <option value="0">Tous</option>
                             <option value="aventure">Aventure</option>
-                            <option value="detente">Détente</option>
+                            <option value="détente">Détente</option>
                             <option value="culturel">Culturel</option>
                             <option value="historique">Historique</option>
                         </select>
@@ -67,9 +62,9 @@
                         <select id="niveau_confort" name="niveau_confort">
                             <option value="0">Tous</option>
                             <option value="1">Dodo à la belle étoile : 1</option>
-                            <option value="2">Caverne et Cocooning</option>
-                            <option value="3">Luxe de l'Antiquité</option>
-                            <option value="4">Royal Time Traveler</option>
+                            <option value="2">Caverne et Cocooning : 2</option>
+                            <option value="3">Luxe de l'Antiquité : 3</option>
+                            <option value="4">Royal Time Traveler : 4</option>
                         </select>
                     </div>
     
