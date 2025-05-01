@@ -107,7 +107,7 @@ if (isset($_SESSION['error'])) {
                         <img src="../Image/image_icône/<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>.png" alt="<?php echo ($user['grade'] == 'bloqué') ? 'debloquer' : 'bloquer'; ?>">
                     </a>
                 </td>
-
+                
                 <td>
                     <a href="supprimer_utilisateur.php?id=<?php echo $user['user_id']; ?>" class="action supprimer">
                         <img src="../Image/image_icône/supprimer.png" alt="supprimer">
