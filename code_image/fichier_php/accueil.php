@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="..\fichier_css\footer.css">
 </head>
 <body>
-    
     <?php include('header.php') ?>
     <video autoplay loop muted id="background-video">
         <source src="../Image/image_background\effet_image.mp4" type="video/mp4">
