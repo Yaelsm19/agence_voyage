@@ -63,7 +63,7 @@ h1 {
     cursor: pointer;
     margin: 0 10px;
 }
-.info-box{
+.info-box, .info-box2{
     flex: 1;
     background: var(--couleur-secondaire-fond);
     padding: 20px;
@@ -215,7 +215,7 @@ button:hover {
     border-color: var(--couleur-survol-bordure);
     transform: var(--scale-bouton);
 }
-.prix {
+.prix, #prixTotal{
     font-size: 20px;
     font-weight: bold;
     color: #ffe680; /* Couleur jaune clair */
