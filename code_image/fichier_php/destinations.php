@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinations - Pastport</title>
     <script src="../fichier_java/filtrer.js"></script>
+    <script src="../fichier_java/changer_mode.js"></script>
     <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="..\fichier_css\header.css">
     <link rel="stylesheet" href="..\fichier_css\destinations.css">
@@ -14,9 +15,10 @@
 <body>
 <?php include('header.php') ?>
     <video autoplay loop muted id="background-video">
-        <source src="..\Image\image_background\effet_image.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la vidéo.
+        <source src="../Image/image_background\effet_image.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo. 
     </video>
+    <img id="background-image" src="../Image/image_background\background_fifou.png" style="display: none;">
     <div class="container2">
         <div class="fenetre-modale" id="fenetreFiltre">
             <div class="contenu-fenetre">

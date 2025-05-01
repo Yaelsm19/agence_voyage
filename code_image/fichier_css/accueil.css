@@ -283,6 +283,16 @@ body{
     font-family: var(--police-paragraphe);
 }
 
+#background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 @media (max-width: 768px) {
     .bannière, .offre-bannière, .titre, .titre-citations {
         width: 90%;

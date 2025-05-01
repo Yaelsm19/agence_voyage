@@ -8,6 +8,7 @@ session_destroy();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Déconnexion Réussie</title>
+    <script src="../fichier_java/changer_mode.js"></script>
     <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="../fichier_css/connexion_réussie.css">
     <meta http-equiv="refresh" content="2;url=accueil.php">

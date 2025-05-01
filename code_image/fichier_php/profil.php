@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil - Pastport</title>
+    <script src="../fichier_java/changer_mode.js"></script>
     <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="..\fichier_css\profil.css">
     <link rel="stylesheet" href="..\fichier_css\footer.css">
@@ -15,9 +16,10 @@
     <script src="../fichier_java/modifier_profil.js"></script>
 <?php include('header.php') ?>
     <video autoplay loop muted id="background-video">
-            <source src="../Image/image_background\effet_image.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la vidéo.
-        </video>
+        <source src="../Image/image_background\effet_image.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo. 
+    </video>
+    <img id="background-image" src="../Image/image_background\background_fifou.png" style="display: none;">
     <div class="profil-container">
     <div class="se_deconnecter_container">
             <a class="se_deconnecter" href="deconnexion.php">Se déconnecter</a>

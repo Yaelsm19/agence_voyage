@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Pastport</title>
+    <script src="../fichier_java/changer_mode.js"></script>
     <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="..\fichier_css\header.css">
     <link rel="stylesheet" href="..\fichier_css\accueil.css">
@@ -16,6 +17,7 @@
         <source src="../Image/image_background\effet_image.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la vidéo. 
     </video>
+    <img id="background-image" src="../Image/image_background\background_fifou.png" style="display: none;">
     <div class="bannière">
         <h2>Bienvenue chez Pastport</h2>
         <h3>"Voyager dans le passé, c'est savourer les moments d'hier<br/>tout en découvrant les leçons qu'ils nous offrent pour aujourd'hui."</h3>
