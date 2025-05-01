@@ -1,9 +1,8 @@
 <?php include('verifier_connexion.php') ?>
 <?php
+require_once 'connexion_base.php'; 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id_voyage = $_GET['id'];
-
-    require_once 'connexion_base.php'; 
 
     try {
         $stmt_voyage = $pdo->prepare("SELECT * FROM voyage WHERE id = :id_voyage");
@@ -32,6 +31,42 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     echo "Aucun voyage sélectionné.";
     exit;
 }
+
+if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
+    $id_reservation = $_GET['id_reservation'];
+
+    try {
+        $stmt_reservation = $pdo->prepare("SELECT * FROM reservation WHERE id = :id_reservation");
+        $stmt_reservation->execute(['id_reservation' => $id_reservation]);
+        $reservation = $stmt_reservation->fetch(PDO::FETCH_ASSOC);
+
+        if (!$reservation) {
+            echo "Réservation non trouvée.";
+            exit;
+        }
+
+        $date_voyage = $reservation['date_voyage'];
+        $nb_adultes = $reservation['nb_adultes'];
+        $nb_enfants = $reservation['nb_enfants'];
+
+        $stmt_souscrire = $pdo->prepare("SELECT s.id_option, o.intitule, SUM(s.nb_personnes) AS nb_personnes
+                                        FROM souscrire s
+                                        INNER JOIN options o ON s.id_option = o.id_option
+                                        WHERE s.id_reservation = :id_reservation
+                                        GROUP BY s.id_option, o.intitule");
+        $stmt_souscrire->execute(['id_reservation' => $id_reservation]);
+        $options_souscrites = $stmt_souscrire->fetchAll(PDO::FETCH_ASSOC);
+
+        $options = [];
+        foreach ($options_souscrites as $option) {
+            $options[$option['intitule']] = $option['nb_personnes'];
+        }
+
+    } catch (PDOException $e) {
+        die("Erreur de base de données : " . $e->getMessage());
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -67,13 +102,20 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <h2>A partir de <span class="prix"><?= number_format($voyage['prix'], 0, ',', ' ') ?></span>€/P</h2>
             <p><?= htmlspecialchars($voyage['description']) ?></p>
             <h2>Date de départ</h2>
-            <input type="date" id="date" name="date" required>
+            <h2>Date de réservation :</h2>
+            <input type="date" id="date" name="date" 
+            value="<?php 
+            echo isset($date_voyage) && !empty($date_voyage) ? date('Y-m-d', strtotime($date_voyage)) : ''; 
+       ?>">
+
+
+
 
             <h2>Nombre d'adultes responsables et matures :</h2>
-            <input type="number" id="adulte" name="adulte" min="0" max="5" value="1">
+            <input type="number" id="adulte" name="adulte" min="0" max="5" value="<?php echo isset($nb_adultes) ? htmlspecialchars($nb_adultes) : 1; ?>">
 
             <h2>Nombre d'enfants avec monosourcils :</h2>
-            <input type="number" id="enfant" name="enfant" min="0" max="5" value="0">
+            <input type="number" id="enfant" name="enfant" min="0" max="5" value="<?php echo isset($nb_enfants) ? htmlspecialchars($nb_enfants) : 0; ?>">
 
 
 
@@ -92,16 +134,23 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <?php foreach ($etapes as $index => $etape): ?>
         <div class="Etape">
             <h2>Etape <?= $index + 1 ?> : <?= htmlspecialchars($etape['titre']) ?></h2>
-            <?php foreach ($etape['options'] as $option): ?>
-                <div class="option">
+                <?php foreach ($etape['options'] as $option): ?>
+                    <div class="option">
                     <label for="option_<?= $index ?>_<?= $option['id_option'] ?>">
+                    <?php
+                    if (isset($options[$option['intitule']])) {
+                        $nb_personnes_souscrites = $options[$option['intitule']];
+                    } else {
+                        $nb_personnes_souscrites = 0;
+                    }
+                    ?>
                     <input 
                         type="number" 
                         id="option_<?= $index ?>_<?= $option['id_option'] ?>" 
                         name="nb_participant_<?= $option['id_option'] ?>" 
                         min="0"
                         max="10" 
-                        value="0">
+                        value="<?= $nb_personnes_souscrites ?>">
                     <p><?= htmlspecialchars($option['intitule']) ?> : +<span class="prix"><?= number_format($option['prix_par_personne'], 0, ',', ' ') ?></span>€</p>
                     </label>
                 </div>
