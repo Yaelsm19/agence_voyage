@@ -50,6 +50,17 @@
                     </div>
 
                     <div class="champ-filtres">
+                        <label for="duree">Durée :</label>
+                        <select id="duree" name="duree">
+                            <option value="0">Tous</option>
+                            <option value="3">3 jours</option>
+                            <option value="4">4 jours</option>
+                            <option value="5">5 jours</option>
+                            <option value="6">6 jours</option>
+                        </select>
+                    </div>
+
+                    <div class="champ-filtres">
                         <label for="niveau_danger">Niveau de danger :</label>
                         <select id="niveau_danger" name="niveau_danger">
                             <option value="0">Tous</option>

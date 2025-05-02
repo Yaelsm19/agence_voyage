@@ -28,13 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const confort = document.getElementById("niveau_confort").value;
         const type = document.getElementById("typeVoyage").value;
         const epoque = document.getElementById("periode").value;
+        const duree = document.getElementById("duree").value;
 
         voyages.forEach(voyage => {
             const prix = parseFloat(voyage.dataset.prix);
             const voyageDanger = voyage.dataset.danger;
             const voyageConfort = voyage.dataset.confort;
             const voyageType = voyage.dataset.type;
-            const voyageEpoque = voyage.dataset.epoque
+            const voyageEpoque = voyage.dataset.epoque;
+            const voyageDuree = voyage.dataset.duree;
 
             let visible = true;
 
@@ -55,6 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (epoque !== "0" && voyageEpoque !== epoque) {
+                visible = false;
+            }
+
+            if (duree !== "0" && voyageDuree !== duree) {
                 visible = false;
             }
 
