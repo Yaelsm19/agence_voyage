@@ -48,6 +48,8 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
         $date_voyage = $reservation['date_voyage'];
         $nb_adultes = $reservation['nb_adultes'];
         $nb_enfants = $reservation['nb_enfants'];
+        $guide = $reservation['guide'];
+        $transport = $reservation['moyen_transport'];
 
         $stmt_souscrire = $pdo->prepare("SELECT s.id_option, o.intitule, SUM(s.nb_personnes) AS nb_personnes
                                         FROM souscrire s
@@ -100,7 +102,7 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
             </div>
         </div>
         <div class="info-box">
-            <h2>A partir de <span class="prix"><?= number_format($voyage['prix'], 0, ',', ' ') ?></span>€/P</h2>
+            <h2>A partir de <span class="prix"><?= number_format($voyage['prix'], 0, ',', ' ') ?>€</span>/P</h2>
             <p><?= htmlspecialchars($voyage['description']) ?></p>
             <h2>Date de départ</h2>
             <input type="date" id="date" name="date" 
@@ -151,55 +153,53 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
                         min="0"
                         max="10" 
                         value="<?= $nb_personnes_souscrites ?>">
-                    <p><?= htmlspecialchars($option['intitule']) ?> : +<span class="prix"><?= number_format($option['prix_par_personne'], 0, ',', ' ') ?></span>€</p>
+                    <p><?= htmlspecialchars($option['intitule']) ?> : +<span class="prix"><?= number_format($option['prix_par_personne'], 0, ',', ' ') ?>€</span></p>
                     </label>
                 </div>
             <?php endforeach; ?>
         </div>
     <?php endforeach; ?>
     </div>
-
-
-
-        <div class = "info-box2">
+        <div class="info-box2">
             <h2>Quel moyen de voyage dans le temps désirez-vous :</h2>
             <div class="transport">
                 <label>
-                    <input type="radio" name="choix" value="Montre temporelle">
-                    <b>Montre temporelle : </b>+<span class="prix">1000<span>€
+                    <input type="radio" name="choix" value="Montre temporelle" <?php echo (isset($transport) && $transport == 'Montre temporelle') ? 'checked' : ''; ?>>
+                    <b>Montre temporelle : </b>+<span class="prix">1000<span>€</span></span>
                 </label><br>
                 <label>
-                    <input type="radio" name="choix" value="Le portail temporel">
-                    <b>Le portail temporel : </b>+<span class="prix">100<span>€
+                    <input type="radio" name="choix" value="Le portail temporel" <?php echo (isset($transport) && $transport == 'Le portail temporel') ? 'checked' : ''; ?>>
+                    <b>Le portail temporel : </b>+<span class="prix">100<span>€</span></span>
                 </label><br>
                 <label>
-                    <input type="radio" name="choix" value="La cabine temporel">
-                    <b>La cabine temporel : </b>+<span class="prix">0<span>€
+                    <input type="radio" name="choix" value="La cabine temporel" <?php echo (isset($transport) && $transport == 'La cabine temporel') ? 'checked' : ''; ?>>
+                    <b>La cabine temporel : </b>+<span class="prix">0<span>€</span></span>
                 </label><br>
             </div>
+    
             <h2>Désirez-vous un guide temporel ?</h2>
             <div class="guide">
-                <label>
-                    <input type="radio" name="choix2" value="Guide de luxe">
-                    <b>Guide de luxe : </b>+<span class="prix">600<span>€
-                </label><br>
-                <label>
-                    <input type="radio" name="choix2" value="Guide un peu mid">
-                    <b>Guide un peu mid : </b>+<span class="prix">30<span>€
-                </label><br>
-                <label>
-                    <input type="radio" name="choix2" value="Pas de guide">
-                    <b>Pas de guide : </b>+<span class="prix">0<span>€
-                </label><br>
-                <label>
-                    <input type="radio" name="choix2" value="Guide déboussolant">
-                    <b>Guide déboussolant : </b><span class="prix">-150<span>€
-                </label><br>
+            <label>
+                <input type="radio" name="choix2" value="Guide de luxe" <?php echo (isset($guide) && $guide == 'Guide de luxe') ? 'checked' : ''; ?>>
+                <b>Guide de luxe : </b>+<span class="prix">600<span>€</span></span>
+            </label><br>
+            <label>
+                <input type="radio" name="choix2" value="Guide un peu mid" <?php echo (isset($guide) && $guide == 'Guide un peu mid') ? 'checked' : ''; ?>>
+                <b>Guide un peu mid : </b>+<span class="prix">30<span>€</span></span>
+            </label><br>
+            <label>
+                <input type="radio" name="choix2" value="Pas de guide" <?php echo (isset($guide) && $guide == 'Pas de guide') ? 'checked' : ''; ?>>
+                <b>Pas de guide : </b>+<span class="prix">0<span>€</span></span>
+            </label><br>
+            <label>
+                <input type="radio" name="choix2" value="Guide déboussolant" <?php echo (isset($guide) && $guide == 'Guide déboussolant') ? 'checked' : ''; ?>>
+                <b>Guide déboussolant : </b><span class="prix">-150<span>€</span></span>
+            </label><br>
             </div>
         </div>
     </div>
     <div class="button-container">
-        <button type="submit" name="action" value="favoris">⭐Ajouter aux favoris⭐</button>
+        <button type="submit" name="action" value="panier">⭐Ajouter aux Panier⭐</button>
         <button type="submit" name="action" value="reserver">Réserver</button>
     </div>
 
