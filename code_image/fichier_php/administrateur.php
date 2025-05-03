@@ -42,6 +42,7 @@ if (isset($_SESSION['error'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Pastport</title>
     <script src="../fichier_java/changer_mode.js"></script>
+    <script src="../fichier_java/chargement.js"></script>
     <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="../fichier_css/administrateur.css">
     <link rel="stylesheet" href="../fichier_css/header.css">
@@ -98,8 +99,8 @@ if (isset($_SESSION['error'])) {
                             break;
                         }
                         ?>
-                        <button type="submit" class="action editer">
-                            <img src="<?php echo $image; ?>" alt="<?php echo $altText; ?>" />
+                        <button type="submit" class="action editer bouton-grade" data-user-id="<?php echo $user['user_id']; ?>">
+                            <img src="<?php echo $image; ?>" alt="<?php echo $altText; ?>" class="grade-img" />
                         </button>
                     </form>
                 </td>
