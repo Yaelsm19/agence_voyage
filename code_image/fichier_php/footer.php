@@ -19,8 +19,8 @@
             <div class="footer-section">
                 <h3>Suivez-nous</h3>
                 <div class="réseaux-sociaux">
-                    <a href="#" ><img src="../Image/image_icône/facebook_logo.jpg" alt="Facebook"></a>
-                    <a href="#" ><img src="../Image/image_icône/twitter_logo.jpg" alt="Twitter"></a>
+                    <a href="https://www.facebook.com/people/Mireil-Masengu/pfbid0TwoiDhMUnAPC7LEKF1qrPY5fiKdXchvdw5J8GNhF87HGh8rsHRpUqJ5rjgmCCAKGl/" ><img src="../Image/image_icône/facebook_logo.jpg" alt="Facebook"></a>
+                    <a href="https://www.youtube.com/watch?v=jj7zi1XDNWo" ><img src="../Image/image_icône/twitter_logo.jpg" alt="Twitter"></a>
                     <a href="https://www.instagram.com/cristiano/" ><img src="../Image/image_icône/logo_instagram.jpg" alt="Instagram"></a>
                 </div>
             </div>

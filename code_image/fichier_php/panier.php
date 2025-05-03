@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../fichier_java/changer_mode.js"></script>
+    <script src="../fichier_java/suppression_reservation.js" defer></script>
     <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="..\fichier_css\header.css">
     <link rel="stylesheet" href="..\fichier_css\destinations.css">
     <link rel="stylesheet" href="..\fichier_css\favori.css">
     <link rel="icon"  href="../Image/image_icône/Passport_logo.png">
     <link rel="stylesheet" href="..\fichier_css\footer.css">
-    <script src="../fichier_java/suppression_reservation.js" defer></script>
     <title>Favori</title>
 </head>
 <body>

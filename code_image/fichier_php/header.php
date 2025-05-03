@@ -42,4 +42,3 @@ if (session_status() == PHP_SESSION_NONE) {
     }
     ?>
 </header>
-<script src="../fichier_java/changer_mode.js"></script>

@@ -13,15 +13,6 @@ function generateTransactionId() {
 
     return $transactionId;
 }
-
-
-
-
-
-
-
-
-
 if (isset($_POST['montant']) && isset($_POST['vendeur']) && isset($_POST['id_reservation'])) {
     if (isset($_SESSION['id_reservation'])) {
         unset($_SESSION['id_reservation']);
