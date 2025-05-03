@@ -201,7 +201,7 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
             </label><br>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="button-container">
         <?php 
         if(!isset($id_reservation)){
