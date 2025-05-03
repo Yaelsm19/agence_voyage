@@ -28,7 +28,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <img src="../Image/image_icône/people.png" alt="Profil" id="people">
             </a>
             <a href="panier.php" class="lien_panier">
-                <img src="../Image/image_icône/favori.png" alt="panier" id="favori">
+                <img src="../Image/image_icône/panier.png" alt="panier" id="favori">
             </a>';
         }
         ?>

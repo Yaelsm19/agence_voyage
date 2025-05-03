@@ -118,7 +118,7 @@ try {
                 <div class="réseaux-sociaux">
                     <a href="#" ><img src="../Image/image_icône/facebook_logo.jpg" alt="Facebook"></a>
                     <a href="#" ><img src="../Image/image_icône/twitter_logo.jpg" alt="Twitter"></a>
-                    <a href="#" ><img src="../Image/image_icône/logo_instagram.jpg" alt="Instagram"></a>
+                    <a href="https://www.instagram.com/cristiano/" ><img src="../Image/image_icône/logo_instagram.jpg" alt="Instagram"></a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <?php include('verifier_connexion.php') ?>
 <?php
-require_once 'connexion_base.php'; 
+require_once 'connexion_base.php';
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id_voyage = $_GET['id'];
 
@@ -123,7 +123,11 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
 
         </div>
     </div>
-
+    <?php
+    if (isset($id_reservation)) {
+        echo '<input type="hidden" name="id_reservation" value="' . $id_reservation. '">';
+    }
+    ?>
     <?php include('defilement_image.php') ?>
     <br>
     <div class = "second-content">

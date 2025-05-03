@@ -42,15 +42,15 @@ function change_image(mode) {
 
     if (favori && people && info) {
         if (mode === 'sombre') {
-            favori.src = '../Image/image_icône/favori.png';
+            favori.src = '../Image/image_icône/panier.png';
             people.src = '../Image/image_icône/people.png';
             info.src = '../Image/image_icône/info.png';
         } else if (mode === 'clair') {
-            favori.src = '../Image/image_icône/favori_mode_clair.png';
+            favori.src = '../Image/image_icône/panier_mode_clair.png';
             people.src = '../Image/image_icône/people_mode_clair.png';
             info.src = '../Image/image_icône/info_mode_clair.png';
         } else if (mode === 'fifou') {
-            favori.src = '../Image/image_icône/favori_mode_fifou.png';
+            favori.src = '../Image/image_icône/panier_mode_fifou.png';
             people.src = '../Image/image_icône/people_mode_fifou.png';
             info.src = '../Image/image_icône/info_mode_fifou.png';
         }

@@ -37,7 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (!empty($messages)) {
         $_SESSION["messages"] = $messages;
-        header("Location: réservation.php?id=" . urlencode($id_voyage));
+        if (isset($_POST["id_reservation"])) {
+            header("Location: réservation.php?id_voyage=" . urlencode($id_voyage) . "&id_reservation=" . urlencode($id_reservation));
+        }
+        else{
+            header("Location: réservation.php?id=" . urlencode($id_voyage));
+        }
         exit;
     }
 
@@ -66,7 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $messages[] = "Erreur de base de données : " . $e->getMessage();
     }
     if (empty($messages)) {
-        include 'ajouter_reservation.php';
+        if (isset($_POST["id_reservation"])) {
+            $id_reservation = $_POST["id_reservation"];
+            include 'modifier_reservation.php';
+        } else {
+            include 'ajouter_reservation.php';
+        }
         if ($_POST['action'] === 'panier') {
             header("Location: panier.php");
         }
@@ -77,7 +87,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } else {
         $_SESSION["messages"] = $messages;
-        header("Location: réservation.php?id=" . urlencode($id_voyage));
+        if (isset($_POST["id_reservation"])) {
+            header("Location: réservation.php?id_voyage=" . urlencode($id_voyage) . "&id_reservation=" . urlencode($id_reservation));
+        }
+        else{
+            header("Location: réservation.php?id=" . urlencode($id_voyage));
+        }
         exit;
     }
 }

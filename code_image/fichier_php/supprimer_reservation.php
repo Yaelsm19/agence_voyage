@@ -6,9 +6,13 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
     require_once 'connexion_base.php';
 
     try {
-        $stmt = $pdo->prepare("DELETE FROM reservation WHERE id = :id_reservation");
-        $stmt->execute(['id_reservation' => $id_reservation]);
-        echo "Réservation supprimée avec succès";
+        $stmt_supprimer_souscriptions = $pdo->prepare("DELETE FROM souscrire WHERE id_reservation = :id_reservation");
+        $stmt_supprimer_souscriptions->execute(['id_reservation' => $id_reservation]);
+
+        $stmt_supprimer_reservation = $pdo->prepare("DELETE FROM reservation WHERE id = :id_reservation");
+        $stmt_supprimer_reservation->execute(['id_reservation' => $id_reservation]);
+
+        echo "Réservation et ses souscriptions supprimées avec succès.";
     } catch (PDOException $e) {
         echo "Erreur de base de données : " . $e->getMessage();
     }
