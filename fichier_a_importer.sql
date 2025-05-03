@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 30 mars 2025 à 15:07
+-- Généré le : sam. 03 mai 2025 à 16:00
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -29,15 +29,22 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `achat`;
 CREATE TABLE IF NOT EXISTS `achat` (
-  `id_transaction` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_transaction` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `id_reservation` int NOT NULL,
   `montant` decimal(10,2) NOT NULL,
-  `vendeur` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `vendeur` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date_achat` date NOT NULL,
   `heure_achat` time NOT NULL,
   PRIMARY KEY (`id_transaction`),
   KEY `id_reservation` (`id_reservation`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `achat`
+--
+
+INSERT INTO `achat` (`id_transaction`, `id_reservation`, `montant`, `vendeur`, `date_achat`, `heure_achat`) VALUES
+('gU3vK9HBN0erMb9GD', 16, 13380.00, 'MEF-1_J', '2025-05-02', '18:04:09');
 
 -- --------------------------------------------------------
 
@@ -48,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `achat` (
 DROP TABLE IF EXISTS `etape`;
 CREATE TABLE IF NOT EXISTS `etape` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `titre` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `titre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `id_voyage` int NOT NULL,
   `chronologie` int NOT NULL,
   PRIMARY KEY (`id`),
@@ -291,12 +298,20 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `date_voyage` date NOT NULL,
   `nb_adultes` int NOT NULL,
   `nb_enfants` int NOT NULL,
-  `moyen_transport` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `guide` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `moyen_transport` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `guide` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_utilisateur` (`id_utilisateur`),
   KEY `id_voyage` (`id_voyage`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `id_utilisateur`, `id_voyage`, `date_reservation`, `heure_reservation`, `date_voyage`, `nb_adultes`, `nb_enfants`, `moyen_transport`, `guide`) VALUES
+(36, 1, 15, '2025-05-03', '15:59:12', '2111-03-12', 2, 1, 'Montre temporelle', 'Guide de luxe'),
+(35, 1, 3, '2025-05-03', '15:57:08', '0123-12-12', 2, 2, 'Montre temporelle', 'Guide de luxe');
 
 -- --------------------------------------------------------
 
@@ -313,7 +328,17 @@ CREATE TABLE IF NOT EXISTS `souscrire` (
   PRIMARY KEY (`id`),
   KEY `id_reservation` (`id_reservation`),
   KEY `id_option` (`id_option`)
-) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `souscrire`
+--
+
+INSERT INTO `souscrire` (`id`, `id_reservation`, `id_option`, `nb_personnes`) VALUES
+(83, 36, 125, 2),
+(82, 35, 30, 2),
+(81, 35, 23, 1),
+(80, 35, 21, 2);
 
 -- --------------------------------------------------------
 
@@ -324,12 +349,12 @@ CREATE TABLE IF NOT EXISTS `souscrire` (
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `prenom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `nom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `numero` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `mot_de_passe` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `grade` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `numero` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `mot_de_passe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `grade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `numero` (`numero`)
@@ -342,7 +367,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 INSERT INTO `utilisateur` (`user_id`, `prenom`, `nom`, `email`, `numero`, `mot_de_passe`, `grade`) VALUES
 (1, 'Yaël', 'Saoudi--Méar', 'yaelsm19@gmail.com', '0634472031', '$2y$10$lYoAROBMffj9NNQgFLQLs.EqbdyDK3agKnc5UpAp8UmBnGzs8N/eO', 'admin'),
 (2, 'Adrien', 'Girard--Ravelonarisoa', 'adrienmamygirard@gmail.com', '0769478678', '$2y$10$te2suDz1VACWYrb/4V9EmeK2z459J00rlcCoA0szuAUgo9gtH3RKe', 'admin'),
-(3, 'Océane', 'Morel', 'oce.momo@gmail.com', '0707070707', '$2y$10$J0BLUq038jR3vScmeZbWfuH7L4IebvYmD4XmknidEP4aqIJytqH7G', 'VIP'),
+(3, 'Océane', 'Morel', 'oce.momo@gmail.com', '0707070707', '$2y$10$J0BLUq038jR3vScmeZbWfuH7L4IebvYmD4XmknidEP4aqIJytqH7G', 'membre'),
 (4, 'Frank', 'ngakoli', 'frankfrank@gmail.com', '0606060606', '$2y$10$SeagUhnYor43WQka/k0GHu7kltWaOddjmSMlNIx3btzg9C2ZAv3jS', 'membre'),
 (5, 'Maëlle', 'Smimi', 'Smimi@gmail.com', '0505050505', '$2y$10$m2TCVs4NCofz6jnCDNwC3OipPAFwjgrbvNadMvmhTpkxFTuMXtcQy', 'membre');
 
@@ -355,14 +380,18 @@ INSERT INTO `utilisateur` (`user_id`, `prenom`, `nom`, `email`, `numero`, `mot_d
 DROP TABLE IF EXISTS `voyage`;
 CREATE TABLE IF NOT EXISTS `voyage` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `titre` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `titre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `prix` decimal(10,2) NOT NULL,
   `duree` int NOT NULL,
-  `image_reservation1` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `image_reservation2` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `image_reservation3` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `image_reservation1` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `image_reservation2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `image_reservation3` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `niveau_danger` tinyint NOT NULL DEFAULT '1',
+  `niveau_confort` tinyint NOT NULL DEFAULT '1',
+  `type_voyage` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'aventure',
+  `epoque` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -370,22 +399,22 @@ CREATE TABLE IF NOT EXISTS `voyage` (
 -- Déchargement des données de la table `voyage`
 --
 
-INSERT INTO `voyage` (`id`, `titre`, `image`, `description`, `prix`, `duree`, `image_reservation1`, `image_reservation2`, `image_reservation3`) VALUES
-(1, 'Ère des dinosaures (Crétacé, -66Ma)', 'Cretaceous_Period.jpg', 'Partez à l\'aventure au temps des dinosaures et explorez un monde fascinant peuplé de créatures préhistoriques.', 1230.00, 5, 'Dinosaure1', 'Dinosaure2', 'Dinosaure3'),
-(2, 'L’Égypte des pharaons (-3000 à -30 av. J.-C.)', 'Ancient_Egypt.jpg', 'Explorez l’Égypte des pharaons, ses pyramides et ses temples. Découvrez une civilisation mythique peuplée de dieux et de mystères.', 900.00, 4, 'pharaon1', 'pharaon2', 'pharaon3'),
-(3, 'La Grèce antique (-1200 à -146 av. J.-C.)', 'Ancient_Greece.jpg', 'Vivez l’âge d’or de la Grèce antique, où les cités rivales brillent par leurs héros, leurs philosophies et leurs Jeux Olympiques.', 900.00, 6, 'grèce1', 'grèce2', 'grèce3'),
-(4, 'Le Haut Moyen Âge (476 - 1000)', 'Early_Middle_Ages.jpg', 'Plongez dans le Haut Moyen Âge, une époque de royaumes en guerre, de châteaux fortifiés et de l’essor du christianisme en Europe.', 1320.00, 3, 'Moyen_age1', 'Moyen_age2', 'Moyen_age3'),
-(5, 'L’Âge des chevaliers et des croisades (1000 - 1300)', 'Knights_and_Crusades.jpg', 'Voyagez avec les chevaliers du Moyen Âge, à la conquête des terres saintes lors des croisades, dans un monde de batailles et de foi.', 700.00, 4, 'croisade1', 'croisade2', 'croisade3'),
-(6, 'L’Âge des grandes découvertes (1492 - 1600)', 'Age_of_Exploration.jpg', 'Embarquez pour de grandes découvertes, suivez les explorateurs vers de nouvelles terres et marchez sur les traces des pionniers de l’histoire.', 1200.00, 5, 'age_des_grandes1', 'age_des_grandes2', 'age_des_grandes3'),
-(7, 'La Renaissance (1400 - 1600)', 'Renaissance.jpg', 'Vivez l’épanouissement de l’art et de la science, où des génies comme Léonard de Vinci transforment la culture européenne.', 950.00, 3, 'la_renaissance1', 'la_renaissance2', 'la_renaissance3'),
-(8, 'La Révolution française et Napoléon (1789 - 1815)', 'French_Revolution_Napoleon.jpg', 'Revivez la Révolution française et l’ascension de Napoléon, une époque de bouleversements politiques et de combats pour la liberté.', 850.00, 4, 'révolution_fr1', 'révolution_fr2', 'révolution_fr3'),
-(9, 'La Révolution industrielle (1750 - 1914)', 'Industrial_Revolution.jpg', 'Vivez l’avènement de l’industrie et des machines, une époque de transformations rapides dans le travail, la société et l’économie.', 1100.00, 5, 'révolution_indu1', 'révolution_indu2', 'révolution_indu3'),
-(10, 'La Première Guerre mondiale (1914 - 1918)', 'ww1_image.jpeg', 'Explorez la Première Guerre mondiale, un conflit mondial dévastateur qui change le cours de l’histoire et redéfinit les nations.', 950.00, 6, 'WW1', 'WW2', 'WW3'),
-(11, 'Les Années folles et la Prohibition (1920 - 1930)', 'Roaring_Twenties_Prohibition.jpg', 'Découvrez les Années folles, une époque de jazz, de fêtes et de rébellion pendant la Prohibition, où l’interdit devient un jeu.', 1300.00, 3, 'les_années_folles1', 'les_années_folles2', 'les_années_folles3'),
-(12, 'La Seconde Guerre mondiale (1939 - 1945)', 'ww2_image.jpeg', 'Plongez dans la Seconde Guerre mondiale, un conflit majeur marqué par la résistance et les luttes pour la liberté.', 650.00, 4, 'WW21', 'WW22', 'WW23'),
-(13, 'L\'Empire romain (27 av. J.-C. - 476 ap. J.-C.)', 'Empire_romain.png', 'Embarque pour un voyage épique à travers l\'Empire romain, où l\'histoire, la politique et les coutumes se mêlent à des moments fascinants et inoubliables', 1000.00, 5, 'Romain1.jpg', 'Romain2.jpg', 'Romain3.jpg'),
-(14, 'La Guerre froide (1947 - 1991)', 'guerre_froide.png', 'Explore la Guerre froide, de la conférence de Yalta à la chute du mur de Berlin, avec des moments clés comme Spoutnik, Apollo 11 et la fin de cette époque fascinante.', 750.00, 4, 'Froide1.jpg', 'Froide2.jpg', 'Froide3.jpg'),
-(15, 'La Guerre du Vietnam (1955 - 1975)', 'vietnam_image.png', 'Plonge dans la Guerre du Vietnam, avec des moments clés comme l’escalade de 1965, l’Offensive du Têt en 1968 et la chute de Saïgon en 1975.', 800.00, 3, 'Viet1.jpg', 'Viet2.jpg', 'Viet3.jpg');
+INSERT INTO `voyage` (`id`, `titre`, `image`, `description`, `prix`, `duree`, `image_reservation1`, `image_reservation2`, `image_reservation3`, `niveau_danger`, `niveau_confort`, `type_voyage`, `epoque`) VALUES
+(1, 'Ère des dinosaures (Crétacé, -66Ma)', 'Cretaceous_Period.jpg', 'Partez à l\'aventure au temps des dinosaures et explorez un monde fascinant peuplé de créatures préhistoriques.', 1230.00, 5, 'Dinosaure1', 'Dinosaure2', 'Dinosaure3', 4, 1, 'aventure', 'prehistoire'),
+(2, 'L’Égypte des pharaons (-3000 à -30 av. J.-C.)', 'Ancient_Egypt.jpg', 'Explorez l’Égypte des pharaons, ses pyramides et ses temples. Découvrez une civilisation mythique peuplée de dieux et de mystères.', 900.00, 4, 'pharaon1', 'pharaon2', 'pharaon3', 1, 4, 'détente', 'antiquite'),
+(3, 'La Grèce antique (-1200 à -146 av. J.-C.)', 'Ancient_Greece.jpg', 'Vivez l’âge d’or de la Grèce antique, où les cités rivales brillent par leurs héros, leurs philosophies et leurs Jeux Olympiques.', 900.00, 6, 'grèce1', 'grèce2', 'grèce3', 2, 4, 'détente', 'antiquite'),
+(4, 'Le Haut Moyen Âge (476 - 1000)', 'Early_Middle_Ages.jpg', 'Plongez dans le Haut Moyen Âge, une époque de royaumes en guerre, de châteaux fortifiés et de l’essor du christianisme en Europe.', 1320.00, 3, 'Moyen_age1', 'Moyen_age2', 'Moyen_age3', 3, 2, 'historique', 'moyen-age'),
+(5, 'L’Âge des chevaliers et des croisades (1000 - 1300)', 'Knights_and_Crusades.jpg', 'Voyagez avec les chevaliers du Moyen Âge, à la conquête des terres saintes lors des croisades, dans un monde de batailles et de foi.', 700.00, 4, 'croisade1', 'croisade2', 'croisade3', 4, 1, 'culturel', 'moyen-age'),
+(6, 'L’Âge des grandes découvertes (1492 - 1600)', 'Age_of_Exploration.jpg', 'Embarquez pour de grandes découvertes, suivez les explorateurs vers de nouvelles terres et marchez sur les traces des pionniers de l’histoire.', 1200.00, 5, 'age_des_grandes1', 'age_des_grandes2', 'age_des_grandes3', 2, 2, 'aventure', 'renaissance'),
+(7, 'La Renaissance (1400 - 1600)', 'Renaissance.jpg', 'Vivez l’épanouissement de l’art et de la science, où des génies comme Léonard de Vinci transforment la culture européenne.', 950.00, 3, 'la_renaissance1', 'la_renaissance2', 'la_renaissance3', 3, 3, 'historique', 'renaissance'),
+(8, 'La Révolution française et Napoléon (1789 - 1815)', 'French_Revolution_Napoleon.jpg', 'Revivez la Révolution française et l’ascension de Napoléon, une époque de bouleversements politiques et de combats pour la liberté.', 850.00, 4, 'révolution_fr1', 'révolution_fr2', 'révolution_fr3', 4, 2, 'aventure', 'epoque-moderne'),
+(9, 'La Révolution industrielle (1750 - 1914)', 'Industrial_Revolution.jpg', 'Vivez l’avènement de l’industrie et des machines, une époque de transformations rapides dans le travail, la société et l’économie.', 1100.00, 5, 'révolution_indu1', 'révolution_indu2', 'révolution_indu3', 1, 4, 'détente', 'epoque-moderne'),
+(10, 'La Première Guerre mondiale (1914 - 1918)', 'ww1_image.jpeg', 'Explorez la Première Guerre mondiale, un conflit mondial dévastateur qui change le cours de l’histoire et redéfinit les nations.', 950.00, 6, 'WW1', 'WW2', 'WW3', 4, 1, 'culturel', 'epoque-contemporaine'),
+(11, 'Les Années folles et la Prohibition (1920 - 1930)', 'Roaring_Twenties_Prohibition.jpg', 'Découvrez les Années folles, une époque de jazz, de fêtes et de rébellion pendant la Prohibition, où l’interdit devient un jeu.', 1300.00, 3, 'les_années_folles1', 'les_années_folles2', 'les_années_folles3', 1, 3, 'détente', 'epoque-contemporaine'),
+(12, 'La Seconde Guerre mondiale (1939 - 1945)', 'ww2_image.jpeg', 'Plongez dans la Seconde Guerre mondiale, un conflit majeur marqué par la résistance et les luttes pour la liberté.', 650.00, 4, 'WW21', 'WW22', 'WW23', 4, 2, 'culturel', 'epoque-contemporaine'),
+(13, 'L\'Empire romain (27 av. J.-C. - 476 ap. J.-C.)', 'Empire_romain.png', 'Embarque pour un voyage épique à travers l\'Empire romain, où l\'histoire, la politique et les coutumes se mêlent à des moments fascinants et inoubliables', 1000.00, 5, 'Romain1.jpg', 'Romain2.jpg', 'Romain3.jpg', 2, 3, 'aventure', 'antiquite'),
+(14, 'La Guerre froide (1947 - 1991)', 'guerre_froide.png', 'Explore la Guerre froide, de la conférence de Yalta à la chute du mur de Berlin, avec des moments clés comme Spoutnik, Apollo 11 et la fin de cette époque fascinante.', 750.00, 4, 'Froide1.jpg', 'Froide2.jpg', 'Froide3.jpg', 2, 3, 'historique', 'epoque-contemporaine'),
+(15, 'La Guerre du Vietnam (1955 - 1975)', 'vietnam_image.png', 'Plonge dans la Guerre du Vietnam, avec des moments clés comme l’escalade de 1965, l’Offensive du Têt en 1968 et la chute de Saïgon en 1975.', 800.00, 3, 'Viet1.jpg', 'Viet2.jpg', 'Viet3.jpg', 4, 1, 'aventure', 'epoque-contemporaine');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
