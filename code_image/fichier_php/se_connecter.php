@@ -12,6 +12,9 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Pastport</title>
     <script src="../fichier_java/changer_mode.js"></script>
+    <script src="../fichier_java/verif_champs.js"></script>
+    <script src="../fichier_java/afficherMDP.js"></script>
+    <script src="../fichier_java/compteur_caractere.js"></script>
     <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
     <link rel="stylesheet" href="..\fichier_css\se_connecter.css">
     <link rel="icon" href="../image/image_icône/Passport_logo.png">
@@ -60,8 +63,5 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     <footer>
         <p>© 2025 Pastport - Tous droits réservés</p>
     </footer>
-    <script src="../fichier_java/afficherMDP.js"></script>
-    <script src="../fichier_java/verif_champs.js"></script>
-    <script src="../fichier_java/compteur_caractere.js"></script>
 </body>
 </html>
