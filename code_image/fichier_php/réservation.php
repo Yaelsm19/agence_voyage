@@ -203,7 +203,11 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
         </div>
     </div>
     <div class="button-container">
-        <button type="submit" name="action" value="panier">⭐Ajouter aux Panier⭐</button>
+        <?php 
+        if(!isset($id_reservation)){
+            echo'<button type="submit" name="action" value="panier">⭐Ajouter aux Panier⭐</button>';
+        }
+        ?>
         <button type="submit" name="action" value="reserver">Réserver</button>
     </div>
 
