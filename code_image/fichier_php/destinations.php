@@ -102,3 +102,4 @@
             </form>
     </div>
     <?php include('recherche_voyage.php') ?>
+    <?php include('footer.php') ?>
