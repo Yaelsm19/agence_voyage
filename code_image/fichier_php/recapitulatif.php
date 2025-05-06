@@ -1,8 +1,8 @@
 <?php include('verifier_connexion.php') ?>
 <?php
 require_once 'connexion_base.php';
-if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
-    $id_reservation = $_GET['id_reservation'];
+if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
+    $id_reservation = $_POST['id_reservation'];
     
     try {
         $stmt_reservation = $pdo->prepare("
@@ -149,8 +149,8 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
         </div>
 
         <?php
-        if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
-            $id_reservation = $_GET['id_reservation'];
+        if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
+            $id_reservation = $_POST['id_reservation'];
 
         try {
             $stmt_reservation = $pdo->prepare("SELECT r.*, v.titre, v.prix, v.duree FROM reservation r
@@ -180,9 +180,13 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
                 echo "</div>";
                 echo "</form>";
                 echo "<div class='retour'>";
-                echo "<a href='réservation.php?id=" . htmlspecialchars($reservation['id_voyage']) . "&id_reservation=" . htmlspecialchars($reservation['id']) . "'>";
+                echo "<form action='réservation.php' method='POST'>";
+                echo "<input type='hidden' name='id_voyage' value='" . htmlspecialchars($reservation['id_voyage']) . "'>";
+                echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($reservation['id']) . "'>";
+                echo "<button type='submit' class='retour-btn'>";
                 echo "<img src='../Image/image_icône/en-arriere.png' alt='retour'>";
-                echo "</a>";
+                echo "</button>";
+                echo "</form>";
                 echo "</div>";
 
             }          

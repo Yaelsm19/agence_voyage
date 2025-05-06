@@ -38,10 +38,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($messages)) {
         $_SESSION["messages"] = $messages;
         if (isset($_POST["id_reservation"])) {
-            header("Location: réservation.php?id_voyage=" . urlencode($id_voyage) . "&id_reservation=" . urlencode($id_reservation));
+            echo "<form id='redirectForm' action='réservation.php' method='POST'>";
+            echo "<input type='hidden' name='id_voyage' value='" . htmlspecialchars($id_voyage) . "'>";
+            echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
+            echo "</form>";
+            echo "<script>document.getElementById('redirectForm').submit();</script>";
+
         }
         else{
-            header("Location: réservation.php?id=" . urlencode($id_voyage));
+            echo "<form id='redirectForm' action='réservation.php' method='POST'>";
+            echo "<input type='hidden' name='id_voyage' value='" . htmlspecialchars($id_voyage) . "'>";
+            echo "</form>";
+            echo "<script>document.getElementById('redirectForm').submit();</script>";
+
         }
         exit;
     }
@@ -81,17 +90,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: panier.php");
         }
         else if ($_POST['action'] === 'reserver'){
-            header("Location: recapitulatif.php?id_reservation=" . $id_reservation);
+            echo "<form id='redirectForm' action='recapitulatif.php' method='POST'>";
+            echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
+            echo "</form>";
+            echo "<script>document.getElementById('redirectForm').submit();</script>";
         }
 
         exit;
     } else {
         $_SESSION["messages"] = $messages;
         if (isset($_POST["id_reservation"])) {
-            header("Location: réservation.php?id_voyage=" . urlencode($id_voyage) . "&id_reservation=" . urlencode($id_reservation));
+            echo "<form id='redirectForm' action='réservation.php' method='POST'>";
+            echo "<input type='hidden' name='id_voyage' value='" . htmlspecialchars($id_voyage) . "'>";
+            echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
+            echo "</form>";
+            echo "<script>document.getElementById('redirectForm').submit();</script>";
+
         }
         else{
-            header("Location: réservation.php?id=" . urlencode($id_voyage));
+            echo "<form id='redirectForm' action='réservation.php' method='POST'>";
+            echo "<input type='hidden' name='id_voyage' value='" . htmlspecialchars($id_voyage) . "'>";
+            echo "</form>";
+            echo "<script>document.getElementById('redirectForm').submit();</script>";
         }
         exit;
     }

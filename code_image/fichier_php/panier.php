@@ -59,7 +59,12 @@
             echo "Durée du voyage : " . htmlspecialchars($durée_voyage) . " jours";
             echo "</p>";
             echo "<div class='prix_bouton'>";
-            echo "<a href='recapitulatif.php?id_reservation=" . $voyage['id_reservation'] . "' class='en_savoir_plus'>Voir le récapitulatif</a>";
+            echo "<form id='redirectForm' action='recapitulatif.php' method='POST' >";
+            echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($voyage['id_reservation']) . "'>";
+            echo "<button type='submit' class='en_savoir_plus'>";
+            echo "Voir le récapitulatif";
+            echo "</button>";
+            echo "</form>";
             echo "<a href='#' class='delete-button' onclick='deleteReservation({$voyage['id_reservation']})'>
                     <img src='../Image/image_icône/supprimer2.png' alt='Supprimer' class='delete-icon' />
                   </a>";

@@ -35,8 +35,10 @@ try {
                     </p>
                     <div class="prix_bouton">
                         <span class="prix">Dès <?= number_format($voyage['prix'], 0, ',', ' ') ?>€</span>
-                        <a href="réservation.php?id=<?= $voyage['id'] ?>" class="en_savoir_plus">En savoir plus</a>
-
+                        <form action="réservation.php" method="POST">
+                            <input type="hidden" name="id_voyage" value="<?= $voyage['id'] ?>">
+                            <button type="submit" class="en_savoir_plus">En savoir plus</button>
+                        </form>
                     </div>
                 </div>
             </div>

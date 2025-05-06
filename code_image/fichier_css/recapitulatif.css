@@ -80,20 +80,26 @@ h2{
     border-radius: 4px;
 }
 
-.retour img{
+.retour-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.retour img {
     width: 30px;
     height: 30px;
     transition: transform 0.3s ease;
+}
+
+.retour:hover img {
+    transform: var(--scale-bouton);
 }
 
 .retour {
     position: absolute;
     bottom: 16px;
     left: 20px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-.retour:hover{
-    transform: var(--scale-bouton);
 }

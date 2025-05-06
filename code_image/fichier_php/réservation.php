@@ -1,8 +1,8 @@
 <?php include('verifier_connexion.php') ?>
 <?php
 require_once 'connexion_base.php';
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $id_voyage = $_GET['id'];
+if (isset($_POST['id_voyage']) && !empty($_POST['id_voyage'])) {
+    $id_voyage = $_POST['id_voyage'];
 
     try {
         $stmt_voyage = $pdo->prepare("SELECT * FROM voyage WHERE id = :id_voyage");
@@ -32,8 +32,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     exit;
 }
 
-if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
-    $id_reservation = $_GET['id_reservation'];
+if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
+    $id_reservation = $_POST['id_reservation'];
 
     try {
         $stmt_reservation = $pdo->prepare("SELECT * FROM reservation WHERE id = :id_reservation");
