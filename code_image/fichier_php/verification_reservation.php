@@ -9,8 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nb_enfants = $_POST['enfant'];
     if (empty($date)) {
         $messages[] = "La date de départ est obligatoire.";
+    } else if (strtotime($date) <= time()) {
+        $messages[] = "La date de départ doit être strictement supérieure à aujourd'hui.";
     }
-
     if ($nb_adultes < 0 || $nb_adultes > 5) {
         $messages[] = "Le nombre d'adultes doit être compris entre 0 et 5.";
     }
