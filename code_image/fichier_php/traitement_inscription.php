@@ -3,12 +3,12 @@ session_start();
 require_once 'connexion_base.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $prenom = trim($_POST["prénom"]);
+    $prenom = trim($_POST["prenom"]);
     $nom = trim($_POST["nom"]);
     $email = trim($_POST["email"]);
     $telephone = trim($_POST["telephone"]);
     $password = $_POST["password"];
-    $confirmation_password = $_POST["confirmation_password"];
+    $confirmation_password = $_POST["confirmation-password"];
 
     if (empty($prenom) || empty($nom) || empty($email) || empty($telephone) || empty($password) || empty($confirmation_password)) {
         $_SESSION["error"] = "Tous les champs sont obligatoires.";
