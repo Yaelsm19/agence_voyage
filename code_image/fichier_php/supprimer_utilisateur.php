@@ -1,5 +1,5 @@
+<?php include('session.php') ?>
 <?php
-session_start();
 include('connexion_base.php');
 
 if (isset($_GET['id'])) {

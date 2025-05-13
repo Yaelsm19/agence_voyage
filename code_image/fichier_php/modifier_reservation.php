@@ -1,3 +1,4 @@
+<?php include('session.php') ?>
 <?php
 try {
     $stmt_verifier_reservation = $pdo->prepare("SELECT id FROM reservation WHERE id_utilisateur = :id_utilisateur AND id = :id_reservation");

@@ -1,3 +1,4 @@
+<?php include('session.php') ?>
 <footer>
         <div class="footer-container">
             <div class="footer-section">

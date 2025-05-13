@@ -1,3 +1,4 @@
+<?php include('session.php') ?>
 <?php
 try {
     $stmt = $pdo->prepare("

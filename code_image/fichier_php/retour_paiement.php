@@ -1,3 +1,4 @@
+<?php include('session.php') ?>
 <?php include('verifier_connexion.php') ?>
 <?php
 date_default_timezone_set('Europe/Paris');

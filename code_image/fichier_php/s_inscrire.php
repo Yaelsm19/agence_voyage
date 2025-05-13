@@ -1,3 +1,4 @@
+<?php include('session.php') ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -64,7 +65,6 @@
         </div>
 
         <?php
-        session_start();
         if (isset($_SESSION["error"])) {
             echo "<div style='color: red; margin-bottom: 10px;'>" . $_SESSION["error"] . "</div>";
             unset($_SESSION["error"]);

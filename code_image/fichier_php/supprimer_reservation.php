@@ -1,6 +1,5 @@
+<?php include('session.php') ?>
 <?php
-session_start();
-
 if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
     $id_reservation = $_GET['id_reservation'];
     require_once 'connexion_base.php';

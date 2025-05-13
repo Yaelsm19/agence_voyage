@@ -1,5 +1,5 @@
+<?php include('session.php') ?>
 <?php
-session_start();
 require_once 'connexion_base.php';
 $messages = [];
 

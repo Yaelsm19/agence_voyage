@@ -1,3 +1,4 @@
+<?php include('session.php') ?>
 <?php
 $image1 = !empty($voyage['image_reservation1']) ? $voyage['image_reservation1'] : 'default_image1.jpg';
 $image2 = !empty($voyage['image_reservation2']) ? $voyage['image_reservation2'] : 'default_image2.jpg';

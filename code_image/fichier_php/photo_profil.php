@@ -1,6 +1,5 @@
+<?php include('session.php') ?>
 <?php
-session_start();
-
 $userId = $_SESSION['user_id'];
 
 if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] == 0) {

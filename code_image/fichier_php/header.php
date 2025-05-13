@@ -1,11 +1,4 @@
-<?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-?>
-
-
-
+<?php include('session.php') ?>
 <header class="container1">
         <img src="..\Image\image_icône\Passport_logo.png" alt="logo_site" class="logo" id="logo">
         <img src="..\Image\image_icône\mode_sombre.png" alt="logo_mode_sombre" class="logo" id="mode-toggle">
