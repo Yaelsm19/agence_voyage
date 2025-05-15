@@ -80,7 +80,7 @@ td .action {
     font-weight: bold;
 }
 
-.grade-vip {
+.grade-VIP {
     color: rgb(255, 255, 0);
     font-weight: bold;
 
@@ -131,6 +131,10 @@ td .action {
     100% {
         background-position: 200% 0%;
     }
+}
+
+#supprimer {
+    margin-left: 25px;
 }
 
 .grade-admin {
@@ -229,4 +233,5 @@ p {
         padding: 10px;
     }
 }
+
 

@@ -1,9 +1,9 @@
-<?php 
-define('ACCES_AUTORISE_SESSION', true);
-include('session.php');
- ?>
 <?php
+session_start();
 include('connexion_base.php');
+header('Content-Type: application/json');
+sleep(3);
+
 
 if (isset($_POST['user_id'])) {
     $user_id = intval($_POST['user_id']);
@@ -22,6 +22,9 @@ if (isset($_POST['user_id'])) {
             case 'VIP':
                 $new_grade = 'admin';
                 break;
+            case 'admin':
+                $new_grade = 'membre';
+                break;
             default:
                 $new_grade = 'membre';
                 break;
@@ -33,18 +36,17 @@ if (isset($_POST['user_id'])) {
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            $_SESSION['success'] = "Le grade de l'utilisateur a été mis à jour avec succès.";
+            echo json_encode(['success' => true, 'grade' => $new_grade]);
+            exit();
         } else {
-            $_SESSION['error'] = "Une erreur s'est produite lors de la mise à jour du grade.";
+            echo json_encode(['success' => false, 'message' => "Erreur lors de la mise à jour"]);
+            exit();
         }
     } else {
-        $_SESSION['error'] = "Utilisateur non trouvé.";
+        echo json_encode(['success' => false, 'message' => "Utilisateur non trouvé"]);
+        exit();
     }
-
-    header("Location: administrateur.php");
-    exit();
 } else {
-    $_SESSION['error'] = "Aucun utilisateur sélectionné.";
-    header("Location: administrateur.php");
+    echo json_encode(['success' => false, 'message' => "Aucun identifiant fourni"]);
     exit();
 }

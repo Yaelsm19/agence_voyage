@@ -1,29 +1,32 @@
 <?php
+session_start();
 include('connexion_base.php');
+header('Content-Type: application/json');
+sleep(3);
 
-if (isset($_GET['id']) && isset($_GET['grade'])) {
-    $user_id = intval($_GET['id']);
-    $current_grade = $_GET['grade'];
-
-    $new_grade = ($current_grade == 'membre') ? 'bloqué' : 'membre';
-
-
-    $query = "UPDATE utilisateur SET grade = :grade WHERE user_id = :user_id";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':grade', $new_grade);
-    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-
-    if ($stmt->execute()) {
-        $_SESSION['success'] = "L'utilisateur a été " . ($new_grade == 'membre' ? 'débloqué' : 'bloqué') . " avec succès.";
-    } else {
-        $_SESSION['error'] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur.";
-    }
-
-    header("Location: administrateur.php");
-    exit();
-} else {
-    $_SESSION['error'] = "Aucun utilisateur sélectionné.";
-    header("Location: administrateur.php");
+if (!isset($_POST['user_id']) || !is_numeric($_POST['user_id'])) {
+    echo json_encode(['success' => false, 'message' => 'ID invalide']);
     exit();
 }
-?>
+
+$user_id = intval($_POST['user_id']);
+
+$stmt = $pdo->prepare("SELECT grade FROM utilisateur WHERE user_id = :id");
+$stmt->execute([':id' => $user_id]);
+$user = $stmt->fetch();
+
+if (!$user) {
+    echo json_encode(['success' => false, 'message' => 'Utilisateur introuvable']);
+    exit();
+}
+
+$current_grade = $user['grade'];
+$new_grade = ($current_grade === 'bloqué') ? 'membre' : 'bloqué';
+
+$update = $pdo->prepare("UPDATE utilisateur SET grade = :grade WHERE user_id = :id");
+$success = $update->execute([':grade' => $new_grade, ':id' => $user_id]);
+
+echo json_encode([
+    'success' => $success,
+    'grade' => $new_grade
+]);

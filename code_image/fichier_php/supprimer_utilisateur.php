@@ -1,30 +1,79 @@
 <?php
-define('ACCES_AUTORISE_SESSION', true);
-include('session.php')
- ?>
-<?php
-include('connexion_base.php');
+ini_set('display_errors', 0);
+error_reporting(0);
 
-if (isset($_GET['id'])) {
-    $user_id = intval($_GET['id']);
+if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
+    session_start();
+}
 
+header('Content-Type: application/json');
+sleep(3);
+
+function sendJsonResponse($success, $message = "", $data = []) {
+    $response = ['success' => $success];
+    if (!empty($message)) {
+        $response['message'] = $message;
+    }
+    if (!empty($data)) {
+        $response = array_merge($response, $data);
+    }
+    echo json_encode($response);
+    exit;
+}
+
+ob_start();
+require_once 'verifier_connexion.php';
+require_once 'connexion_base.php';
+ob_end_clean();
+
+if (!isset($_SESSION['grade']) || $_SESSION['grade'] !== 'admin') {
+    sendJsonResponse(false, "Accès non autorisé.");
+}
+
+if (!isset($_POST['user_id'])) {
+    sendJsonResponse(false, "ID utilisateur manquant.");
+}
+
+$user_id = intval($_POST['user_id']);
+
+try {
+    if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user_id) {
+        sendJsonResponse(false, "Vous ne pouvez pas supprimer votre propre compte.");
+    }
+
+    $pdo->beginTransaction();
+    
+    $check = $pdo->prepare("SELECT user_id FROM utilisateur WHERE user_id = :user_id");
+    $check->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $check->execute();
+    
+    if ($check->rowCount() === 0) {
+        $pdo->rollBack();
+        sendJsonResponse(false, "Utilisateur introuvable.");
+    }
+    
     $query = "DELETE FROM utilisateur WHERE user_id = :user_id";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-
+    
     if ($stmt->execute()) {
-
-        $_SESSION['success'] = "L'utilisateur a été supprimé avec succès.";
-        header("Location: administrateur.php");
-        exit();
+        $pdo->commit();
+        sendJsonResponse(true, "Utilisateur supprimé avec succès.");
     } else {
-        $_SESSION['error'] = "Une erreur s'est produite lors de la suppression de l'utilisateur.";
-        header("Location: administrateur.php");
-        exit();
+        $pdo->rollBack();
+        sendJsonResponse(false, "Erreur lors de la suppression.");
     }
-} else {
-    $_SESSION['error'] = "Aucun utilisateur sélectionné à supprimer.";
-    header("Location: administrateur.php");
-    exit();
+} catch (PDOException $e) {
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
+    error_log("Erreur suppression utilisateur ID $user_id: " . $e->getMessage());
+    sendJsonResponse(false, "Une erreur de base de données est survenue.");
+} catch (Exception $e) {
+    if (isset($pdo) && $pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
+    error_log("Exception dans supprimer_utilisateur.php: " . $e->getMessage());
+    sendJsonResponse(false, "Une erreur inattendue est survenue.");
 }
 ?>
