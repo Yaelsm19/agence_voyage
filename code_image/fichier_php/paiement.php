@@ -1,5 +1,4 @@
 <?php include('session.php') ?>
-<?php include('verifier_connexion.php') ?>
 <?php
 require('getapikey.php');
 $retour = "http://localhost/agence_voyage/code_image/fichier_php/retour_paiement.php"; 
@@ -35,7 +34,6 @@ if (isset($_POST['montant']) && isset($_POST['vendeur']) && isset($_POST['id_res
             <title>Redirection automatique vers CY Bank</title>
             <script type="text/javascript">
                 window.onload = function() {
-                    // Soumettre le formulaire automatiquement après le chargement de la page
                     document.getElementById("paymentForm").submit();
                 };
             </script>

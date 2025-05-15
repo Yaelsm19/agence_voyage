@@ -1,5 +1,4 @@
 <?php include('session.php') ?>
-<?php include('verifier_connexion.php') ?>
 <?php
 require_once 'connexion_base.php';
 if (isset($_POST['id_voyage']) && !empty($_POST['id_voyage'])) {

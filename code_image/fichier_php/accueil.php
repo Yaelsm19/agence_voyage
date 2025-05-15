@@ -95,6 +95,7 @@ try {
             </div>
         </div>
     </div>
+    <?php $autorisation = true; ?>
     <?php include('footer.php') ?>
     
 </body>

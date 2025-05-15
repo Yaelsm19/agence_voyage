@@ -1,5 +1,4 @@
 <?php include('session.php') ?>
-<?php include('verifier_connexion.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

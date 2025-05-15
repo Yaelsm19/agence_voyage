@@ -1,6 +1,5 @@
 <?php include('session.php') ?>
 <?php
-require_once 'verifier_connexion.php';
 require_once 'connexion_base.php';
 if ($_SESSION['grade'] !== 'admin') {
     header("Location: accueil.php");
