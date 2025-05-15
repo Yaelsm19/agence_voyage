@@ -1,7 +1,14 @@
-<?php include('session.php') ?>
 <?php
-if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
-    $id_reservation = $_GET['id_reservation'];
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
+
+if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
+    $id_reservation = (int)$_POST['id_reservation'];
     require_once 'connexion_base.php';
 
     try {
@@ -13,9 +20,11 @@ if (isset($_GET['id_reservation']) && !empty($_GET['id_reservation'])) {
 
         echo "Réservation et ses souscriptions supprimées avec succès.";
     } catch (PDOException $e) {
+        http_response_code(500);
         echo "Erreur de base de données : " . $e->getMessage();
     }
 } else {
+    http_response_code(400);
     echo "ID de réservation manquant.";
 }
 ?>

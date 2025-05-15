@@ -1,4 +1,7 @@
-<?php include('session.php') ?>
+<?php 
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
+?>
 <?php
 date_default_timezone_set('Europe/Paris');
 require_once 'connexion_base.php';
@@ -39,7 +42,7 @@ if (isset($_GET['status'], $_GET['montant'], $_GET['transaction'], $_GET['vendeu
     exit;
 
 } else {
-    header("Location: recapitulatif.php?id_reservation=" . urlencode($id_reservation));
+    header("Location: accueil.php" . urlencode($id_reservation));
     exit;
 }
 ?>

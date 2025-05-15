@@ -1,5 +1,8 @@
-<?php include('session.php') ?>
 <?php
+if (!defined('ACCES_AUTORISE')) {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 try {
     $stmt_verifier_reservation = $pdo->prepare("SELECT id FROM reservation WHERE id_utilisateur = :id_utilisateur AND id = :id_reservation");
     $stmt_verifier_reservation->execute([

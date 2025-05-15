@@ -1,4 +1,7 @@
-<?php include('session.php') ?>
+<?php
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php')
+?>
 <?php
 require_once 'connexion_base.php';
 if (isset($_POST['id_voyage']) && !empty($_POST['id_voyage'])) {
@@ -201,7 +204,8 @@ if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
             </label><br>
             </div>
         </div>
-    </div> 
+    </div>
+    <input type='hidden' name='autorisation' value="true">
     <div class="button-container">
         <?php 
         if(!isset($id_reservation)){

@@ -1,4 +1,3 @@
-<?php include('session.php') ?>
 <?php
 require_once 'connexion_base.php';
 

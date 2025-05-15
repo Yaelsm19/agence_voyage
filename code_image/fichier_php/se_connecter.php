@@ -22,6 +22,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 <body>
     <h1>Se connecter</h1>
     <form class="form-container" method="POST" action="traitement_connexion.php" novalidate>
+        <input type='hidden' name='autorisation' value="true">
         <div class="form-group">
             <label for="email">Adresse email :</label>
             <input type="email" id="email" name="email" minlength="6" maxlength="30" placeholder="Adresse email" required>

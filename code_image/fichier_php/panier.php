@@ -1,4 +1,8 @@
-<?php include('session.php') ?>
+<?php
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
+require_once 'connexion_base.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +28,6 @@
         <h2>Vos réservations favorites</h2>
     </div>
     <?php
-    require_once 'connexion_base.php';
     $user_id = $_SESSION['user_id'];
     try {
         $stmt = $pdo->prepare("
@@ -42,7 +45,7 @@
             exit;
         }
 
-        echo "<div class='Voyages'>";
+        echo "<div class='Voyages' >";
         foreach ($voyages_non_payes as $voyage): 
             $imagePath = "../Image/Image_voyage_page_destinations/" . $voyage['image'];
             $nb_personnes = $voyage['nb_adultes'] + $voyage['nb_enfants'];
@@ -65,9 +68,7 @@
             echo "Voir le récapitulatif";
             echo "</button>";
             echo "</form>";
-            echo "<a href='#' class='delete-button' onclick='deleteReservation({$voyage['id_reservation']})'>
-                    <img src='../Image/image_icône/supprimer2.png' alt='Supprimer' class='delete-icon' />
-                  </a>";
+            echo "<a href='#' class='delete-button' onclick='deleteReservation({$voyage['id_reservation']})'><img src='../Image/image_icône/supprimer2.png' alt='Supprimer' class='delete-icon' /></a>";
             echo "</div>";
             echo "</div>";
             echo "</div>";

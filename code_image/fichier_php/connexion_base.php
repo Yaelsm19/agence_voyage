@@ -1,4 +1,8 @@
 <?php
+if (!defined('ACCES_AUTORISE')) {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 $serveur = "localhost";
 $utilisateur = "root";
 $mot_de_passe = "";

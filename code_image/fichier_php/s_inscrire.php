@@ -1,4 +1,10 @@
-<?php include('session.php') ?>
+<?php
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
+if(isset($_SESSION["user_id"])){
+    header("Location: accueil.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,6 +22,7 @@
 <body>
     <h1>Inscription</h1>
     <form class="form-container" method="POST" action="traitement_inscription.php" novalidate>
+        <input type='hidden' name='autorisation' value="true">
         <div class="form-group">
             <label for="prénom">Prénom :</label>
             <input type="text" name="prenom" id="prenom" minlength="3" maxlength="20" placeholder="Votre prénom" required>

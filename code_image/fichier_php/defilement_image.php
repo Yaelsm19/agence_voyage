@@ -1,5 +1,8 @@
-<?php include('session.php') ?>
 <?php
+if (!defined('ACCES_AUTORISE')) {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 $image1 = !empty($voyage['image_reservation1']) ? $voyage['image_reservation1'] : 'default_image1.jpg';
 $image2 = !empty($voyage['image_reservation2']) ? $voyage['image_reservation2'] : 'default_image2.jpg';
 $image3 = !empty($voyage['image_reservation3']) ? $voyage['image_reservation3'] : 'default_image3.jpg';

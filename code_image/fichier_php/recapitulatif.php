@@ -1,4 +1,7 @@
-<?php include('session.php') ?>
+<?php
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
+?>
 <?php
 require_once 'connexion_base.php';
 if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
@@ -174,6 +177,7 @@ if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
                 echo "<form action='paiement.php' method='POST'>";
                 echo "<input type='hidden' name='montant' value='" . htmlspecialchars($prix_total) . "'>";
                 echo "<input type='hidden' name='vendeur' value='MEF-1_J'>";
+                echo "<input type='hidden' name='autorisation' value='autorisation'>";
                 echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
                 echo "<div class='form-group'>";
                 echo "<button type='submit'>Procéder au paiement</button>";

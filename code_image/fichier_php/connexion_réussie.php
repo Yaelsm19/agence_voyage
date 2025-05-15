@@ -1,4 +1,8 @@
-<?php include('session.php') ?>
+<?php 
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

@@ -1,4 +1,9 @@
-<?php include('session.php') ?>
+<?php 
+if (!defined('ACCES_AUTORISE')) {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
+?>
 <header class="container1">
         <img src="..\Image\image_icône\Passport_logo.png" alt="logo_site" class="logo" id="logo">
         <img src="..\Image\image_icône\mode_sombre.png" alt="logo_mode_sombre" class="logo" id="mode-toggle">

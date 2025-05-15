@@ -1,5 +1,12 @@
-<?php include('session.php') ?>
 <?php
+session_start();
+if(!isset($_POST["autorisation"]) || $_SERVER['REQUEST_METHOD'] !== 'POST'){
+    http_response_code(403);
+    exit("Accès interdit.");
+}
+else{
+    define('ACCES_AUTORISE', true);
+}
 require_once 'connexion_base.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

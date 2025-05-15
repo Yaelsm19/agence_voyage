@@ -1,5 +1,9 @@
-<?php include('session.php') ?>
 <?php
+session_start();
+if (!defined('ACCES_AUTORISE')) {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 try {
     $stmt = $pdo->prepare("
         INSERT INTO reservation (id_utilisateur, id_voyage, date_reservation, heure_reservation, date_voyage, nb_adultes, nb_enfants, moyen_transport, guide)

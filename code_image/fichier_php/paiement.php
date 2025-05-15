@@ -1,5 +1,11 @@
-<?php include('session.php') ?>
 <?php
+if(!isset($_POST["autorisation"]) || $_SERVER['REQUEST_METHOD'] !== 'POST'){
+    http_response_code(403);
+    exit("Accès interdit.");
+}
+else{
+    define('ACCES_AUTORISE', true);
+}
 require('getapikey.php');
 $retour = "http://localhost/agence_voyage/code_image/fichier_php/retour_paiement.php"; 
 

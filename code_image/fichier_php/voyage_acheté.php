@@ -1,9 +1,8 @@
-<?php include('session.php') ?>
 <?php
-require_once 'connexion_base.php';
-
-$user_id = $_SESSION['user_id'];
-
+if (!defined('ACCES_AUTORISE')) {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 try {
     $stmt = $pdo->prepare("
     SELECT r.id AS id_reservation, v.*, r.nb_adultes, r.nb_enfants, a.id_transaction, a.montant, a.vendeur, a.date_achat, a.heure_achat

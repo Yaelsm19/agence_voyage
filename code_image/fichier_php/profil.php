@@ -1,4 +1,7 @@
-<?php include('session.php') ?>
+<?php
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,7 +29,8 @@
             <a class="se_deconnecter" href="deconnexion.php">Se déconnecter</a>
     </div>
     <form action="photo_profil.php" method="POST" enctype="multipart/form-data">
-        <img id="profile-pic" src="../Image/photo_profil_utilisateurs/<?php 
+        <input type='hidden' name='autorisation' value="true">
+        <img id="profile-pic" src="../Image/photo_profil_utilisateurs/<?php
         $profilePicBase = 'profil_' . $_SESSION['user_id']; 
         $extensions = ['jpg', 'jpeg', 'png']; 
         $found = false;
@@ -58,6 +62,7 @@
 
 
     <form  action="modifier_profil.php" method="POST">
+        <input type='hidden' name='autorisation' value="true">
         <div class="form-group">
             <div class="input-container">
                 <div><strong>Email:</strong> <input type="email" name="email" id="email" minlength="6" value="<?= htmlspecialchars($_SESSION["email"]) ?>" readonly></div>

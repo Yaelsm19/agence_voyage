@@ -1,16 +1,21 @@
 <?php
+if (!defined('ACCES_AUTORISE_SESSION')) {
+    http_response_code(403);
+    exit('Accès interdit.');
+}
+define('ACCES_AUTORISE', true);
 require_once 'connexion_base.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 $page_actuelle = basename($_SERVER['PHP_SELF']);
-$page_connecte = ["administrateur.php", "paiement.php", "panier.php", "profil.php", "recapitulatif.php", "reservation.php", "retour_paiement.php"];
+$page_connecte = ["administrateur.php", "paiement.php", "panier.php", "profil.php", "recapitulatif.php", "réservation.php", "retour_paiement.php"];
 if (!isset($_SESSION["user_id"]) and in_array($page_actuelle, $page_connecte)) {
     $_SESSION["error"] = "Vous n'êtes pas connecté, page non autorisé";
     header("Location: se_connecter.php");
     exit;
 }
-else{
+else if(isset($_SESSION["user_id"])){
     $user_id = $_SESSION["user_id"];
     try {
         $query = "SELECT * FROM utilisateur WHERE user_id = :user_id";

@@ -1,5 +1,9 @@
-<?php include('session.php') ?>
 <?php
+if(!isset($_POST["autorisation"]) || $_SERVER['REQUEST_METHOD'] !== 'POST'){
+    http_response_code(403);
+    exit("Accès interdit.");
+}
+session_start();
 $userId = $_SESSION['user_id'];
 
 if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] == 0) {
