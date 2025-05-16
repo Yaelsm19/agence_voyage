@@ -63,6 +63,7 @@ require_once 'connexion_base.php';
             echo "</p>";
             echo "<div class='prix_bouton'>";
             echo "<form id='redirectForm' action='recapitulatif.php' method='POST' >";
+            echo "<input type='hidden' name='autorisation' value='true'>";
             echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($voyage['id_reservation']) . "'>";
             echo "<button type='submit' class='en_savoir_plus'>";
             echo "Voir le récapitulatif";

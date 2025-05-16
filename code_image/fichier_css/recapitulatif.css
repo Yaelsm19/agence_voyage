@@ -103,3 +103,7 @@ h2{
     bottom: 16px;
     left: 20px;
 }
+.imprimable{
+    margin-top: 20px;
+    text-align: end;
+}

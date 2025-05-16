@@ -99,6 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else if ($_POST['action'] === 'reserver'){
             echo "<form id='redirectForm' action='recapitulatif.php' method='POST'>";
+            echo "<input type='hidden' name='autorisation' value='true'>";
             echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
             echo "</form>";
             echo "<script>document.getElementById('redirectForm').submit();</script>";

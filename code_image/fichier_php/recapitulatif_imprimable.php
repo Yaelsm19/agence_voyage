@@ -70,7 +70,6 @@ if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
     <link rel="stylesheet" href="../fichier_css/footer.css">
 </head>
 <body>
-    <?php include('header.php') ?>
     <div class="form-container">
         <h1>Votre Voyage : <?= htmlspecialchars($reservation['titre']) ?></h1>
         <div class="form-groupe">
@@ -152,70 +151,6 @@ if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
         <div class="form-groupe">
             <i><h2>Prix total : <span class="prix"><?= number_format($prix_total, 2) ?>€</span></h2></i>
         </div>
-
-        <?php
-        if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
-            $id_reservation = $_POST['id_reservation'];
-
-        try {
-            $stmt_reservation = $pdo->prepare("SELECT r.*, v.titre, v.prix, v.duree FROM reservation r
-                                            INNER JOIN voyage v ON r.id_voyage = v.id
-                                            WHERE r.id = :id_reservation");
-            $stmt_reservation->execute(['id_reservation' => $id_reservation]);
-            $reservation = $stmt_reservation->fetch(PDO::FETCH_ASSOC);
-            if (!$reservation) {
-                echo "Réservation non trouvée.";
-                exit;
-            }
-            $stmt_achat = $pdo->prepare("SELECT * FROM achat WHERE id_reservation = :id_reservation");
-            $stmt_achat->execute(['id_reservation' => $id_reservation]);
-            $achat = $stmt_achat->fetch(PDO::FETCH_ASSOC);
-
-            if ($achat) {
-                echo "<div class='form-group'>";
-                echo "<a href='profil.php' class='en_savoir_plus'>Retour vers votre profil</a>";
-                echo "</div>";
-            } else {
-                echo "<form action='paiement.php' method='POST'>";
-                echo "<input type='hidden' name='montant' value='" . htmlspecialchars($prix_total) . "'>";
-                echo "<input type='hidden' name='vendeur' value='MEF-1_J'>";
-                echo "<input type='hidden' name='autorisation' value='autorisation'>";
-                echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
-                echo "<div class='form-group'>";
-                echo "<button type='submit'>Procéder au paiement</button>";
-                echo "</div>";
-                echo "</form>";
-                echo "<div class='retour'>";
-                echo "<form action='réservation.php' method='POST'>";
-                echo "<input type='hidden' name='id_voyage' value='" . htmlspecialchars($reservation['id_voyage']) . "'>";
-                echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($reservation['id']) . "'>";
-                echo "<button type='submit' class='retour-btn'>";
-                echo "<img src='../Image/image_icône/en-arriere.png' alt='retour'>";
-                echo "</button>";
-                echo "</form>";
-                echo "</div>";
-            }         
-            echo "<div class='imprimable'>";
-            echo "<form action='recapitulatif_imprimable.php' method='post'>";
-            echo "<input type='hidden' name='autorisation' value='true'>";
-            echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
-            echo "<button type='submit' style='background:none; border:none; padding:0; cursor:pointer;'>";
-            echo "<img src='../Image/image_icône/imprimante.png' alt='Imprimer le récapitulatif' style='width:40px; height:auto;'>";
-            echo "</button>";
-            echo "</form>";
-            echo "</div>";
-
-
-        } catch (PDOException $e) {
-            echo "Erreur de base de données : " . $e->getMessage();
-            exit;
-        }
-    } else {
-        echo "ID de réservation manquant.";
-        exit;
-    }
-    ?>
     </div>
-    <?php include('footer.php') ?>
 </body>
 </html>
