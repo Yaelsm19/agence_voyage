@@ -1,4 +1,6 @@
 <?php
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
 require_once 'connexion_base.php';
 if ($_SESSION['grade'] !== 'admin') {
     header("Location: accueil.php");
