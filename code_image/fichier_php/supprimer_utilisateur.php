@@ -1,4 +1,11 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
+else{
+    define('ACCES_AUTORISE', true);
+}
 ini_set('display_errors', 0);
 error_reporting(0);
 
@@ -22,7 +29,6 @@ function sendJsonResponse($success, $message = "", $data = []) {
 }
 
 ob_start();
-require_once 'verifier_connexion.php';
 require_once 'connexion_base.php';
 ob_end_clean();
 

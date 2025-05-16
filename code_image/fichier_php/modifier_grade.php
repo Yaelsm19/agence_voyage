@@ -1,4 +1,11 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
+else{
+    define('ACCES_AUTORISE', true);
+}
 session_start();
 include('connexion_base.php');
 header('Content-Type: application/json');
