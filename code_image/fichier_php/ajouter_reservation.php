@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!defined('ACCES_AUTORISE')) {
     http_response_code(403);
     exit("Accès interdit.");

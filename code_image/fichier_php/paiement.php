@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(!isset($_POST["autorisation"]) || $_SERVER['REQUEST_METHOD'] !== 'POST'){
     http_response_code(403);
     exit("Accès interdit.");
@@ -30,8 +31,8 @@ if (isset($_POST['montant']) && isset($_POST['vendeur']) && isset($_POST['id_res
     $api_key = getAPIKey($vendeur);
     
     if (preg_match("/^[0-9a-zA-Z]{15}$/", $api_key)) {
+        $_SESSION["autorisation"] = true;
         $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#");
-
         echo '
         <html lang="fr">
         <head>
