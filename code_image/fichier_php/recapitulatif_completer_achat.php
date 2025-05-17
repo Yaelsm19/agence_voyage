@@ -1,10 +1,6 @@
 <?php
 session_start();
 $modifications = $_SESSION['modifications_reservation'] ?? null;
-echo '<pre>';
-print_r($_SESSION["modifications_reservation"]);
-echo '</pre>';
-
 if (!$modifications) {
     echo "<p>Aucune modification à afficher.</p>";
     exit;

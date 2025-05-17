@@ -43,6 +43,7 @@ if ($status !== 'accepted') {
 }
 if(isset($_SESSION["completer"]) && isset($_SESSION["modifications_reservation"])){
     include "modifier_reservation_achat.php";
+    redirectTo("profil.php");
 }
 else{
     try {

@@ -1,4 +1,8 @@
 <?php
+if (!defined('ACCES_AUTORISE')) {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 $user_id = $_SESSION["user_id"];
 $modifs = $_SESSION["modifications_reservation"];
 var_dump($modifs["changement_guide"]);

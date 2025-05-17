@@ -18,7 +18,7 @@ function redirect_with_error(string $message, string $email = ''): never
 }
 
 
-$lock_duration = 10 * 60;
+$lock_duration = 10*60;
 
 if (isset($_SESSION['login_lock_time'])) {
     $lock_time = $_SESSION['login_lock_time'];

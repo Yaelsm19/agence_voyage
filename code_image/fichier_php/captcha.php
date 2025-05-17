@@ -1,4 +1,8 @@
 <?php
+if (!defined('ACCES_AUTORISE')) {
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 function buildSmartCaptcha(): array {
     $length = random_int(5, 8);
     $chars = '';
