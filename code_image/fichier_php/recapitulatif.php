@@ -196,7 +196,7 @@ if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
                 echo "</div>";
             }         
             echo "<div class='imprimable'>";
-            echo "<form action='recapitulatif_imprimable.php' method='post'>";
+            echo "<form action='recapitulatif_imprimable.php' method='post' target='_blank'>";
             echo "<input type='hidden' name='autorisation' value='true'>";
             echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
             echo "<button type='submit' style='background:none; border:none; padding:0; cursor:pointer;'>";
