@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF; /* fond blanc pour impression */
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    padding: 20px;
+    color: #000000; /* texte noir */
+    background-color: #DDDDDD; /* bandeau gris clair */
+    font-size: 2.5em;
+    margin-bottom: 70px;
+    border-radius: 10px;
+}
+
+.form-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #F5F5F5; /* fond gris très clair */
+    border-radius: 8px;
+    box-shadow: 0 0 0 transparent; /* pas d'ombre */
+}
+
+h2 {
+    color: #000000;
+    font-size: 18px;
+}
+
+.form-group button,
+.form-group a {
+    padding: 12px 20px;
+    font-family: Arial, sans-serif;
+    background-color: #CCCCCC;
+    color: #000000;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    margin-top: 30px;
+    transition: none; /* transitions désactivées pour impression */
+}
+
+.form-group button:hover,
+.form-group a:hover {
+    background-color: #BBBBBB;
+    color: #000000;
+    box-shadow: none;
+    border-color: #888888;
+    transform: none;
+}
+
+.type {
+    font-weight: bold;
+    color: #000000;
+    background-color: #EEEEEE;
+    border-radius: 4px;
+}
+
+.form-groupe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.prix {
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+    color: #000000;
+    padding: 5px;
+    border-radius: 4px;
+}
+

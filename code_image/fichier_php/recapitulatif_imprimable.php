@@ -64,10 +64,7 @@ if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Récapitulatif</title>
     <script src="../fichier_java/changer_mode.js"></script>
-    <link id="theme-stylesheet" rel="stylesheet" href="../fichier_css/variables_sombre.css">
-    <link rel="stylesheet" href="../fichier_css/recapitulatif.css">
-    <link rel="stylesheet" href="../fichier_css/header.css">
-    <link rel="stylesheet" href="../fichier_css/footer.css">
+    <link rel="stylesheet" href="../fichier_css/recapitulatif_imprimable.css">
 </head>
 <body>
     <div class="form-container">
