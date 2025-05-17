@@ -58,7 +58,7 @@ $details = $modifications['prix']['details'] ?? [];
             </section>
         <?php endif; ?>
 
-        <?php if (!empty($details['ancien_guide']) && !empty($details['nouveau_guide'])): ?>
+        <?php if ($details['ancien_guide']['nom'] !== $details['nouveau_guide']['nom']): ?>
             <section>
                 <h2>Changement de guide</h2>
                 <p>
@@ -71,7 +71,7 @@ $details = $modifications['prix']['details'] ?? [];
             </section>
         <?php endif; ?>
 
-        <?php if (!empty($details['ancien_transport']) && !empty($details['nouveau_transport'])): ?>
+        <?php if ($details['ancien_transport']['nom'] !==$details['nouveau_transport']['nom']): ?>
             <section>
                 <h2>Changement de transport</h2>
                 <p>
