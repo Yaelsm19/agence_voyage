@@ -59,9 +59,7 @@ include('session.php');
         <input type="submit" value="Changer">
     </form>
 
-
-
-    <form  action="modifier_profil.php" method="POST">
+    <div id="profil-form">
         <input type='hidden' name='autorisation' value="true">
         <div class="form-group">
             <div class="input-container">
@@ -116,8 +114,6 @@ include('session.php');
             </div>
         </div>
         
-
-
         <div class="grade">
             <?php
             $gradeClass = '';
@@ -142,8 +138,8 @@ include('session.php');
             unset($_SESSION['error']);
         }
         ?>
-        <button type="submit" id="submit-button" style="display: none;" class="soumettre">Soumettre</button>
-    </form>
+        <button type="button" id="submit-button" style="display: none;" class="soumettre" onclick="modifierProfil()">Soumettre</button>
+    </div>
 </div>
 <div class="offre-bannière">
         <h2>Vos précédents achats</h2>
