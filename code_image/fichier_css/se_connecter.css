@@ -29,7 +29,7 @@ h1{
 }
 
 
-input[type="email"], #password{
+input[type="email"], #password, #captcha{
     width: 100%;
     padding: 12px;
     margin-top: 15px;
