@@ -1,5 +1,10 @@
 <?php
-session_start();
+define('ACCES_AUTORISE_SESSION', true);
+include('session.php');
+if(!isset($_POST["autorisation"]) || $_SERVER['REQUEST_METHOD'] !== 'POST'){
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 $modifications = $_SESSION['modifications_reservation'] ?? null;
 if (!$modifications) {
     echo "<p>Aucune modification à afficher.</p>";

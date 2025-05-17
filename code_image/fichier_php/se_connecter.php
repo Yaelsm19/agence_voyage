@@ -5,7 +5,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     header('Location: accueil.php');
     exit;
 }
-
+define('ACCES_AUTORISE', true);
 require_once 'captcha.php';
 [$question, $answer] = buildSmartCaptcha();
 $_SESSION['captcha_answer'] = $answer;

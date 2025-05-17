@@ -220,6 +220,7 @@ if (!empty($messages)) {
     if (isset($_POST["id_reservation"])) {
             echo "<form id='redirectForm' action='recapitulatif_completer_achat.php' method='POST'>";
             echo "<input type='hidden' name='id_reservation' value='" . htmlspecialchars($id_reservation) . "'>";
+            echo "<input type='hidden' name='autorisation' value='true'>";
             echo "</form>";
             echo "<script>document.getElementById('redirectForm').submit();</script>";
     }
