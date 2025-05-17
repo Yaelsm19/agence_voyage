@@ -205,6 +205,11 @@ if (isset($_POST['id_reservation']) && !empty($_POST['id_reservation'])) {
             </div>
         </div>
     </div>
+    <?php 
+    if(isset($_POST["completer"])){
+        echo "<input type='hidden' name='completer' value='true'>";
+    }
+    ?>
     <input type='hidden' name='autorisation' value="true">
     <div class="button-container">
         <?php 

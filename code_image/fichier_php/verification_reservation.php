@@ -11,6 +11,15 @@ require_once 'connexion_base.php';
 $messages = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id_voyage = $_POST['id_voyage'];
+    $date_voyage = $_POST['date'];
+    $nb_adultes = $_POST['adulte'];
+    $nb_enfants = $_POST['enfant'];
+    $moyen_transport = $_POST['choix'];
+    $guide = $_POST['choix2'];
+    if(isset($_POST["completer"])){
+        include "verifier_completer_achat.php";
+    }
     $date = $_POST['date'];
     $nb_adultes = $_POST['adulte'];
     $nb_enfants = $_POST['enfant'];

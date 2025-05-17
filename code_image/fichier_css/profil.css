@@ -267,7 +267,7 @@ label {
     background-color: var(--couleur-primaire-fond);
     box-shadow: var(--ombre-box);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    height: 340px;
+    height: 360px;
     
 }
 

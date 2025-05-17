@@ -24,6 +24,12 @@ if (isset($_POST['montant']) && isset($_POST['vendeur']) && isset($_POST['id_res
     if (isset($_SESSION['id_reservation'])) {
         unset($_SESSION['id_reservation']);
     }
+    if(isset($_SESSION["completer"])){
+        unset($_SESSION["completer"]);
+    }
+    if(isset($_POST["completer"])){
+        $_SESSION["completer"] = true;
+    }
     $_SESSION['id_reservation'] = $_POST['id_reservation'];
     $transaction = generateTransactionId();
     $montant = $_POST['montant'];

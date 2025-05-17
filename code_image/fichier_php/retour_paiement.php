@@ -20,13 +20,6 @@ function redirectTo(string $url): void {
     exit;
 }
 
-$required_params = ['status', 'montant', 'transaction', 'vendeur', 'control'];
-foreach ($required_params as $param) {
-    if (!isset($_GET[$param]) || trim($_GET[$param]) === '') {
-        redirectTo('accueil.php');
-    }
-}
-
 $status = $_GET['status'];
 $montant = $_GET['montant'];
 $transaction = $_GET['transaction'];
@@ -48,8 +41,11 @@ if (!preg_match("/^[0-9a-zA-Z]{15}$/", $api_key)) {
 if ($status !== 'accepted') {
     redirectTo("panier.php");
 }
-
-try {
+if(isset($_SESSION["completer"]) && isset($_SESSION["modifications_reservation"])){
+    include "modifier_reservation_achat.php";
+}
+else{
+    try {
     $stmt = $pdo->prepare("
         INSERT INTO achat (id_transaction, id_reservation, montant, vendeur, date_achat, heure_achat)
         VALUES (:id_transaction, :id_reservation, :montant, :vendeur, :date_achat, :heure_achat)
@@ -68,7 +64,9 @@ try {
 
     redirectTo('profil.php');
 
-} catch (PDOException $e) {
-    http_response_code(500);
-    exit("Erreur lors de l'enregistrement de l'achat : " . htmlspecialchars($e->getMessage()));
+    } catch (PDOException $e) {
+        http_response_code(500);
+        exit("Erreur lors de l'enregistrement de l'achat : " . htmlspecialchars($e->getMessage()));
+    }
 }
+

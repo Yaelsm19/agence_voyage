@@ -10,14 +10,14 @@ try {
     ");
     $stmt->execute([
         'id_utilisateur' => $_SESSION['user_id'],
-        'id_voyage' => $_POST['id_voyage'],
+        'id_voyage' => $id_voyage,
         'date_reservation' => date("Y-m-d"),
         'heure_reservation' => date("H:i:s"),
-        'date_voyage' => $_POST['date'],
-        'nb_adultes' => $_POST['adulte'],
-        'nb_enfants' => $_POST['enfant'],
-        'moyen_transport' => $_POST['choix'],
-        'guide' => $_POST['choix2']
+        'date_voyage' => $date_voyage,
+        'nb_adultes' => $nb_adultes,
+        'nb_enfants' => $nb_enfants,
+        'moyen_transport' => $moyen_transport,
+        'guide' => $guide
     ]);
 
     $id_reservation = $pdo->lastInsertId();
