@@ -65,6 +65,10 @@ if (!isset($_POST["id_reservation"])) {
                 $messages[] = "Le nombre de participants pour l'option " . htmlspecialchars($ancienne["intitule"]) . " ne peut pas diminuer.";
                 continue;
             }
+            if($nouveau_nb > $nouveau_total){
+                $messages[] = "Le nombre de participants pour l'option " . htmlspecialchars($ancienne["intitule"]) . "dépasse le nombre total de personnes pour ce voyage.";
+                continue;
+            }
 
             $total_options_nouveau += $nouveau_nb * floatval($ancienne["prix_par_personne"]);
 
