@@ -25,6 +25,12 @@ $montant = $_GET['montant'];
 $transaction = $_GET['transaction'];
 $vendeur = $_GET['vendeur'];
 $control = $_GET['control'];
+$api_key = getAPIKey($vendeur);
+$control2 = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $status . "#");
+if($control != $control2){
+    http_response_code(403);
+    exit("Accès interdit.");
+}
 
 if (empty($_SESSION['id_reservation'])) {
     redirectTo('accueil.php');

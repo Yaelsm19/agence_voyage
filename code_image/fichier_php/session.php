@@ -31,7 +31,8 @@ else if(isset($_SESSION["user_id"])){
             $_SESSION["grade"] = $user["grade"];
             if ($_SESSION['grade'] === 'bloqué') {
                 $_SESSION["error"] = "Votre compte est bloqué. Veuillez contacter l'administration.";
-                header("Location: se_connecter.php");
+                http_response_code(403);
+                 exit("Accès interdit.");
                 exit;
             }
         } 
