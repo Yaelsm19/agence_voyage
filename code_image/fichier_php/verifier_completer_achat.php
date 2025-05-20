@@ -66,7 +66,7 @@ if (!isset($_POST["id_reservation"])) {
                 continue;
             }
             if($nouveau_nb > $nouveau_total){
-                $messages[] = "Le nombre de participants pour l'option " . htmlspecialchars($ancienne["intitule"]) . "dépasse le nombre total de personnes pour ce voyage.";
+                $messages[] = "Le nombre de participants pour l'option " . htmlspecialchars($ancienne["intitule"]) . " dépasse le nombre total de personnes pour ce voyage.";
                 continue;
             }
 
@@ -91,7 +91,15 @@ if (!isset($_POST["id_reservation"])) {
                 $id_option_post = intval(substr($cle_post, strlen('nb_participant_')));
                 if (!in_array($id_option_post, $cles_options_anciennes)) {
                     $nouveau_nb = intval($valeur_post);
-                    if ($nouveau_nb > 0) {
+                    if ($nouveau_nb < 0) {
+                        $messages[] = "Le nombre de participants pour l'option " . htmlspecialchars($ancienne["intitule"]) . " ne peut pas être négatif.";
+                        continue;
+                    }
+                    if($nouveau_nb > $nouveau_total){
+                        $messages[] = "Le nombre de participants pour l'option " . htmlspecialchars($ancienne["intitule"]) . " dépasse le nombre total de personnes pour ce voyage.";
+                        continue;
+                    }
+                    else{
                         $stmt_opt = $pdo->prepare("SELECT intitule, prix_par_personne FROM options WHERE id_option = :id_option");
                         $stmt_opt->execute(['id_option' => $id_option_post]);
                         $option_data = $stmt_opt->fetch(PDO::FETCH_ASSOC);

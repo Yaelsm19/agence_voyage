@@ -48,11 +48,13 @@ $details = $modifications['prix']['details'] ?? [];
                 <h2>Ajouts d’options</h2>
                 <ul>
                     <?php foreach ($modifications['options'] as $ajout): ?>
-                        <li>
-                            <?= intval($ajout['ajout_participants']) ?> participant(s) ajouté(s) à l'option <strong><?= htmlspecialchars($ajout['intitule']) ?></strong> — 
-                            Prix par personne : <span class="prix"><?= number_format(floatval($ajout['prix_par_personne']), 2, ',', ' ') ?> €</span> — 
-                            Prix total ajout : <span class="prix"><?= number_format(floatval($ajout['prix_total_ajout']), 2, ',', ' ') ?> €</span>
-                        </li>
+                        <?php if (intval($ajout['ajout_participants']) > 0): ?>
+                            <li>
+                                <?= intval($ajout['ajout_participants']) ?> participant(s) ajouté(s) à l'option <strong><?= htmlspecialchars($ajout['intitule']) ?></strong> — 
+                                Prix par personne : <span class="prix"><?= number_format(floatval($ajout['prix_par_personne']), 2, ',', ' ') ?> €</span> — 
+                                 Prix total ajout : <span class="prix"><?= number_format(floatval($ajout['prix_total_ajout']), 2, ',', ' ') ?> €</span>
+                            </li>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
             </section>
