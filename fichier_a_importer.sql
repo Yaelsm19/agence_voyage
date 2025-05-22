@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 03 mai 2025 à 16:00
+-- Généré le : jeu. 22 mai 2025 à 20:16
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `pastport`
 --
+CREATE DATABASE IF NOT EXISTS `pastport` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `pastport`;
 
 -- --------------------------------------------------------
 
@@ -44,7 +46,8 @@ CREATE TABLE IF NOT EXISTS `achat` (
 --
 
 INSERT INTO `achat` (`id_transaction`, `id_reservation`, `montant`, `vendeur`, `date_achat`, `heure_achat`) VALUES
-('gU3vK9HBN0erMb9GD', 16, 13380.00, 'MEF-1_J', '2025-05-02', '18:04:09');
+('Xnl2chE5BFzOsFE0Ro', 66, 5000.00, 'MEF-1_J', '2025-05-22', '22:12:15'),
+('fCZj7KTkaivknTYiD6', 65, 8840.00, 'MEF-1_J', '2025-05-22', '22:11:38');
 
 -- --------------------------------------------------------
 
@@ -303,15 +306,18 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   PRIMARY KEY (`id`),
   KEY `id_utilisateur` (`id_utilisateur`),
   KEY `id_voyage` (`id_voyage`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
 INSERT INTO `reservation` (`id`, `id_utilisateur`, `id_voyage`, `date_reservation`, `heure_reservation`, `date_voyage`, `nb_adultes`, `nb_enfants`, `moyen_transport`, `guide`) VALUES
-(36, 1, 15, '2025-05-03', '15:59:12', '2111-03-12', 2, 1, 'Montre temporelle', 'Guide de luxe'),
-(35, 1, 3, '2025-05-03', '15:57:08', '0123-12-12', 2, 2, 'Montre temporelle', 'Guide de luxe');
+(69, 9, 6, '2025-05-22', '20:13:50', '2027-04-13', 1, 1, 'Montre temporelle', 'Guide déboussolant'),
+(68, 9, 14, '2025-05-22', '20:13:16', '2026-07-12', 1, 0, 'Montre temporelle', 'Guide un peu mid'),
+(67, 9, 14, '2025-05-22', '20:12:36', '2026-03-12', 1, 0, 'Le portail temporel', 'Guide déboussolant'),
+(66, 9, 12, '2025-05-22', '20:12:08', '2026-01-13', 1, 1, 'Montre temporelle', 'Guide de luxe'),
+(65, 9, 13, '2025-05-22', '20:10:58', '2025-07-27', 2, 1, 'Montre temporelle', 'Guide un peu mid');
 
 -- --------------------------------------------------------
 
@@ -328,17 +334,20 @@ CREATE TABLE IF NOT EXISTS `souscrire` (
   PRIMARY KEY (`id`),
   KEY `id_reservation` (`id_reservation`),
   KEY `id_option` (`id_option`)
-) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=144 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `souscrire`
 --
 
 INSERT INTO `souscrire` (`id`, `id_reservation`, `id_option`, `nb_personnes`) VALUES
-(83, 36, 125, 2),
-(82, 35, 30, 2),
-(81, 35, 23, 1),
-(80, 35, 21, 2);
+(143, 69, 46, 1),
+(142, 67, 120, 1),
+(141, 67, 118, 1),
+(140, 66, 99, 2),
+(139, 65, 111, 3),
+(138, 65, 109, 1),
+(137, 65, 107, 2);
 
 -- --------------------------------------------------------
 
@@ -355,21 +364,23 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `numero` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `mot_de_passe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `grade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `failed_login_attempts` int NOT NULL DEFAULT '0',
+  `lock_expires_at` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `numero` (`numero`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`user_id`, `prenom`, `nom`, `email`, `numero`, `mot_de_passe`, `grade`) VALUES
-(1, 'Yaël', 'Saoudi--Méar', 'yaelsm19@gmail.com', '0634472031', '$2y$10$lYoAROBMffj9NNQgFLQLs.EqbdyDK3agKnc5UpAp8UmBnGzs8N/eO', 'admin'),
-(2, 'Adrien', 'Girard--Ravelonarisoa', 'adrienmamygirard@gmail.com', '0769478678', '$2y$10$te2suDz1VACWYrb/4V9EmeK2z459J00rlcCoA0szuAUgo9gtH3RKe', 'admin'),
-(3, 'Océane', 'Morel', 'oce.momo@gmail.com', '0707070707', '$2y$10$J0BLUq038jR3vScmeZbWfuH7L4IebvYmD4XmknidEP4aqIJytqH7G', 'membre'),
-(4, 'Frank', 'ngakoli', 'frankfrank@gmail.com', '0606060606', '$2y$10$SeagUhnYor43WQka/k0GHu7kltWaOddjmSMlNIx3btzg9C2ZAv3jS', 'membre'),
-(5, 'Maëlle', 'Smimi', 'Smimi@gmail.com', '0505050505', '$2y$10$m2TCVs4NCofz6jnCDNwC3OipPAFwjgrbvNadMvmhTpkxFTuMXtcQy', 'membre');
+INSERT INTO `utilisateur` (`user_id`, `prenom`, `nom`, `email`, `numero`, `mot_de_passe`, `grade`, `failed_login_attempts`, `lock_expires_at`) VALUES
+(13, 'Frank', 'ngakoli', 'frankodelamama@gmail.com', '0708090564', '$2y$10$1CNDOMPi7rySLDFGnUXBxeo2ckSXTxnLwEGwmDHnZUNtJ8hRNr1wi', 'membre', 0, NULL),
+(12, 'Oceane', 'Morel', 'oce.momo@gmail.com', '0600010067', '$2y$10$z/9K/eqORCsvSHJ4McioDuvaAoT/jJkUuw5djdokrutT5VlTwbuvq', 'VIP', 0, NULL),
+(11, 'Maelle', 'smilianitch', 'smismi@gmail.com', '0404040404', '$2y$10$SGvdQLXIYlZak3BfCWykzOJWyWzbo9gUf58c78yvPN4b9c8FE1cpO', 'membre', 0, NULL),
+(10, 'Adrien', 'Girard', 'adrienmamygirard@gmail.com', '0606060708', '$2y$10$aaGIOKISgGdVilThuJB/FOgf89G1cyiPp.lhrBqnArf5Mj3s2Bq1C', 'admin', 0, NULL),
+(9, 'Yaël', 'Saoudi--Méar', 'yaelsm19@gmail.com', '0634472031', '$2y$10$cqbj27MhzaFrPcnAIcib3OVBI7anlTgOh9iP8LPAZTXly7iHb5RJq', 'admin', 0, NULL);
 
 -- --------------------------------------------------------
 
